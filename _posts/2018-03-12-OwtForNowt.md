@@ -2,7 +2,9 @@
 title: "Owt for Nowt and Tuppence Change"
 ---
 <dl>
-    <dt>owt</dt><dd>/aʊt/ n. (colloq.) something, anything</dd>
+    <dt>owt</dt><dd>/aʊt/ *n. (colloq.)* something, anything</dd>
+    <dt>nowt</dt><dd>/naʊt/ *n. (colloq.)* nothing</dd>
+    <dt>tuppence</dt><dd>/ˈtʌp(ə)ns/ *n. (arch.)* two pence</dd>
 </dl>
 
 *Something for nothing, and more besides*
@@ -29,7 +31,7 @@ So, to misquote Sir Bob Geldof, Give us your FOSSin’ money:
 - contribute to a crowdfund
 - become a patron
 - take out a support contract with one of the amazing companies who offer them and who contribute back to the open-source projects they sell
-sponsor
+- sponsor
 
 This money drives quality and professional software. It pays for features via grants, and for professional bugfixing. Give what you can, if you can.
 
