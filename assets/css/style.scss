@@ -1,0 +1,17 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+html {background-color: #eee;}
+body {background-color: white; width: 35em; border: 1px solid #ccc; margin: 1em auto; padding: 2em 4em; color: #333; }
+h1, h2 {font-family: 'Julius Sans One', sans-serif;}
+h1 {font-size: 250%; margin: 0; letter-spacing: 75%; color: #c77;}
+h2 {margin: 1.5em 0 0.5em; color: #b66;}
+h1+p {font-family: 'Open Sans Condensed', sans-serif; font-size: 150%; line-height: 120%; margin: 1em 0 2em; color: #999;}
+h1+p+p {text-indent: 0; }
+p {font-family: 'EB Garamond', serif; font-size: 120%; margin: 0; line-height: 140%; }
+p+p {text-indent: 0.75em;}
+h2+p, p+p {text-align: justify; -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto;}
+strong {letter-spacing: 0.025em;}
+em {font-family: 'Baskerville Libre'; font-size: 95%;}
