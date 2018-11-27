@@ -21,3 +21,7 @@ code {font-family: 'Cutive Mono'}
 #main_content>p:first-child+p {text-indent: 0em;}
 #forkme_banner {display: none;}
 #footer_wrap {display: none;}
+
+@media screen and (max-width: 600px) {
+    body {background-color: white; width: 100%; border: 0; padding: 2em 4em; color: #333; font-family: 'EB Garamond', serif; font-size: 130%; line-height: 140%;}
+}
