@@ -2,9 +2,9 @@
 title: "Owt for Nowt and Tuppence Change"
 ---
 <dl>
-    <dt>owt</dt><dd>/aʊt/ *n. (colloq.)* something, anything</dd>
-    <dt>nowt</dt><dd>/naʊt/ *n. (colloq.)* nothing</dd>
-    <dt>tuppence</dt><dd>/ˈtʌp(ə)ns/ *n. (arch.)* two pence</dd>
+    <dt>owt</dt><dd>/aʊt/ <em>n. (colloq.)</em> something, anything</dd>
+    <dt>nowt</dt><dd>/naʊt/ <em>n. (colloq.)</em> nothing</dd>
+    <dt>tuppence</dt><dd>/ˈtʌp(ə)ns/ <em>n. (arch.)</em> two pence</dd>
 </dl>
 
 *Something for nothing, and more besides*
