@@ -1,4 +1,5 @@
 ---
+layout: post
 ---
 # tom.chadw.in
 
