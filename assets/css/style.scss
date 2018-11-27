@@ -16,4 +16,5 @@ strong {letter-spacing: 0.025em;}
 em {font-family: 'Baskerville Libre'; font-size: 95%;}
 
 #main_content>p:first-child {font-family: 'Open Sans Condensed', sans-serif; font-size: 150%; line-height: 120%; margin: 1em 0 2em; color: #999;}
+#main_content>p:first-child+p {text-indent: 0em;}
 #forkme_banner {display: none;}
