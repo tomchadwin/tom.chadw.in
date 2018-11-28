@@ -1,6 +1,6 @@
 ---
 title: "Owt for Nowt and Tuppence Change"
-permalink: /write/OwtForNowt
+permalink: /wrote/OwtForNowt
 ---
 <dl>
     <dt>owt</dt><dd>/aʊt/ <em>n. (colloq.)</em> something, anything</dd>
