@@ -12,7 +12,7 @@ permalink: /wrote/OwtForNowt
 
 As we all know, the ‘FOSS’ in FOSS4G stands for free and open-source software. Open-source advocates often rightly stress that the ‘free’ in FOSS means free as in speech, not free as in beer. These two meanings of free are often made clear by explicitly using the two words libre (free as in speech) and gratis (free as in beer). Open-source advocates often rightly concentrate on libre.
 
-<img src="/assets/pics/freebeer.jpg" alt="Free beer!" style="float: right;" />
+<img src="/assets/pics/freebeer.jpg" alt="Free beer!" style="float: right; margin-right: -1em;" />
 
 Open-source software is libre because there are no restrictions. You are free to do with it what you want. Use it to make money. It doesn’t do what you need? Change it. The open source of the software makes this possible.
 
