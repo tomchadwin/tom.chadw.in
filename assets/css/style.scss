@@ -3,13 +3,13 @@
 
 /*@import "{{ site.theme }}";*/
 
-html {background-color: #eee;}
-body {background-color: white; width: 35em; border: 1px solid #ccc; margin: 1em auto; padding: 2em 4em; color: #333; font-family: 'EB Garamond', serif; font-size: 150%; line-height: 155%;}
+html {background-color: #fefefe;}
+body {background-color: #fefefe; width: 30em; margin: 1em auto; padding: 2em 4em; color: #333; font-family: 'EB Garamond', serif; font-size: 150%; line-height: 155%;}
 h1, h2 {font-family: 'Julius Sans One', sans-serif; text-transform: uppercase;}
 h1 {font-size: 250%; margin: 0; letter-spacing: 75%; color: #c77; line-height: 1em;}
 h2 {margin: 1.5em 0 0.5em; color: #b66;}
 h1+p+p {text-indent: 0; }
-p {margin: 0; margin-bottom: 0.1em;}
+p {margin: 0; margin-bottom: 0.25em;}
 p+p {text-indent: 0.75em;}
 h2+p, p+p {text-align: justify; -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto;}
 strong {letter-spacing: 0.025em;}
@@ -29,6 +29,6 @@ img.floatright {float: right; margin-right: -3em; padding: 1em; max-width: 33%;}
 
 @media screen and (max-width: 600px) {
     body {background-color: white; width: 100%; border: 0; margin: 0; padding: 2em 2em; color: #333; font-family: 'EB Garamond', serif; font-size: 130%; line-height: 140%;}
-    img.floatright {float: none; margin: 1em; padding: 0; max-width: 90%;}
+    img.floatright {float: none; margin: 1em auto; padding: 0; max-width: 90%;}
 
 }
