@@ -16,9 +16,9 @@ strong {letter-spacing: 0.025em;}
 em {font-family: 'Baskerville Libre', serif; font-size: 95%;}
 a {text-decoration: none; color: #c77;}
 code {font-family: 'Cutive Mono', monospace;}
-dl {margin-bottom: 1em;}
+dl {padding-bottom: 1em;}
 dt {display: inline; float: left; clear: left; font-weight: bold;}
-dd {float: left;}
+dd {float: left; margin-inline-start: 1em;}
 dl+p {clear: left;}
 
 #main_content>p:first-child {font-family: 'Open Sans Condensed', sans-serif; font-size: 150%; line-height: 120%; margin: 1em 0 2em; color: #999;}
