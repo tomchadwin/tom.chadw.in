@@ -48,15 +48,15 @@ It’s all down to population and votes. More people live in the Hexham
 partnership catchment, so the Council cannot risk losing their votes. The 
 Council even gave this as their reason for opposing two-tier in Hexham:
 
-“Cabinet could not support the proposal to close Hexham Middle School and 
+> Cabinet could not support the proposal to close Hexham Middle School and 
 extend the age range of Queen Elizabeth High School due to the impact this 
 would have on other schools in the Hexham Partnership. This decision was based 
 upon the lack of support from other educational professionals in schools and 
-the widespread objections raised by the community.”
+the widespread objections raised by the community.
 
 Let’s apply those arguments to the Haydon Bridge proposal:
 
-Cabinet support the proposal to close Bellingham Middle School and extend the 
+> Cabinet support the proposal to close Bellingham Middle School and extend the 
 age range of Haydon Bridge High School despite the impact this will have on 
 other schools in the Haydon Bridge Partnership. This decision was made despite 
 the lack of support from other educational professionals in schools and the 
