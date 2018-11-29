@@ -17,7 +17,10 @@ often made clear by explicitly using the two words *libre* (free as in speech)
 and *gratis* (free as in beer). Open-source advocates often rightly 
 concentrate on libre.
 
-<img src="/assets/pics/freebeer.jpg" alt="Free beer!" class="floatright" />
+<figure class="floatright">
+<img src="/assets/pics/freebeer.jpg" alt="Free beer!" />
+<figcaption>Proost! Skål!</figcaption>
+</figure>
 
 Open-source software is libre because there are no restrictions. You are free 
 to do with it what you want. Use it to make money. It doesn’t do what you 
