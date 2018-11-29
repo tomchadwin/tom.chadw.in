@@ -2,7 +2,7 @@
 title: "Owt for Nowt and Tuppence Change"
 permalink: /wrote/OwtForNowt
 ---
-# Owt for Nowt and Tuppence Change 
+# Owt for Nowt and Tuppence Change
 
 <dl>
     <dt>owt</dt><dd>/aʊt/ <em>n. (colloq.)</em> something, anything</dd>
