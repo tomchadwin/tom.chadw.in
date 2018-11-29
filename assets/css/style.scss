@@ -25,6 +25,10 @@ dl+p {clear: left; padding-top: 1em;}
 #header_wrap {display: none;}
 #footer_wrap {display: none;}
 
+img.floatright {float: right; margin-right: -3em; padding: 1em; max-width: 33%;}
+
 @media screen and (max-width: 600px) {
     body {background-color: white; width: 100%; border: 0; margin: 0; padding: 2em 2em; color: #333; font-family: 'EB Garamond', serif; font-size: 130%; line-height: 140%;}
+    img.floatright {float: none; margin-right: 0; padding: 0; max-width: 90%;}
+
 }
