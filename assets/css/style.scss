@@ -27,9 +27,9 @@ header a {font-family: 'Baskerville Libre', serif; font-size: 95%; font-style: i
 #main_content>p:first-child+p {text-indent: 0em;}
 #footer_wrap {display: none;}
 
-figure {margin: auto; text-align: center;}
+figure {margin: 0 auto 1em; text-align: center;}
 figure.floatright {float: right; margin-right: -3em; max-width: 33%; text-align: left;}
-figcaption {color: #888; font-size: 100%;}
+figcaption {color: #888; font-size: 80%;}
 
 @media screen and (max-width: 600px) {
     body {background-color: white; width: 100%; border: 0; margin: 0; padding: 2em 2em; color: #333; font-family: 'EB Garamond', serif; font-size: 130%; line-height: 140%;}
