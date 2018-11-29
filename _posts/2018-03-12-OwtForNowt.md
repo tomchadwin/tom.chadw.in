@@ -5,9 +5,9 @@ permalink: /wrote/OwtForNowt
 # Owt for Nowt and Tuppence Change 
 
 <dl>
-    <dt>owt</dt><dd>/aʊt/ <em>n. (colloq.)</em> something, anything</dd>
-    <dt>nowt</dt><dd>/naʊt/ <em>n. (colloq.)</em> nothing</dd>
-    <dt>tuppence</dt><dd>/ˈtʌp(ə)ns/ <em>n. (arch.)</em> two pence</dd>
+    <dt>owt</dt><dd>/aʊt/ <em>n.</em> (<em>colloq.</em>) something, anything</dd>
+    <dt>nowt</dt><dd>/naʊt/ <em>n.</em> (<em>colloq.</em>) nothing</dd>
+    <dt>tuppence</dt><dd>/ˈtʌp(ə)ns/ <em>n.</em> (<em>arch.</em>) two pence</dd>
 </dl>
 
 As we all know, the ‘FOSS’ in FOSS4G stands for *free and open-source 
@@ -75,3 +75,5 @@ If you want owt for nowt, ye divven’ get tuppence change.
 
 <p style="text-indent: 0;"><em>Initially given as closing comments after day 
 one of FOSS4GUK 2018</em></p>
+
+Older: {{page.previous.title}}
