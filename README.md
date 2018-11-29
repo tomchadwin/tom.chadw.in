@@ -10,13 +10,10 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ## Markdown
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+{% for post in site.posts %}
+  {{ post.content }}
+  {{ break }}
+{% endfor %}
 
 ```markdown
 Syntax highlighted code block
