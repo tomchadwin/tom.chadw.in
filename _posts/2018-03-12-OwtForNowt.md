@@ -76,5 +76,9 @@ If you want owt for nowt, ye divven’ get tuppence change.
 <p style="text-indent: 0;"><em>Initially given as closing comments after day 
 one of FOSS4GUK 2018</em></p>
 
+{% if page.next != nil %}
 Newer: <a href="{{page.next.url}}">{{page.next.title}}</a>
+{% endif %}
+{% if page.previous != nil %}
 Older: <a href="{{page.previous.url}}">{{page.previous.title}}</a>
+{% endif %}

@@ -68,5 +68,9 @@ represents us.
 
 It’s not what we want. We say no.
 
+{% if page.next != nil %}
 Newer: <a href="{{page.next.url}}">{{page.next.title}}</a>
+{% endif %}
+{% if page.previous != nil %}
 Older: <a href="{{page.previous.url}}">{{page.previous.title}}</a>
+{% endif %}
