@@ -49,7 +49,7 @@ strong {
 }
 em {
     font-family: 'Baskerville Libre', serif;
-    font-size: 80%;
+    font-size: 90%;
 }
 a {
     text-decoration: none;
@@ -126,6 +126,9 @@ figcaption {
         padding: 1em;
         font-size: 150%;
         line-height: 150%;
+    }
+    em {
+        font-size: 80%;
     }
     figure.floatright {
         float: none;
