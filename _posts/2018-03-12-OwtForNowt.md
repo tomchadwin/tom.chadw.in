@@ -49,7 +49,7 @@ and commitment of contributors. But without money, many things would simply be
 impossible, such as conferences like FOSS4G and, more importantly, the 
 enterprise-grade performance and stability we enjoy in software such as 
 [PostGIS](http://postgis.net/), [GeoServer](http://geoserver.org/), and 
-[QGIS](http://geoserver.org/).
+[QGIS](https://www.qgis.org/).
 
 So, to misquote Sir Bob Geldof, 
 "[Give us your FOSSin’ money](https://en.wikipedia.org/wiki/Bob_Geldof#Live_Aid)":
