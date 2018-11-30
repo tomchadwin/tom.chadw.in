@@ -2,7 +2,7 @@
 title: "A once-in-a-generation opportunity"
 permalink: /wrote/OnceInaGeneration
 ---
-# A once-in-a-generation opportunity 
+# A once-in-a-generation opportunity
 
 Haydon Bridge High School catchment area is more than twice the size of any 
 other Northumberland high or secondary catchment. It is nearly four times the 
