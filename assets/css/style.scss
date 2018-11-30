@@ -103,8 +103,7 @@ header a {
 }
 #nav > div {
     width: 50%;
-    display: inline-block;
-    min-height: 1px;
+    float: left;
 }
 #nav > div + div {
     text-align: right;
