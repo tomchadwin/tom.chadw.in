@@ -96,16 +96,22 @@ header a {
 }
 #nav {
     width: 100%;
+    margin-top: 3em;
 }
 #nav > div {
     width: 50%;
 }
 #nav > div:first-child:before {
-    content: "< "
+    content: "< ";
+    display: inline;
+    color: #888;
 }
 #nav > div + div {
     text-align: right;
-    content: " >"
+}
+#nav > div + div:after {
+    content: " >";
+    color: #888;
 }
 #footer_wrap {
     display: none;
