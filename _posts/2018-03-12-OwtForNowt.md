@@ -33,7 +33,7 @@ free. It’s something for nothing. It’s owt for nowt.
 
 Gratis is what drives uptake of open-source software, not libre: to take two 
 examples from my neck of the woods, 
-[Northumberland National Park](https://www.northumberlandnationalpark.org/) 
+[Northumberland National Park](https://www.northumberlandnationalpark.org.uk/) 
 migrated to [QGIS](https://www.qgis.org/), and 
 [Newcastle City Council](https://www.newcastle.gov.uk/) have done the same. 
 These decisions were driven by saving public money. They were not driven by 
