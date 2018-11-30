@@ -58,8 +58,9 @@ a {
 }
 blockquote {
     font-family: 'Baskerville Libre', serif;
-    font-size: 95%;
+    font-size: 110%;
     font-style: italic;
+    color: #888;
 }
 code {
     font-family: 'Cutive Mono', monospace;
@@ -100,7 +101,7 @@ header a {
     border-top: 1px solid #ccc;
     padding-top: 1em;
     padding-bottom: 2em;
-    color: #888;
+    color: #ccc;
 }
 #nav > div {
     width: 50%;
