@@ -14,7 +14,7 @@ body {
     font-size: 150%;
     line-height: 150%;
 }
-body > p:first-child {
+body > Header + p {
     font-family: 'Julius Sans One', sans-serif;
     color: #bbb;
     font-size: 80%;
