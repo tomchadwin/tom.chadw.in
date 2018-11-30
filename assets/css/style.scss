@@ -104,6 +104,7 @@ header a {
 #nav > div {
     width: 50%;
     display: inline-block;
+    min-height: 1px;
 }
 #nav > div + div {
     text-align: right;
