@@ -3,38 +3,136 @@
 
 /*@import "{{ site.theme }}";*/
 
-html {background-color: #fefefe;}
-body {width: 30em; margin: 1em auto; color: #333; font-family: 'EB Garamond', serif; font-size: 150%; line-height: 150%;}
-h1, h2 {font-family: 'Julius Sans One', sans-serif; text-transform: uppercase;}
-h1 {font-size: 250%; margin: 0; letter-spacing: 0.1em; color: #c77; line-height: 1em; margin-bottom: 1em;}
-h2 {margin: 1.5em 0 0.5em; color: #b66;}
-h1+p+p {text-indent: 0; }
-p {margin: 0; margin-bottom: 0.25em;}
-p+p {text-indent: 0.75em;}
-h2+p, p+p {text-align: justify; -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto;}
-strong {letter-spacing: 0.025em;}
-em {font-family: 'Baskerville Libre', serif; font-size: 95%;}
-a {text-decoration: none; color: #c77;}
-blockquote {font-family: 'Baskerville Libre', serif; font-size: 95%; font-style: italic;}
-code {font-family: 'Cutive Mono', monospace;}
-dt {display: inline; float: left; clear: left; font-weight: bold;}
-dd {float: left; margin-inline-start: 1em;}
-dl+p {clear: left; padding-top: 1em;}
+html {
+    background-color: #fefefe;
+}
+body {
+    width: 30em;
+    margin: 1em auto;
+    color: #333;
+    font-family: 'EB Garamond', serif;
+    font-size: 150%;
+    line-height: 150%;
+}
+h1, h2 {
+    font-family: 'Julius Sans One', sans-serif;
+    text-transform: uppercase;
+}
+h1 {
+    font-size: 250%;
+    margin: 0;
+    letter-spacing: 0.05em;
+    color: #c77;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+h2 {
+    margin: 1.5em 0 0.5em;
+    color: #b66;
+}
+h1+p+p {
+    text-indent: 0;
+}
+p {
+    margin: 0;
+    margin-bottom: 0.25em;
+}
+p+p {
+    text-indent: 0.75em;
+}
+h2+p, p+p {
+    text-align: justify;
+    hyphens: auto;
+}
+strong {
+    letter-spacing: 0.025em;
+}
+em {
+    font-family: 'Baskerville Libre', serif;
+    font-size: 95%;
+}
+a {
+    text-decoration: none;
+    color: #c77;
+}
+blockquote {
+    font-family: 'Baskerville Libre', serif;
+    font-size: 95%;
+    font-style: italic;
+}
+code {
+    font-family: 'Cutive Mono', monospace;
+}
+dt {
+    display: inline;
+    float: left;
+    clear: left;
+    font-weight: bold;
+}
+dd {
+    float: left;
+    margin-inline-start: 1em;
+}
+dl+p {
+    clear: left;
+    padding-top: 1em;
+}
+header {
+    margin-bottom: 3em;
+}
+header a {
+    font-family: 'Baskerville Libre', serif;
+    font-size: 95%;
+    font-style: italic;
+    color: #bbb;
+}
 
-header {margin-bottom: 3em;}
-header a {font-family: 'Baskerville Libre', serif; font-size: 95%; font-style: italic; color: #bbb;}
+#main_content > p:first-child {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 150%;
+    line-height: 120%;
+    margin: 1em 0 2em;
+    color: #999;
+}
+#main_content > p:first-child + p {
+    text-indent: 0em;
+}
+#footer_wrap {
+    display: none;
+}
 
-#main_content>p:first-child {font-family: 'Open Sans Condensed', sans-serif; font-size: 150%; line-height: 120%; margin: 1em 0 2em; color: #999;}
-#main_content>p:first-child+p {text-indent: 0em;}
-#footer_wrap {display: none;}
-
-figure {margin: 1em auto 1em; text-align: center;}
-figure.floatright {float: right; margin-left: 1em; margin-right: -3em; max-width: 33%; text-align: left;}
-figure img {max-width: 100%;}
-figcaption {color: #888; font-size: 80%;}
+figure {
+    margin: 1em auto 1em;
+    text-align: center;
+}
+figure.floatright {
+    float: right;
+    margin-left: 1em;
+    margin-right: -3em;
+    max-width: 33%;
+    text-align: left;
+}
+figure img {
+    max-width: 100%;
+}
+figcaption {
+    color: #888;
+    font-size: 80%;
+}
 
 @media screen and (max-width: 600px) {
-    body {background-color: white; width: 100%; border: 0; margin: 0; padding: 1em; color: #333; font-family: 'EB Garamond', serif; font-size: 130%; line-height: 140%;}
-    figure.floatright {float: none; margin: 1em auto; padding: 0; max-width: 90%; text-align: center;}
-
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+        font-size: 150%;
+        line-height: 150%;
+    }
+    figure.floatright {
+        float: none;
+        margin: 1em auto;
+        padding: 0;
+        max-width: 100%;
+        text-align: center;
+    }
 }
