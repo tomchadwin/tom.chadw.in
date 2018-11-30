@@ -36,12 +36,12 @@ h1+p+p {
 p {
     margin: 0;
     margin-bottom: 0.25em;
+    text-align: justify;
 }
 p+p {
     text-indent: 0.75em;
 }
 h2+p, p+p {
-    text-align: justify;
     hyphens: auto;
 }
 strong {
@@ -127,6 +127,9 @@ figcaption {
         padding: 1em;
         font-size: 150%;
         line-height: 150%;
+    }
+    p {
+        text-align: left;
     }
     em {
         font-size: 80%;
