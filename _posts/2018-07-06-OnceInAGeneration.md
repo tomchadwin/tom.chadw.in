@@ -13,9 +13,12 @@ education in west Northumberland.
 Here’s what Haydon Bridge catchment looks like overlaid on Yorkshire:
 
 <figure>
-<img src="/assets/pics/northyorks.png" alt="Haydon Bridge over Yorkshire" />
-<figcaption>© OpenStreetMap contributors, © CARTO. Contains public sector 
-information licensed under the Open Government Licence v3.0.</figcaption>
+    ![Haydon Bridge over Yorkshire](/assets/pics/northyorks.png)
+    <figcaption>
+    © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), 
+    © [CARTO](https://carto.com/attribution). Contains public sector 
+    information licensed under the Open Government Licence v3.0.
+    </figcaption>
 </figure>
 
 The areas and distances are enormous, the equivalent of an area covering 
