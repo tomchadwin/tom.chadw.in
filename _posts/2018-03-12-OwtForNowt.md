@@ -4,6 +4,8 @@ permalink: /wrote/OwtForNowt
 ---
 # Owt for Nowt and Tuppence Change
 
+{{ page.date | date: "%e %B %y" }}
+
 <dl>
     <dt>owt</dt><dd>/aʊt/ <em>n.</em> (<em>colloq.</em>) something, anything</dd>
     <dt>nowt</dt><dd>/naʊt/ <em>n.</em> (<em>colloq.</em>) nothing</dd>
