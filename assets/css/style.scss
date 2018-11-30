@@ -63,19 +63,18 @@ blockquote {
 code {
     font-family: 'Cutive Mono', monospace;
 }
+dt:before {
+  content: "";
+  display: block;
+}
+dt, dd {
+  display: inline;
+}
 dt {
-    display: inline;
-    float: left;
-    clear: left;
     font-weight: bold;
 }
 dd {
-    float: left;
     margin-inline-start: 1em;
-}
-dl+p {
-    clear: left;
-    padding-top: 1em;
 }
 header {
     margin-bottom: 3em;
