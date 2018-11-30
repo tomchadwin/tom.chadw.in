@@ -81,9 +81,8 @@ header {
     margin-bottom: 3em;
 }
 header a {
-    font-family: 'Baskerville Libre', serif;
+    font-family: 'Julius Sans One', sans-serif;
     font-size: 95%;
-    font-style: italic;
     color: #bbb;
 }
 
@@ -93,9 +92,6 @@ header a {
     line-height: 120%;
     margin: 1em 0 2em;
     color: #999;
-}
-#main_content > p:first-child + p {
-    text-indent: 0em;
 }
 #footer_wrap {
     display: none;
