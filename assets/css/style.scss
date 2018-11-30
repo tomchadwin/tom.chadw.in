@@ -94,6 +94,12 @@ header a {
     margin: 1em 0 2em;
     color: #999;
 }
+#nav > div {
+    width: 50%;
+}
+#nav > div + div {
+    text-align: right;
+}
 #footer_wrap {
     display: none;
 }
@@ -115,6 +121,7 @@ figure img {
 figcaption {
     color: #888;
     font-size: 80%;
+    line-height: 120%;
 }
 
 @media screen and (max-width: 600px) {

@@ -13,18 +13,18 @@ education in west Northumberland.
 Here’s what Haydon Bridge catchment looks like overlaid on Yorkshire:
 
 <figure>
-    ![Haydon Bridge over Yorkshire](/assets/pics/northyorks.png)
+    <img src="/assets/pics/northyorks.png" alt="Haydon Bridge over Yorkshire" />
     <figcaption>
-    © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), 
-    © [CARTO](https://carto.com/attribution). Contains public sector 
-    information licensed under the Open Government Licence v3.0.
+    © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, 
+    © <a href="https://carto.com/attribution">CARTO</a>. Contains public sector information 
+    licensed under the Open Government Licence v3.0.
     </figcaption>
 </figure>
 
 The areas and distances are enormous, the equivalent of an area covering 
-Bradford, Leeds, Wakefield, Barnsley, and Sheffield. This is unusual. Yes, it 
-is sparsely populated. However, sparse population doesn’t explain away the 
-problem. The sparsity makes it harder.
+Bradford, Leeds, Wakefield, Barnsley, and Sheffield. <em>This is unusual</em>. 
+Yes, it is sparsely populated. However, sparse population doesn’t explain away 
+the problem. The sparsity makes it <em>harder</em>.
 
 Northumberland Council spoke of “a once-in-a-generation opportunity to build a 
 school system that delivers the very best education in the long term”. This is 
@@ -49,7 +49,8 @@ Hexham, but there are many fewer of us.
 
 It’s all down to population and votes. More people live in the Hexham 
 partnership catchment, so the Council cannot risk losing their votes. The 
-Council even gave this as their reason for opposing two-tier in Hexham:
+Council even gave this as their reason for <em>opposing</em> two-tier in 
+Hexham:
 
 > Cabinet could not support the proposal to close Hexham Middle School and 
 extend the age range of Queen Elizabeth High School due to the impact this 
@@ -60,10 +61,10 @@ the widespread objections raised by the community.
 Let’s apply those arguments to the Haydon Bridge proposal:
 
 > Cabinet support the proposal to close Bellingham Middle School and extend the 
-age range of Haydon Bridge High School despite the impact this will have on 
-other schools in the Haydon Bridge Partnership. This decision was made despite 
-the lack of support from other educational professionals in schools and the 
-widespread objections raised by the community.
+age range of Haydon Bridge High School <em>despite</em> the impact this will 
+have on other schools in the Haydon Bridge Partnership. This decision was made 
+<em>despite</em> the lack of support from other educational professionals in 
+schools and the widespread objections raised by the community.
 
 So it’s all down to votes. There are not enough of us in the Haydon Bridge 
 catchment to be worth listening to. Northumberland Council no longer 
@@ -71,9 +72,15 @@ represents us.
 
 It’s not what we want. We say no.
 
+<section id="nav">
+    <div>
 {% if page.next != nil %}
-Newer: <a href="{{page.next.url}}">{{page.next.title}}</a>
+        Newer: <a href="{{page.next.url}}">{{page.next.title}}</a>
 {% endif %}
+    </div>
+    <div>
 {% if page.previous != nil %}
-Older: <a href="{{page.previous.url}}">{{page.previous.title}}</a>
+        Older: <a href="{{page.previous.url}}">{{page.previous.title}}</a>
 {% endif %}
+    </div>
+</section>
