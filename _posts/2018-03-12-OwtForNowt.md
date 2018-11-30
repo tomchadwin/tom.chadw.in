@@ -32,31 +32,37 @@ People like free beer. It’s beer, and — which is the key point here �
 free. It’s something for nothing. It’s owt for nowt.
 
 Gratis is what drives uptake of open-source software, not libre: to take two 
-examples from my neck of the woods, Northumberland National Park migrated to 
-QGIS, and Newcastle City Council have done the same. These decisions were 
-driven by saving public money. They were not driven by the fact that QGIS was 
-libre, but because it was gratis. It’s something for nothing. It’s owt for 
-nowt.
+examples from my neck of the woods, 
+[Northumberland National Park](https://www.northumberlandnationalpark.org/) 
+migrated to [QGIS](https://www.qgis.org/), and 
+[Newcastle City Council](https://www.newcastle.gov.uk/) have done the same. 
+These decisions were driven by saving public money. They were not driven by 
+the fact that QGIS was libre, but because it was gratis. It’s something for 
+nothing. It’s owt for nowt.
 
 As a rule, though — alas! — free beer is not free. The free beer at the 
-FOSS4GUK 2018 party was paid for by our fabulous sponsors, and by our fabulous 
-delegates.
+[FOSS4GUK 2018](http://uk.osgeo.org/foss4guk2018/) party was paid for by our 
+fabulous sponsors, and by our fabulous delegates.
 
 That so much is done *without* money is astonishing, thanks to the enthusiasm 
 and commitment of contributors. But without money, many things would simply be 
 impossible, such as conferences like FOSS4G and, more importantly, the 
 enterprise-grade performance and stability we enjoy in software such as 
-PostGIS, GeoServer, and QGIS.
+[PostGIS](http://postgis.net/), [GeoServer](http://geoserver.org/), and 
+[QGIS](http://geoserver.org/).
 
-So, to misquote Sir Bob Geldof, "Give us your FOSSin’ money":
+So, to misquote Sir Bob Geldof, 
+"[Give us your FOSSin’ money](https://en.wikipedia.org/wiki/Bob_Geldof#Live_Aid)":
 
-- donate
-- pay for a feature or a fix
-- contribute to a crowdfund
-- become a patron
-- take out a support contract with one of the amazing companies who offer them 
-*and who contribute back to the open-source projects they sell*
-- sponsor
+- [donate](https://qgis.org/en/site/getinvolved/donations.html)
+- pay for a [feature or a fix](https://www.geo-solutions.it/offer/geoserver-support/)
+- contribute to a [crowdfund](https://www.lutraconsulting.co.uk/crowdfunding/more-qgis-3d/)
+- become a [patron](https://www.patreon.com/reginaobe)
+- take out a support contract with one of the 
+[amazing](https://www.lutraconsulting.co.uk/qgissupport/) 
+[companies](https://astuntechnology.com/services/#open-source-support) who 
+offer them *and who contribute back to the open-source projects they sell*
+- [sponsor](https://www.osgeo.org/about/how-to-become-a-sponsor/)
 
 This money drives quality and professional software. It pays for features via 
 grants, and for professional bugfixing. Give what you can, if you can.
