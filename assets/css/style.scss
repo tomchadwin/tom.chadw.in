@@ -14,6 +14,11 @@ body {
     font-size: 150%;
     line-height: 150%;
 }
+body > p:first-child {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #bbb;
+    font-size: 80%;
+}
 h1, h2 {
     font-family: 'Julius Sans One', sans-serif;
     text-transform: uppercase;
