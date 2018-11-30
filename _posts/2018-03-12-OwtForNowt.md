@@ -85,12 +85,12 @@ one of FOSS4GUK 2018</em></p>
 <section id="nav">
     <div>
 {% if page.next != nil %}
-        <a href="{{page.next.url}}">{{page.next.title}}</a>
+        < <a href="{{page.next.url}}">{{page.next.title}}</a>
 {% endif %}
     </div>
     <div>
 {% if page.previous != nil %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>
+        <a href="{{page.previous.url}}">{{page.previous.title}}</a> >
 {% endif %}
     </div>
 </section>
