@@ -45,7 +45,6 @@ p {
 }
 p+p {
     text-indent: 0.75em;
-    border: 1px solid red;
 }
 h2+p, p+p {
     hyphens: auto;
@@ -67,7 +66,6 @@ blockquote {
     font-size: 110%;
     font-style: italic;
     color: #888;
-    border: 1px solid red;
 }
 blockquote em {
     font-size: 100%;
@@ -150,6 +148,9 @@ figcaption {
         padding: 1em;
         font-size: 150%;
         line-height: 150%;
+    }
+    h1 {
+        font-size: 200%;
     }
     p {
         text-align: left;
