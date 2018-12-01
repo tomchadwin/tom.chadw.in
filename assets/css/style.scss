@@ -67,6 +67,10 @@ blockquote {
     font-style: italic;
     color: #888;
 }
+blockquote em {
+    font-size: 100%;
+    font-weight: bold;
+}
 code {
     font-family: 'Cutive Mono', monospace;
 }
