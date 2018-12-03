@@ -47,6 +47,10 @@ p+p {
     text-indent: 0.75em;
 }
 h2+p, p+p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
     hyphens: auto;
 }
 strong {
