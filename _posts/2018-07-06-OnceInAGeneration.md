@@ -52,19 +52,21 @@ partnership catchment, so the Council cannot risk losing their votes. The
 Council even gave this as their reason for <em>opposing</em> two-tier in 
 Hexham:
 
-> Cabinet could not support the proposal to close Hexham Middle School and 
-extend the age range of Queen Elizabeth High School due to the impact this 
-would have on other schools in the Hexham Partnership. This decision was based 
-upon the lack of support from other educational professionals in schools and 
-the widespread objections raised by the community.
+<blockquote>Cabinet could not support the proposal to close Hexham Middle 
+School and extend the age range of Queen Elizabeth High School due to the 
+impact this would have on other schools in the Hexham Partnership. This 
+decision was based upon the lack of support from other educational 
+professionals in schools and the widespread objections raised by the 
+community.</blockquote>
 
 Let’s apply those arguments to the Haydon Bridge proposal:
 
-> Cabinet support the proposal to close Bellingham Middle School and extend the 
-age range of Haydon Bridge High School <em>despite</em> the impact this will 
-have on other schools in the Haydon Bridge Partnership. This decision was made 
-<em>despite</em> the lack of support from other educational professionals in 
-schools and the widespread objections raised by the community.
+<blockquote>Cabinet support the proposal to close Bellingham Middle School and 
+extend the age range of Haydon Bridge High School <em>despite</em> the impact 
+this will have on other schools in the Haydon Bridge Partnership. This 
+decision was made <em>despite</em> the lack of support from other educational 
+professionals in schools and the widespread objections raised by the community.
+</blockquote>
 
 So it’s all down to votes. There are not enough of us in the Haydon Bridge 
 catchment to be worth listening to. Northumberland Council no longer 
