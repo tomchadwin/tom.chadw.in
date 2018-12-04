@@ -8,7 +8,7 @@ Perhaps I’m mistaken, but it seems to me that enthusiasm for
 [Leaflet](https://leafletjs.com/) and [OpenLayers](https://openlayers.org/) 
 web mapping libraries has cooled over recent times. After several years of 
 real excitement, many seem to have drifted away to proprietary platforms such 
-as [Mapbox](https://www.mapbox.com/) or [Carto](https://www.mapbox.com/). Or 
+as [Mapbox](https://www.mapbox.com/) or [Carto](https://carto.com/). Or 
 Google Maps.
 
 Then this week, [Google announced changes to their mapping 
@@ -48,11 +48,11 @@ Maps, we would have known from the start that such a change could never
 legally catch us off-balance.
 
 <figure>
-    <img src="/assets/pics/LaughOutLoudCats_2074.png" alt="I upgraded teh maps." />
+    <img src="/assets/pics/LaughOutLoudCats_2074.jpeg" alt="I upgraded teh maps." />
     <figcaption>
-    [Laugh-Out-Loud Cats #2074](https://www.flickr.com/photos/apelad/8008327113) 
-    by [Ape-Lad](https://www.flickr.com/photos/apelad/) (licensed under 
-    [CC BY-NC-ND 2.0](https://creativecommons.org/licenses/by-nd/2.0/))
+    <a href="https://www.flickr.com/photos/apelad/8008327113">Laugh-Out-Loud Cats #2074</a> 
+    by <a href="https://www.flickr.com/photos/apelad/">Ape-Lad> (licensed under 
+    <a href="https://creativecommons.org/licenses/by-nd/2.0/">CC BY-NC-ND 2.0</a>)
     </figcaption>
 </figure>
 
