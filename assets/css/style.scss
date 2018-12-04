@@ -35,15 +35,13 @@ h2 {
     margin: 1.5em 0 0.5em;
     color: #b66;
 }
-h1+p+p {
+h1+p {
     text-indent: 0;
 }
 p {
     margin: 0;
     margin-bottom: 0.25em;
     text-align: justify;
-}
-p+p {
     text-indent: 0.75em;
 }
 h2+p, p+p {
