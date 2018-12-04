@@ -35,7 +35,7 @@ h2 {
     margin: 1.5em 0 0.5em;
     color: #b66;
 }
-h1+p {
+h1+p, h2+p {
     text-indent: 0;
 }
 p {

@@ -5,13 +5,13 @@ permalink: /wrote/WhereNextForqgis2web
 
 # Where next for qgis2web?
 
-Those of you who follow QGIS closely might have noticed that development of 
-qgis2web has significantly slowed since QGIS 3 was released. Is this of 
-concern? What next for the plugin?
-
 <figure class="floatright">
 <img src="/assets/pics/qgis2webLogo.png" alt="qgis2web" />
 </figure>
+
+Those of you who follow QGIS closely might have noticed that development of 
+qgis2web has significantly slowed since QGIS 3 was released. Is this of 
+concern? What next for the plugin?
 
 ## Slow and steady wins the game?
 Perhaps all is well. Perhaps the fact that [not many 
