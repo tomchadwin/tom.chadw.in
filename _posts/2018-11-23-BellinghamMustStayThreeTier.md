@@ -125,7 +125,7 @@ across the two partnerships
 - Council report does not explain how consultation responses led to proposals
 - Adjudicator believes consultation responses do not support proposals
 
-###Two-tier versus three-tier
+### Two-tier versus three-tier
 
 - The Council cannot make the Haydon Bridge partnership fully two-tier, 
 because Haltwhistle is an academy
