@@ -19,9 +19,8 @@ body > Header + p {
     color: #bbb;
     font-size: 80%;
 }
-h1, h2. h3 {
+h1, h2, h3 {
     font-family: 'Julius Sans One', sans-serif;
-    text-transform: uppercase;
 }
 h1 {
     font-size: 250%;
@@ -31,6 +30,9 @@ h1 {
     line-height: 1em;
     margin-bottom: 1em;
     hyphens: auto;
+}
+h1, h2 {
+    text-transform: uppercase;
 }
 h2, h3 {
     margin: 1.5em 0 0.5em;
