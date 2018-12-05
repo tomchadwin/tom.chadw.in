@@ -29,7 +29,6 @@ h1 {
     color: #c77;
     line-height: 1em;
     margin-bottom: 1em;
-    hyphens: auto;
 }
 h1, h2 {
     text-transform: uppercase;
@@ -161,6 +160,11 @@ iframe {
     }
     h1 {
         font-size: 200%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
     }
     p {
         text-align: left;
