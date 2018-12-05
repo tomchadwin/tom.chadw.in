@@ -137,19 +137,19 @@ Bridge partnership firsts into primaries is “anomalous”
 - Risk of reduction of Bellingham Middle School intake and funding because of 
 competing Haydon Bridge partnership primaries
 
-Other Haydon Bridge schools
+### Other Haydon Bridge schools
 
 - Any support for change to two-tier from Haydon Bridge partnership first 
 schools was more in the context of their own viability than any positive 
 support for two-tier
 - Primaries will have more pupils than firsts, but not bigger cohorts
 
-National Funding Formula
+### National Funding Formula
 
 - National Funding Formula rejected as irrelevant re: migration to two-tier, 
 since Hexham remains three-tier
 
-Surplus places
+### Surplus places
 
 - Insufficient surplus places removed, and *with Bellingham Middle School 
 saved from closure, the number of places actually increases*
