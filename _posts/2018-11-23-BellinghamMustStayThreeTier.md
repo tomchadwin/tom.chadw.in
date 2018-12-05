@@ -21,7 +21,7 @@ Since the Adjudicator’s decision was announced, the Council have stated that
 they will still convert the first schools to primaries.
 
 <figure>
-    <img src="/assets/pics/ICantSeeYou.jpeg.jpeg" alt="Head in the sand" />
+    <img src="/assets/pics/ICantSeeYou.jpeg" alt="Head in the sand" />
     <figcaption>
     <a href="https://www.flickr.com/photos/12023825@N04/2898021822/">I can’t 
     see you…</a> by 
@@ -50,9 +50,11 @@ Bellingham Middle for year 5–6 pupils.
 
 The Adjudicator was clear from the start that he was investigating only the 
 closure of Bellingham Middle School, not the firsts’ conversion to primaries. 
-However, his arguments were based on two statutory guidance documents: Opening 
-and closing maintained schools and Making significant changes (‘prescribed 
-alterations’) to maintained schools.
+However, his arguments were based on two statutory guidance documents: 
+[Opening and closing maintained 
+schools](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/756328/Opening_and_Closing_maintained_schools_Guidance.pdf) 
+and [Making significant changes (‘prescribed alterations’) to maintained 
+schools](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/756572/Maintained_schools_prescribed_alterations_guidance.pdf).
 
 These two documents contain four passages which dictate what the Council must 
 do next:
@@ -96,7 +98,7 @@ federation. The Council “must” therefore revoke the decision to convert the
 firsts to primaries.
 
 Remember that, while these documents are called “guidance”, they are 
-statutory. They must legally be followed.
+*statutory*. They must legally be followed.
 
 ## The Adjudicator said more than he had to
 
@@ -149,8 +151,8 @@ since Hexham remains three-tier
 
 Surplus places
 
-- Insufficient surplus places removed, and with Bellingham Middle School saved 
-from closure, the number of places actually increases
+- Insufficient surplus places removed, and *with Bellingham Middle School 
+saved from closure, the number of places actually increases*
 
 ## What do we do now?
 
@@ -175,8 +177,8 @@ unlikely to be overturned.*
 
 The schools need to know what we want. They need to hear us. We must all 
 contact our governors and tell them what we want. We must tell them that they 
-can remain first schools, that we want them to remain first schools, and that 
-the law now dictates that they must remain first schools.
+*can* remain first schools, that we *want* them to remain first schools, and 
+that the law now dictates that they *must* remain first schools.
 
 The governors must now raise their heads above the parapets, and require the 
 Council to act in accordance with the law.
