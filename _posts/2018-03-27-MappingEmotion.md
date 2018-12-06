@@ -105,6 +105,11 @@ QGIS 3 was released last month, so naturally I wanted to use it for this map.
 It’s billed as an “Early adopters’ version”, but I can wholeheartedly 
 recommend it for production use. It’s been virtually rock-solid.
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/QGIS3.4.png"
+         alt="QGIS 3.4 Madeira" />
+</figure>
+
 QGIS is open-source. It’s free. [I’ve written recently about open-source 
 software](https://medium.com/@tomchadwin/owt-for-nowt-and-tuppence-change-82834249b734), 
 so I won’t bore you here. However, I’m an avowed open-source zealot, so please 
@@ -138,7 +143,8 @@ Ross’s parabolas, and lifting them into the Z axis, was what I had in mind.
 QGIS 3 now supports full 3D geometry and rendering. I cannot stress enough 
 that this is not what I wanted to use. I have a lot of sympathy with Dennis 
 Bauszus’s assertion during his talk at FOSS4G UK 2018 that 3D has no place on 
-a map — Charley Glynn also recommended exercising caution.
+a map — [Charley Glynn also recommended exercising 
+caution](https://medium.com/@Charley_Glynn/my-talk-from-foss4guk-2018-7f716c6d4e55).
 
 While many are excited at QGIS 3D, I tend to think that this will lend itself 
 to producing 3D *models*, not *maps*. The aesthetic I have in mind is not 
@@ -156,6 +162,14 @@ However, a fairly recent addition to these styling options is *geometry
 generators*. These start from the feature’s own geometry, and then allow you 
 to build all sorts of designs by writing mathematical expressions to 
 manipulate that geometry.
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/GeometryGenerators.jpeg"
+         alt="A gradient profile styles its linestring in situ using geometry 
+              generators, © Régis Haubourg" />
+    <figcaption>A gradient profile styles its linestring <em>in situ</em> using 
+                geometry generators, © Régis Haubourg</figcaption>
+</figure>
 
 When geometry generators were first introduced to QGIS, I failed to see their 
 potential. Boy, have I changed my mind now.
@@ -215,6 +229,10 @@ fields to draw a line between our feature and the school:
 <code class="inline">$geometry</code> is the feature’s own geometry, while <code class="inline">Schools_MAP_EAST</code> and 
 <code class="inline">Schools_MAP_NORTH</code> are the joined table coordinate fields.
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/OriginDestination.png" alt="" />
+</figure>
+
 This is a good start. The width of the line indicates the number of pupils at 
 each origin point.
 
@@ -231,6 +249,10 @@ The first problem had been that my lines only had vertices at start and end,
 whereas at least one more point was required to offset and then curve. I 
 remembered this detail from his talk, together with his use of the <code class="inline">smooth()</code> 
 function. This is how it came out:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/curve.png" alt="" />
+</figure>
 
 It wasn’t quite right, though. I realized that just about the only thing I 
 knew about perspective is that verticals should remain vertical. In the image 
@@ -276,6 +298,10 @@ gave me the following expression:
 
 Now things were starting to come together:
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/parabola.png" alt="" />
+</figure>
+
 An important thing to remember in any work of this kind is to step away for a 
 moment and try to look at it with the eyes of a stranger. Doing so here made 
 me realize that these lines could simply be interpreted visually as curved in 
@@ -296,10 +322,23 @@ line code I had used earlier:
 
 We now have a straight line connecting the points, as well as the curved one:
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/HardShadow.png" alt="" />
+</figure>
+
 Nearly there. All that’s left is to add a draw effect to blur the shadow:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/SoftShadow.png" alt="" />
+</figure>
 
 And that’s it. Add explanatory captions and some catchment borders, and the 
 whole story is told.
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/JourneyToKielder.png" alt="" />
+    <figcaption>Journey to Kielder: 383 miles (+169%)</figcaption>
+</figure>
 
 I struggled with the caption text. I used QGIS layouts (formerly print 
 composers) for the first time, and they work perfectly. The problem was with 
