@@ -164,7 +164,7 @@ to build all sorts of designs by writing mathematical expressions to
 manipulate that geometry.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/GeometryGenerators.jpeg"
+    <img src="/assets/pics/MappingEmotion/GeometryGenerators.png"
          alt="A gradient profile styles its linestring in situ using geometry 
               generators, © Régis Haubourg" />
     <figcaption>A gradient profile styles its linestring <em>in situ</em> using 
@@ -367,6 +367,14 @@ I remembered a map by Craig Taylor which took my breath away. It used
 isometrics for visual impact, and was of such eye-watering visual quality that 
 I was excited to be able to try to build something in the same vein.
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/CraigTaylor.jpeg"
+         alt="© Craig Taylor, mapzilla-art.co.uk" />
+    <figcaption>
+        © <a href="http://mapzilla-art.co.uk/">Craig Taylor</a>
+    </figcaption>
+</figure>
+
 As well as a GIS professional, Craig is a full-on 3D artist, and while I 
 understand the concepts of 3D imagery, and made some basic bits and pieces 
 nearly twenty years ago, I didn’t want to plunge into learning a full 3D 
@@ -377,6 +385,15 @@ For the petition map, I saw an opportunity to use the [QGIS 2.5D
 renderer](http://www.xyht.com/spatial-itgis/qgis-2-5d-functionality/). This 
 seemed to produce the kind of synthetic isometric output I was after, and, 
 again, I was keen to see how it stood up in real-life use.
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/NickDuggan.png"
+         alt="QGIS 2.5D renderer output, © Nicholas Duggan" />
+    <figcaption>
+        QGIS 2.5D renderer output, 
+        © <a href="http://www.xyht.com/spatial-itgis/qgis-2-5d-functionality/">Nicholas Duggan</a>
+    </figcaption>
+</figure>
 
 Immediately, however, I had a problem. I couldn’t find the 2.5D renderer. 
 After some panicked speculation that it might have been removed in QGIS 3 in 
@@ -473,6 +490,11 @@ This is in Python, and I needed it in a QGIS expression. It looks like this:
 
 250 is half the height/width of the square, and 60 is 90° minus the isometric 
 30°. The result is starting to look good:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/IsometricSquare.png"
+         alt="" />
+</figure>
 
 We are now at the point where the 2.5D renderer can do its magic, because we 
 now have polygons for it to render. However, since our layer is still a point 
@@ -608,6 +630,11 @@ scale](https://en.wikipedia.org/wiki/Logarithmic_scale) flattens the spread:
 )
 </code>
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/Roof.png"
+         alt="" />
+</figure>
+
 The roof is done. Onto the walls.
 
 ## Walls
@@ -658,6 +685,11 @@ have a single shape used for all of our features):
 
 We now have some isometric walls:
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/Walls.png"
+         alt="" />
+</figure>
+
 I was baffled for a while as to why the walls had no shading. I eventually 
 found how the 2.5D renderer does it: an expression in a data-defined override 
 in the wall fill colour:
@@ -688,6 +720,11 @@ in the wall fill colour:
 
 Thankfully (from memory), this needed no edits, and could simply be applied to 
 our layer:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/ShadedWalls.png"
+         alt="" />
+</figure>
 
 Nearly there. The remaining issue is that one of the back walls is being 
 rendered on top of one of the front ones. To rectify this, I created a new 
@@ -720,6 +757,11 @@ backmost point from the <code class="inline">make_line()</code> call:
 I then swapped this in to the <code class="inline">extrude()</code> function, and the back face was 
 thereby culled:
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/CulledBackface.png"
+         alt="" />
+</figure>
+
 Now we are definitely getting somewhere!
 
 ## Shadow
@@ -730,6 +772,11 @@ at me. True to form, Craig then said exactly the same thing:
 So I had to see what we could do. The QGIS 2.5D renderer adds shadows of a 
 kind, but they are simply outer glows applied to a copy of the feature’s 
 original geometry:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/2.5DShadows.png"
+         alt="" />
+</figure>
 
 This works to a certain extent, but certainly wasn’t the “long shadows” Craig 
 thought would help. I thought to myself, “You know what this needs? A geometry 
@@ -805,11 +852,21 @@ do is extrude it in a different direction:
 We then add a draw effect to hide the source and add an outer glow, using the 
 multiply blend mode:
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/MultiplyArtefacts.png"
+         alt="" />
+</figure>
+
 Ack. What are those bounding box artefacts? Hannes Kohlmann had the answer:
 
 Switching back from multiply to normal got rid of the problem. It’s a shame, 
 but is probably unimportant for this design, with flat colours under the 
 shadows. Nearly there now:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/LongShadows.png"
+         alt="" />
+</figure>
 
 One remaining problem. The shadows cast by foreground features lie across 
 background features. Obviously, this is technically correct, but traditional 
@@ -825,6 +882,11 @@ about there. Ross and Tim Sutton rightly insisted that I tweak the shadow
 positioning:
 
 After following their wise advice, I was happy to call this layer complete:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/CompletedShadows.png"
+         alt="" />
+</figure>
 
 ## Matching projection to design
 
@@ -842,12 +904,22 @@ My labelling wasn’t brilliant. Despite using a few sensible techniques (using
 a reasonable typeface, adding a multiply halo), the result just wasn’t really 
 working.
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/BadLabels.png"
+         alt="" />
+</figure>
+
 I wondered about labelling the catchment polygons as though the label were 
 drawn on the oblique plane of the base layers. However, there didn’t seem to 
 be any way to achieve this with labels. Nyall, of course, set me straight:
 
 I’d never managed to think of any use for either centroid fills or font marker 
 symbols, so I was intrigued. He wasn’t wrong:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/FontMarkerLabels.png"
+         alt="" />
+</figure>
 
 I came unstuck initially, having not done all of this in map units, so the 
 moment I zoomed, the labels totally lost their position and size relative to 
@@ -862,6 +934,11 @@ these maps, and which would also emphasize the 2.5D design.
 The first is as simple as can be — add a translucent gradient fill across the 
 top of the whole image:
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/GradientOverlay.png"
+         alt="" />
+</figure>
+
 Already, you can see that the use of WGS84, together with the gradient 
 overlay, really start to create an impression of depth.
 
@@ -873,6 +950,11 @@ The last element, however, absolutely does require a raster source. I don’t
 know whether it’s best to call this tilt-shift or shallow depth-of-field. 
 Regardless, the idea is to emulate a tightly focused photograph by adding blur 
 above and below the area of attention in your image:
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/ShallowFocus.png"
+         alt="" />
+</figure>
 
 As with all these things, this effect can be overdone. As with colours, always 
 err on the side of subtlety (I’m a demon for desaturating one’s palette).
