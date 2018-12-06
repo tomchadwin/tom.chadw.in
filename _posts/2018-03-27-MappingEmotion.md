@@ -245,6 +245,9 @@ seemed all offset and no curve.
 
 Ross helped me out, as I was getting nowhere:
 
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">smooth(   make_line(    make_point(&quot;p_x&quot;,&quot;p_y&quot;),    make_point(abs(&quot;p_x&quot;-&quot;s_x&quot;)/2+ &quot;p_x&quot;/2, abs(&quot;p_y&quot;-&quot;s_y&quot;)/2 + &quot;p_y&quot;*2),    make_point(&quot;s_x&quot;,&quot;s_y&quot;)),   iterations:=4, offset:=0.25)<br>I used the mid-point of line formula and then added the X Y coords to offset</p>&mdash; Ross McDonald (@mixedbredie) <a href="https://twitter.com/mixedbredie/status/974038956546326528?ref_src=twsrc%5Etfw">March 14, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 The first problem had been that my lines only had vertices at start and end, 
 whereas at least one more point was required to offset and then curve. I 
 remembered this detail from his talk, together with his use of the <code class="inline">smooth()</code> 
