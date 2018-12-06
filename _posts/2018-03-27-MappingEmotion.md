@@ -80,6 +80,14 @@ format in which it is distributed makes it a brute to work with.
 For the journey maps, I had Ross’s work to start from. I knew that I wanted to 
 stress the visual impact, and that the parabola design was what I envisaged.
 
+<figure>
+    <img src="/assets/pics/MappingEmotion/Ross3DArcs.jpeg"
+         alt="Ross and a spider present school catchment visualizations at 
+              FOSS4G UK 2018" />
+    <figcaption>Ross and a spider present school catchment visualizations at 
+    FOSS4G UK 2018</figcaption>
+</figure>
+
 My belief is that the parabola as a design trope connotes a journey, and hence 
 that it instinctively reduces the cognitive load for someone initially 
 interpreting the map. I’d be interested to know if this bald assertion can be 
