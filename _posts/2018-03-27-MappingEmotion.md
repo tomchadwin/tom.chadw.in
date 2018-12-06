@@ -9,7 +9,7 @@ stream on visualizing school catchment areas. Little did I know at the time
 how relevant to my family this would prove.
 
 <figure class="floatright">
-    <img src="/assets/pics/greenhaugh.gif" alt="Greenhaugh First School" />
+    <img src="/assets/pics/MappingEmotion/greenhaugh.gif" alt="Greenhaugh First School" />
 </figure>
 
 We live in deepest rural Northumberland, a few miles from the Scots border. We 
@@ -170,11 +170,13 @@ table.
 I subsequently discovered that I didn’t need to join the tables. There is a 
 QGIS expression function which retrieves a single feature from another table:
 
+<code>
     get_feature(
       Map_Layer,
       Field,
       Value
     )
+</code>
 
 In my case, this would be like something like:
 
