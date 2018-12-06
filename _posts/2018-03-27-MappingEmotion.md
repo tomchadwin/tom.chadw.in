@@ -265,6 +265,9 @@ needed to remove the X offset.
 At about the same time, by splendid chance, the redoubtable Nathan Saylor 
 mentioned an easier way to get the midpoint of a line:
 
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Yay! I think I got it!<br><br>Data defined in the Placement section<br>Coordinate X/Y:<br>x/y(  line_interpolate_point(  $geometry , length(  $geometry )*0.5))<br><br>Alignments: &#39;Center&#39; and &#39;Half&#39;<br><br>Rotation: <br>line_interpolate_angle(  $geometry , length(  $geometry )*0.5)+90<a href="https://twitter.com/hashtag/GISTribe?src=hash&amp;ref_src=twsrc%5Etfw">#GISTribe</a> <a href="https://t.co/4tjG1uKi6G">pic.twitter.com/4tjG1uKi6G</a></p>&mdash; Nathan 🎄🎅 (@gisn8) <a href="https://twitter.com/gisn8/status/974292052170199040?ref_src=twsrc%5Etfw">March 15, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <code class="inline">line_interpolate_point()</code> was much more elegant. These two techniques combined 
 gave me the following expression:
 
@@ -772,6 +775,9 @@ Now we are definitely getting somewhere!
 I was tempted to leave it at that, but the lack of shadow was slightly nagging 
 at me. True to form, Craig then said exactly the same thing:
 
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Can the qgis geom shader transform the pillars in such a way that you’d get long shadows? Might anchor the pillars and could look neat...</p>&mdash; Craig Taylor (@CraigTaylorGIS) <a href="https://twitter.com/CraigTaylorGIS/status/976162374628593664?ref_src=twsrc%5Etfw">March 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 So I had to see what we could do. The QGIS 2.5D renderer adds shadows of a 
 kind, but they are simply outer glows applied to a copy of the feature’s 
 original geometry:
@@ -862,6 +868,9 @@ multiply blend mode:
 
 Ack. What are those bounding box artefacts? Hannes Kohlmann had the answer:
 
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">All the time when I try something more fancy =( Change the Drop Shadows blending mode to Normal or Addition. Draw Effects really need some polishing, they seem to be applied one by one which is not ideal.</p>&mdash; cartocalypse (@cartocalypse) <a href="https://twitter.com/cartocalypse/status/976169753978048512?ref_src=twsrc%5Etfw">March 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Switching back from multiply to normal got rid of the problem. It’s a shame, 
 but is probably unimportant for this design, with flat colours under the 
 shadows. Nearly there now:
@@ -880,9 +889,15 @@ wrong to us. To me, anyway.
 I failed to solve this for some time. Nyall Dawson had made a suggestion, but 
 I had misinterpreted what he meant:
 
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">That&#39;s just what I was about to suggest... So now can&#39;t you use symbol levels to draw the shadows below the buildings?</p>&mdash; Nyall Dawson (@nyalldawson) <a href="https://twitter.com/nyalldawson/status/976196012556431360?ref_src=twsrc%5Etfw">March 20, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Once the penny dropped, and I actually did use symbol levels, we were just 
 about there. Ross and Tim Sutton rightly insisted that I tweak the shadow 
 positioning:
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Very nice! I think it needs another small &#39;skirt&#39; shadow in the other direction to make it look like it is on the ground.</p>&mdash; Tim Sutton (@timlinux) <a href="https://twitter.com/timlinux/status/976593597935046656?ref_src=twsrc%5Etfw">March 21, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 After following their wise advice, I was happy to call this layer complete:
 
@@ -915,6 +930,9 @@ working.
 I wondered about labelling the catchment polygons as though the label were 
 drawn on the oblique plane of the base layers. However, there didn’t seem to 
 be any way to achieve this with labels. Nyall, of course, set me straight:
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Maybe.... Centroid fill with font marker symbol, char data defined to show polygon label, then use draw effects with a skew/rotation combination?</p>&mdash; Nyall Dawson (@nyalldawson) <a href="https://twitter.com/nyalldawson/status/976554079483670528?ref_src=twsrc%5Etfw">March 21, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I’d never managed to think of any use for either centroid fills or font marker 
 symbols, so I was intrigued. He wasn’t wrong:
