@@ -170,8 +170,7 @@ table.
 I subsequently discovered that I didn’t need to join the tables. There is a 
 QGIS expression function which retrieves a single feature from another table:
 
-<code>
-get_feature(
+<code>get_feature(
   Map_Layer,
   Field,
   Value
@@ -180,8 +179,7 @@ get_feature(
 
 In my case, this would be like something like:
 
-<code>
-get_feature(
+<code>get_feature(
   'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
   'SCH_NAME',
   'Greenhaugh First School'
@@ -198,8 +196,7 @@ slow?
 Anyway, I didn’t know about <code class="inline">get_feature()</code> at the time, so I used the joined 
 fields to draw a line between our feature and the school:
 
-<code>
-make_line(
+<code>make_line(
   $geometry,
   make_point(
     "Schools_MAP_EAST",
@@ -238,8 +235,7 @@ mentioned an easier way to get the midpoint of a line:
 <code class="inline">line_interpolate_point()</code> was much more elegant. These two techniques combined 
 gave me the following expression:
 
-<code>
-smooth(
+<code>smooth(
  make_line(
   $geometry,
   translate(
@@ -281,8 +277,7 @@ Because QGIS supports multiple symbol layers, this was easy to achieve. I
 created a second geometry generator under the first, and used the straight 
 line code I had used earlier:
 
-<code>
-make_line(
+<code>make_line(
  $geometry,
  make_point(
   "Schools_MAP_EAST", 
@@ -356,8 +351,7 @@ Python Processing
 [algorithm](https://github.com/qgis/QGIS/blob/master/python/plugins/processing/algs/qgis/RectanglesOvalsDiamondsFixed.py#L113), 
 and found the relevant part (edited down):
 
-<code>
-x = point.x()
+<code>x = point.x()
 y = point.y()
 points = [
     (-xOffset, -yOffset),
@@ -377,8 +371,7 @@ Aside — I *hate* Python list comprehensions. This code creates squares aro
 my points. However, this is isometric 2.5D, so we need to rotate by the magic 
 angle of 30°. Happily, the processing algorithm has code for a rotated version:
 
-<code>
-xOffset = width / 2.0
+<code>xOffset = width / 2.0
 yOffset = height / 2.0
 phi = rotation * math.pi / 180
 x = point.x()
@@ -401,8 +394,7 @@ polygon = [
 
 This is in Python, and I needed it in a QGIS expression. It looks like this:
 
-<code>
-make_polygon(
+<code>make_polygon(
   make_line(
     make_point(
       -250 * cos(radians(60)) -
@@ -449,8 +441,7 @@ makes them using… geometry generators.
 The roof geometry layer uses the following expressions (slightly simplified 
 here):
 
-<code>
-translate(
+<code>translate(
   $geometry,
   cos(radians(90)) * eval( @qgis_25d_height ),
   sin(radians(90)) * eval( @qgis_25d_height )
@@ -464,8 +455,7 @@ lines remain vertical in perspective (I’m not sure why the QGIS default is
 
 Combining this with our point-to-square code above gives us this:
 
-<code>
-translate(
+<code>translate(
   make_polygon(
     make_line(
       make_point(
@@ -508,8 +498,7 @@ the height accordingly, but I liked the idea of the height increasing as one
 approached Greenhaugh First School. Time for another expression to calculate 
 the distance to the school
 
-<code>
-distance(
+<code>distance(
   $geometry,
   geometry(
     get_feature(
@@ -527,8 +516,7 @@ school, some features would come out excessively high. To solve this, taking
 the square root of the inverse to create a [logarithmic 
 scale](https://en.wikipedia.org/wiki/Logarithmic_scale) flattens the spread:
 
-<code>
-translate(
+<code>translate(
   make_polygon(
     make_line(
       make_point(
@@ -579,8 +567,7 @@ The roof is done. Onto the walls.
 
 The QGIS 2.5D renderer creates the walls by extruding the polygon geometry:
 
-<code>
-order_parts(
+<code>order_parts(
   extrude(
     segments_to_lines($geometry),
     cos(radians(90)) * eval(@qgis_25d_height),
@@ -604,8 +591,7 @@ replace <code class="inline">@qgis_25d_height</code> with our distance-to-school
 (<code class="inline">order_parts</code> also seems unnecessary in this context, probably because we 
 have a single shape used for all of our features):
 
-<code>
-extrude(
+<code>extrude(
   segments_to_lines($geometry),
   0,
   sin(radians(90)) * 100000 / sqrt(
@@ -629,8 +615,7 @@ I was baffled for a while as to why the walls had no shading. I eventually
 found how the 2.5D renderer does it: an expression in a data-defined override 
 in the wall fill colour:
 
-<code>
-set_color_part(
+<code>set_color_part(
   @symbol_color,
   'value', 
   40 + 19 * abs(
@@ -663,8 +648,7 @@ expression which, instead of creating a square from the feature point
 geometry, created only the front two sides of the square by removing the 
 backmost point from the <code class="inline">make_line()</code> call:
 
-<code>
-make_line(
+<code>make_line(
   make_point(
     -(@block_width/2) * cos(radians(60)) -
     (@block_width/2) * sin(radians(60)) + $x,
@@ -707,8 +691,7 @@ generator!”
 The walls geometry generator already extrudes the base square. All we need to 
 do is extrude it in a different direction:
 
-<code>
-translate(
+<code>translate(
   extrude(
     segments_to_lines(
       eval(
