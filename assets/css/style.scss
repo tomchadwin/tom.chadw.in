@@ -81,6 +81,10 @@ code {
     padding: 0.25em;
     margin: 1em 0;
     white-space: pre-wrap;
+    font-size: 90%;
+}
+code.inline {
+    display: inline;
 }
 dt:before {
   content: "";

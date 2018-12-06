@@ -171,21 +171,21 @@ I subsequently discovered that I didn’t need to join the tables. There is a
 QGIS expression function which retrieves a single feature from another table:
 
 <code>
-    get_feature(
-      Map_Layer,
-      Field,
-      Value
-    )
+get_feature(
+  Map_Layer,
+  Field,
+  Value
+)
 </code>
 
 In my case, this would be like something like:
 
 <code>
-    get_feature(
-      'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
-      'SCH_NAME',
-      'Greenhaugh First School'
-    )
+get_feature(
+  'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
+  'SCH_NAME',
+  'Greenhaugh First School'
+)
 </code>
 
 You get the table reference (the one with the enormous GUID) in the QGIS 
@@ -195,20 +195,20 @@ this case. The join seems overkill just to retrieve a single feature from
 another table, but is the function reevaluated for every feature, and hence 
 slow?
 
-Anyway, I didn’t know about `get_feature` at the time, so I used the joined 
+Anyway, I didn’t know about <code class="inline">get_feature()</code> at the time, so I used the joined 
 fields to draw a line between our feature and the school:
 
 <code>
-    make_line(
-      $geometry,
-      make_point(
-        "Schools_MAP_EAST",
-        "Schools_MAP_NORTH" )
-    )
+make_line(
+  $geometry,
+  make_point(
+    "Schools_MAP_EAST",
+    "Schools_MAP_NORTH" )
+)
 </code>
  
-`$geometry` is the feature’s own geometry, while `Schools_MAP_EAST` and 
-`Schools_MAP_NORTH` are the joined table coordinate fields.
+<code class="inline">$geometry</code> is the feature’s own geometry, while <code class="inline">Schools_MAP_EAST</code> and 
+<code class="inline">Schools_MAP_NORTH</code> are the joined table coordinate fields.
 
 This is a good start. The width of the line indicates the number of pupils at 
 each origin point.
@@ -217,14 +217,14 @@ each origin point.
 
 So the lines start and end where we need. However, I wanted that 2.5D 
 effect — think of a parabola from start to end. This stumped me for some time. 
-I found the expression function `offset_curve` but after experimenting it 
+I found the expression function <code class="inline">offset_curve()</code> but after experimenting it 
 seemed all offset and no curve.
 
 Ross helped me out, as I was getting nowhere:
 
 The first problem had been that my lines only had vertices at start and end, 
 whereas at least one more point was required to offset and then curve. I 
-remembered this detail from his talk, together with his use of the `smooth` 
+remembered this detail from his talk, together with his use of the <code class="inline">smooth()</code> 
 function. This is how it came out:
 
 It wasn’t quite right, though. I realized that just about the only thing I 
@@ -235,39 +235,39 @@ needed to remove the X offset.
 At about the same time, by splendid chance, the redoubtable Nathan Saylor 
 mentioned an easier way to get the midpoint of a line:
 
-`line_interpolate_point` was much more elegant. These two techniques combined 
+<code class="inline">line_interpolate_point()</code> was much more elegant. These two techniques combined 
 gave me the following expression:
 
 <code>
-    smooth(
+smooth(
+ make_line(
+  $geometry,
+  translate(
+   line_interpolate_point(
+    make_line(
+     $geometry,
+     make_point("Schools_MAP_EAST", "Schools_MAP_NORTH")
+    ),
+    length(
      make_line(
       $geometry,
-      translate(
-       line_interpolate_point(
-        make_line(
-         $geometry,
-         make_point("Schools_MAP_EAST", "Schools_MAP_NORTH")
-        ),
-        length(
-         make_line(
-          $geometry,
-          make_point("Schools_MAP_EAST", "Schools_MAP_NORTH")
-         )
-        ) / 2
-       ),
-       0,
-       length(
-        make_line(
-         $geometry,
-         make_point( "Schools_MAP_EAST",  "Schools_MAP_NORTH" )
-        )
-       ) / 2.5
-      ),
-      make_point( "Schools_MAP_EAST",  "Schools_MAP_NORTH" )
-     ),
-     iterations:=4,
-     offset:=0.25
+      make_point("Schools_MAP_EAST", "Schools_MAP_NORTH")
+     )
+    ) / 2
+   ),
+   0,
+   length(
+    make_line(
+     $geometry,
+     make_point( "Schools_MAP_EAST",  "Schools_MAP_NORTH" )
     )
+   ) / 2.5
+  ),
+  make_point( "Schools_MAP_EAST",  "Schools_MAP_NORTH" )
+ ),
+ iterations:=4,
+ offset:=0.25
+)
 </code>
 
 Now things were starting to come together:
@@ -282,13 +282,13 @@ created a second geometry generator under the first, and used the straight
 line code I had used earlier:
 
 <code>
-    make_line(
-     $geometry,
-     make_point(
-      "Schools_MAP_EAST", 
-      "Schools_MAP_NORTH"
-     )
-    )
+make_line(
+ $geometry,
+ make_point(
+  "Schools_MAP_EAST", 
+  "Schools_MAP_NORTH"
+ )
+)
 </code>
 
 We now have a straight line connecting the points, as well as the curved one:
@@ -357,20 +357,20 @@ Python Processing
 and found the relevant part (edited down):
 
 <code>
-    x = point.x()
-    y = point.y()
-    points = [
-        (-xOffset, -yOffset),
-        (-xOffset, yOffset),
-        (xOffset, yOffset),
-        (xOffset, -yOffset)
+x = point.x()
+y = point.y()
+points = [
+    (-xOffset, -yOffset),
+    (-xOffset, yOffset),
+    (xOffset, yOffset),
+    (xOffset, -yOffset)
+]
+polygon = [
+    [
+        QgsPointXY(i[0] + x,
+        i[1] + y) for i in points
     ]
-    polygon = [
-        [
-            QgsPointXY(i[0] + x,
-            i[1] + y) for i in points
-        ]
-    ]
+]
 </code>
 
 Aside — I *hate* Python list comprehensions. This code creates squares around 
@@ -378,58 +378,58 @@ my points. However, this is isometric 2.5D, so we need to rotate by the magic
 angle of 30°. Happily, the processing algorithm has code for a rotated version:
 
 <code>
-    xOffset = width / 2.0
-    yOffset = height / 2.0
-    phi = rotation * math.pi / 180
-    x = point.x()
-    y = point.y()
-    points = [
-      (-xOffset, -yOffset),
-      (-xOffset, yOffset),
-      (xOffset, yOffset),
-      (xOffset, -yOffset)
-    ]
-    polygon = [
-      [
-        QgsPointXY(
-          i[0] * math.cos(phi) + i[1] * math.sin(phi) + x,
-          -i[0] * math.sin(phi) + i[1] * math.cos(phi) + y
-        )
-      ]
-    ]
+xOffset = width / 2.0
+yOffset = height / 2.0
+phi = rotation * math.pi / 180
+x = point.x()
+y = point.y()
+points = [
+  (-xOffset, -yOffset),
+  (-xOffset, yOffset),
+  (xOffset, yOffset),
+  (xOffset, -yOffset)
+]
+polygon = [
+  [
+    QgsPointXY(
+      i[0] * math.cos(phi) + i[1] * math.sin(phi) + x,
+      -i[0] * math.sin(phi) + i[1] * math.cos(phi) + y
+    )
+  ]
+]
 </code>
 
 This is in Python, and I needed it in a QGIS expression. It looks like this:
 
 <code>
-    make_polygon(
-      make_line(
-        make_point(
-          -250 * cos(radians(60)) -
-          250 * sin(radians(60)) + $x,
-          250 * sin(radians(60)) -
-          250 * cos(radians(60)) + $y
-        ) ,
-        make_point(
-          -250 * cos(radians(60)) +
-          250 * sin(radians(60)) + $x,
-          250 * sin(radians(60)) +
-          250 * cos(radians(60)) + $y
-        ),
-        make_point(
-          250 * cos(radians(60)) +
-          250 * sin(radians(60)) + $x,
-          -250 * sin(radians(60)) +
-          250 * cos(radians(60)) + $y
-        ),
-        make_point(
-          250 * cos(radians(60)) -
-          250 * sin(radians(60)) + $x,
-          -250 * sin(radians(60)) -
-          250 * cos(radians(60)) + $y
-        )
-      )
+make_polygon(
+  make_line(
+    make_point(
+      -250 * cos(radians(60)) -
+      250 * sin(radians(60)) + $x,
+      250 * sin(radians(60)) -
+      250 * cos(radians(60)) + $y
+    ) ,
+    make_point(
+      -250 * cos(radians(60)) +
+      250 * sin(radians(60)) + $x,
+      250 * sin(radians(60)) +
+      250 * cos(radians(60)) + $y
+    ),
+    make_point(
+      250 * cos(radians(60)) +
+      250 * sin(radians(60)) + $x,
+      -250 * sin(radians(60)) +
+      250 * cos(radians(60)) + $y
+    ),
+    make_point(
+      250 * cos(radians(60)) -
+      250 * sin(radians(60)) + $x,
+      -250 * sin(radians(60)) -
+      250 * cos(radians(60)) + $y
     )
+  )
+)
 </code>
 
 250 is half the height/width of the square, and 60 is 90° minus the isometric 
@@ -450,11 +450,11 @@ The roof geometry layer uses the following expressions (slightly simplified
 here):
 
 <code>
-    translate(
-      $geometry,
-      cos(radians(90)) * eval( @qgis_25d_height ),
-      sin(radians(90)) * eval( @qgis_25d_height )
-    )
+translate(
+  $geometry,
+  cos(radians(90)) * eval( @qgis_25d_height ),
+  sin(radians(90)) * eval( @qgis_25d_height )
+)
 </code>
 
 This “raises” the roof away from the geometry on the “ground”. 90° is the 
@@ -465,41 +465,41 @@ lines remain vertical in perspective (I’m not sure why the QGIS default is
 Combining this with our point-to-square code above gives us this:
 
 <code>
-    translate(
-      make_polygon(
-        make_line(
-          make_point(
-            -(@block_width/2) * cos(radians(60)) -
-              (@block_width/2) * sin(radians(60)) + $x,
-            (@block_width/2) * sin(radians(60)) -
-              (@block_width/2) * cos(radians(60)) + $y
-          ),
-          make_point(
-            -(@block_width/2) * cos(radians(60)) +
-              (@block_width/2) * sin(radians(60)) + $x,
-            (@block_width/2) * sin(radians(60)) +
-              (@block_width/2) * cos(radians(60)) + $y
-          ),
-          make_point(
-            (@block_width/2) * cos(radians(60)) +
-              (@block_width/2) * sin(radians(60)) + $x,
-            -(@block_width/2) * sin(radians(60)) +
-              (@block_width/2) * cos(radians(60)) + $y
-          ),
-          make_point(
-            (@block_width/2) * cos(radians(60)) -
-              (@block_width/2) * sin(radians(60)) + $x,
-            -(@block_width/2) * sin(radians(60)) -
-              (@block_width/2) * cos(radians(60)) + $y
-          )
-        )
+translate(
+  make_polygon(
+    make_line(
+      make_point(
+        -(@block_width/2) * cos(radians(60)) -
+          (@block_width/2) * sin(radians(60)) + $x,
+        (@block_width/2) * sin(radians(60)) -
+          (@block_width/2) * cos(radians(60)) + $y
       ),
-      0, 1000
+      make_point(
+        -(@block_width/2) * cos(radians(60)) +
+          (@block_width/2) * sin(radians(60)) + $x,
+        (@block_width/2) * sin(radians(60)) +
+          (@block_width/2) * cos(radians(60)) + $y
+      ),
+      make_point(
+        (@block_width/2) * cos(radians(60)) +
+          (@block_width/2) * sin(radians(60)) + $x,
+        -(@block_width/2) * sin(radians(60)) +
+          (@block_width/2) * cos(radians(60)) + $y
+      ),
+      make_point(
+        (@block_width/2) * cos(radians(60)) -
+          (@block_width/2) * sin(radians(60)) + $x,
+        -(@block_width/2) * sin(radians(60)) -
+          (@block_width/2) * cos(radians(60)) + $y
+      )
     )
+  ),
+  0, 1000
+)
 </code>
 
 Note that I have removed the hard-coded 250 half-width of my squares, and 
-replaced it with `@block_width/2`, a layer variable.
+replaced it with <code class="inline">@block_width/2</code>, a layer variable.
 
 This makes all of our 2.5D rendered features the same height (1000 in the code 
 above), which would be visually dull, and would make the use of 2.5D 
@@ -509,6 +509,56 @@ approached Greenhaugh First School. Time for another expression to calculate
 the distance to the school
 
 <code>
+distance(
+  $geometry,
+  geometry(
+    get_feature(
+      'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
+      'SCH_NAME',
+      'Greenhaugh First School'
+    )
+  )
+)
+</code>
+
+This would place higher features *further* from the school, so we have to 
+invert it. Also, because some of the signatories live extremely close to the 
+school, some features would come out excessively high. To solve this, taking 
+the square root of the inverse to create a [logarithmic 
+scale](https://en.wikipedia.org/wiki/Logarithmic_scale) flattens the spread:
+
+<code>
+translate(
+  make_polygon(
+    make_line(
+      make_point(
+        -(@block_width/2) * cos(radians(60)) -
+          (@block_width/2) * sin(radians(60)) + $x,
+        (@block_width/2) * sin(radians(60)) -
+          (@block_width/2) * cos(radians(60)) + $y
+      ),
+      make_point(
+        -(@block_width/2) * cos(radians(60)) +
+          (@block_width/2) * sin(radians(60)) + $x,
+        (@block_width/2) * sin(radians(60)) +
+          (@block_width/2) * cos(radians(60)) + $y
+      ),
+      make_point(
+        (@block_width/2) * cos(radians(60)) +
+          (@block_width/2) * sin(radians(60)) + $x,
+        -(@block_width/2) * sin(radians(60)) +
+          (@block_width/2) * cos(radians(60)) + $y
+      ),
+      make_point(
+        (@block_width/2) * cos(radians(60)) -
+          (@block_width/2) * sin(radians(60)) + $x,
+        -(@block_width/2) * sin(radians(60)) -
+          (@block_width/2) * cos(radians(60)) + $y
+      )
+    )
+  ),
+  0,
+  sin(radians(90)) * 100000 / sqrt(
     distance(
       $geometry,
       geometry(
@@ -519,58 +569,8 @@ the distance to the school
         )
       )
     )
-</code>
-
-This would place higher features *further* from the school, so we have to 
-invert it. Also, because some of the signatories live extremely close to the 
-school, some features would come out excessively high. To solve this, taking 
-the square root of the inverse to create a [logarithmic 
-scale](https://en.wikipedia.org/wiki/Logarithmic_scale) flattens the spread:
-
-<code>
-    translate(
-      make_polygon(
-        make_line(
-          make_point(
-            -(@block_width/2) * cos(radians(60)) -
-              (@block_width/2) * sin(radians(60)) + $x,
-            (@block_width/2) * sin(radians(60)) -
-              (@block_width/2) * cos(radians(60)) + $y
-          ),
-          make_point(
-            -(@block_width/2) * cos(radians(60)) +
-              (@block_width/2) * sin(radians(60)) + $x,
-            (@block_width/2) * sin(radians(60)) +
-              (@block_width/2) * cos(radians(60)) + $y
-          ),
-          make_point(
-            (@block_width/2) * cos(radians(60)) +
-              (@block_width/2) * sin(radians(60)) + $x,
-            -(@block_width/2) * sin(radians(60)) +
-              (@block_width/2) * cos(radians(60)) + $y
-          ),
-          make_point(
-            (@block_width/2) * cos(radians(60)) -
-              (@block_width/2) * sin(radians(60)) + $x,
-            -(@block_width/2) * sin(radians(60)) -
-              (@block_width/2) * cos(radians(60)) + $y
-          )
-        )
-      ),
-      0,
-      sin(radians(90)) * 100000 / sqrt(
-        distance(
-          $geometry,
-          geometry(
-            get_feature(
-              'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
-              'SCH_NAME',
-              'Greenhaugh First School'
-            )
-          )
-        )
-      )
-    )
+  )
+)
 </code>
 
 The roof is done. Onto the walls.
@@ -580,47 +580,47 @@ The roof is done. Onto the walls.
 The QGIS 2.5D renderer creates the walls by extruding the polygon geometry:
 
 <code>
-    order_parts(
-      extrude(
-        segments_to_lines($geometry),
-        cos(radians(90)) * eval(@qgis_25d_height),
-        sin(radians(90)) * eval(@qgis_25d_height)
-      ),
-      'distance(
-        $geometry,
-        translate(
-          @map_extent_center,
-          1000 * @map_extent_width * cos(radians(90 + 180)),
-          1000 * @map_extent_width * sin(radians(90 + 180))
-        )
-      )',
-      False
+order_parts(
+  extrude(
+    segments_to_lines($geometry),
+    cos(radians(90)) * eval(@qgis_25d_height),
+    sin(radians(90)) * eval(@qgis_25d_height)
+  ),
+  'distance(
+    $geometry,
+    translate(
+      @map_extent_center,
+      1000 * @map_extent_width * cos(radians(90 + 180)),
+      1000 * @map_extent_width * sin(radians(90 + 180))
     )
+  )',
+  False
+)
 </code>
 
-So, as with the roof, we need to replace `$geometry` with our point-to-square 
+So, as with the roof, we need to replace <code class="inline">$geometry</code> with our point-to-square 
 geometry generator, remove the X axis shift (verticals remain vertical), and 
-replace `@qgis_25d_height` with our distance-to-school expression 
-(`order_parts` also seems unnecessary in this context, probably because we 
+replace <code class="inline">@qgis_25d_height</code> with our distance-to-school expression 
+(<code class="inline">order_parts</code> also seems unnecessary in this context, probably because we 
 have a single shape used for all of our features):
 
 <code>
-    extrude(
-      segments_to_lines($geometry),
-      0,
-      sin(radians(90)) * 100000 / sqrt(
-        distance(
-          $geometry,
-          geometry(
-            get_feature(
-              'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
-              'SCH_NAME',
-              'Greenhaugh First School'
-            )
-          )
+extrude(
+  segments_to_lines($geometry),
+  0,
+  sin(radians(90)) * 100000 / sqrt(
+    distance(
+      $geometry,
+      geometry(
+        get_feature(
+          'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
+          'SCH_NAME',
+          'Greenhaugh First School'
         )
       )
     )
+  )
+)
 </code>
 
 We now have some isometric walls:
@@ -630,28 +630,28 @@ found how the 2.5D renderer does it: an expression in a data-defined override
 in the wall fill colour:
 
 <code>
-    set_color_part(
-      @symbol_color,
-      'value', 
-      40 + 19 * abs(
-        $pi - azimuth(
-          point_n(
-            geometry_n(
-              $geometry,
-              @geometry_part_num
-            ),
-            1
-          ),
-          point_n(
-            geometry_n(
-              $geometry,
-              @geometry_part_num
-            ), 
-            2
-          ) 
-        )
-      )
+set_color_part(
+  @symbol_color,
+  'value', 
+  40 + 19 * abs(
+    $pi - azimuth(
+      point_n(
+        geometry_n(
+          $geometry,
+          @geometry_part_num
+        ),
+        1
+      ),
+      point_n(
+        geometry_n(
+          $geometry,
+          @geometry_part_num
+        ), 
+        2
+      ) 
     )
+  )
+)
 </code>
 
 Thankfully (from memory), this needed no edits, and could simply be applied to 
@@ -661,32 +661,32 @@ Nearly there. The remaining issue is that one of the back walls is being
 rendered on top of one of the front ones. To rectify this, I created a new 
 expression which, instead of creating a square from the feature point 
 geometry, created only the front two sides of the square by removing the 
-backmost point from the `make_line` call:
+backmost point from the <code class="inline">make_line()</code> call:
 
 <code>
-    make_line(
-      make_point(
-        -(@block_width/2) * cos(radians(60)) -
-        (@block_width/2) * sin(radians(60)) + $x,
-        (@block_width/2) * sin(radians(60)) -
-        (@block_width/2) * cos(radians(60)) + $y
-      ),
-      make_point(
-        (@block_width/2) * cos(radians(60)) -
-        (@block_width/2) * sin(radians(60)) + $x,
-        -(@block_width/2) * sin(radians(60)) -
-        (@block_width/2) * cos(radians(60)) + $y
-      ),
-      make_point(
-        (@block_width/2) * cos(radians(60)) +
-        (@block_width/2) * sin(radians(60)) + $x,
-        -(@block_width/2) * sin(radians(60)) +
-        (@block_width/2) * cos(radians(60))+$y
-      )
-    )
+make_line(
+  make_point(
+    -(@block_width/2) * cos(radians(60)) -
+    (@block_width/2) * sin(radians(60)) + $x,
+    (@block_width/2) * sin(radians(60)) -
+    (@block_width/2) * cos(radians(60)) + $y
+  ),
+  make_point(
+    (@block_width/2) * cos(radians(60)) -
+    (@block_width/2) * sin(radians(60)) + $x,
+    -(@block_width/2) * sin(radians(60)) -
+    (@block_width/2) * cos(radians(60)) + $y
+  ),
+  make_point(
+    (@block_width/2) * cos(radians(60)) +
+    (@block_width/2) * sin(radians(60)) + $x,
+    -(@block_width/2) * sin(radians(60)) +
+    (@block_width/2) * cos(radians(60))+$y
+  )
+)
 </code>
 
-I then swapped this in to the `extrude` function, and the back face was 
+I then swapped this in to the <code class="inline">extrude()</code> function, and the back face was 
 thereby culled:
 
 Now we are definitely getting somewhere!
@@ -708,68 +708,68 @@ The walls geometry generator already extrudes the base square. All we need to
 do is extrude it in a different direction:
 
 <code>
-    translate(
-      extrude(
-        segments_to_lines(
-          eval(
-            make_polygon(
-              make_line(
-                make_point(
-                  -(@block_width/2) * cos(radians(60)) -
-                  (@block_width/2) * sin(radians(60)) + $x,
-                  (@block_width/2) * sin(radians(60)) -
-                  (@block_width/2) * cos(radians(60)) + $y
-                ),
-                make_point(
-                  -(@block_width/2) * cos(radians(60)) +
-                  (@block_width/2) * sin(radians(60)) + $x,
-                  (@block_width/2) * sin(radians(60)) +
-                  (@block_width/2) * cos(radians(60)) + $y
-                ),
-                make_point(
-                  (@block_width/2) * cos(radians(60)) +
-                  (@block_width/2) * sin(radians(60)) + $x,
-                  -(@block_width/2) * sin(radians(60)) +
-                  (@block_width/2) * cos(radians(60)) + $y
-                ),
-                make_point(
-                  (@block_width/2) * cos(radians(60)) -
-                  (@block_width/2) * sin(radians(60)) + $x,
-                  -(@block_width/2) * sin(radians(60)) -
-                  (@block_width/2) * cos(radians(60)) + $y
-                )
-              )
-            )
-          )
-        ),
-        cos(radians(120)) * 100000 / sqrt(
-          distance(
-            $geometry,
-            geometry(
-              get_feature(
-                'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
-                'SCH_NAME',
-                'Greenhaugh First School'
-              )
-            )
-          )
-        ),
-        sin(radians(120)) * 100000 / sqrt(
-          distance(
-            $geometry,
-            geometry(
-              get_feature(
-                'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
-                'SCH_NAME',
-                'Greenhaugh First School'
-              )
+translate(
+  extrude(
+    segments_to_lines(
+      eval(
+        make_polygon(
+          make_line(
+            make_point(
+              -(@block_width/2) * cos(radians(60)) -
+              (@block_width/2) * sin(radians(60)) + $x,
+              (@block_width/2) * sin(radians(60)) -
+              (@block_width/2) * cos(radians(60)) + $y
+            ),
+            make_point(
+              -(@block_width/2) * cos(radians(60)) +
+              (@block_width/2) * sin(radians(60)) + $x,
+              (@block_width/2) * sin(radians(60)) +
+              (@block_width/2) * cos(radians(60)) + $y
+            ),
+            make_point(
+              (@block_width/2) * cos(radians(60)) +
+              (@block_width/2) * sin(radians(60)) + $x,
+              -(@block_width/2) * sin(radians(60)) +
+              (@block_width/2) * cos(radians(60)) + $y
+            ),
+            make_point(
+              (@block_width/2) * cos(radians(60)) -
+              (@block_width/2) * sin(radians(60)) + $x,
+              -(@block_width/2) * sin(radians(60)) -
+              (@block_width/2) * cos(radians(60)) + $y
             )
           )
         )
-      ),
-      -(@block_width/2) * cos(radians(60)),
-      0
+      )
+    ),
+    cos(radians(120)) * 100000 / sqrt(
+      distance(
+        $geometry,
+        geometry(
+          get_feature(
+            'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
+            'SCH_NAME',
+            'Greenhaugh First School'
+          )
+        )
+      )
+    ),
+    sin(radians(120)) * 100000 / sqrt(
+      distance(
+        $geometry,
+        geometry(
+          get_feature(
+            'schools_5285d691_30cf_4e57_adab_1ca2dd449c8d',
+            'SCH_NAME',
+            'Greenhaugh First School'
+          )
+        )
+      )
     )
+  ),
+  -(@block_width/2) * cos(radians(60)),
+  0
+)
 </code>
 
 We then add a draw effect to hide the source and add an outer glow, using the 
