@@ -82,9 +82,11 @@ code {
     margin: 1em 0;
     white-space: pre-wrap;
     font-size: 90%;
+    text-indent: 0;
 }
 code.inline {
     display: inline;
+    font-size: 80%;
 }
 dt:before {
   content: "";
