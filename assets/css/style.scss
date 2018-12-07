@@ -104,6 +104,10 @@ dd {
 header {
     margin-bottom: 3em;
 }
+#siteTitle {
+    display: inline-block;
+    width: 50%;
+}
 header a {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 95%;
@@ -111,7 +115,8 @@ header a {
     letter-spacing: 0.25em;
 }
 header ul {
-    display: inline;
+    display: inline-block;
+    width: 50%;
     position: relative;
     right: 0;
     width: 16%;
