@@ -192,6 +192,18 @@ iframe {
     color: #bbb;
     letter-spacing: 0.25em;
 }
+#articleList li {
+    margin-bottom: 1em;
+}
+#articleList div:nth-child(even) {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 250%;
+    letter-spacing: 0.05em;
+    color: #c77;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #b66;
+}
 
 @media screen and (max-width: 600px) {
     body {
