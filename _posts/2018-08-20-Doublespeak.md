@@ -1,6 +1,12 @@
 ---
 title: "doublespeak: Northumberland County Council"
 permalink: /wrote/Doublespeak
+blurb: >
+    The Council’s consultation report on education in west Northumberland, 
+    published at the end of the stage-two consultation period, contained the 
+    following emotive text: “Feedback from schools and the wider community in 
+    the Haydon Bridge Partnership has not expressed a desire to return to the 
+    3-tier system therefore this would be an unpopular and retrograde step.”
 ---
 # doublespeak: Northumberland County Council
 

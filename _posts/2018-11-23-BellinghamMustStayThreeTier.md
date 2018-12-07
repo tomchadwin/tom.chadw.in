@@ -4,9 +4,9 @@ permalink: /wrote/BellinghamMustStayThreeTier
 blurb: >
     Northumberland County Council initially consulted on changing the whole of 
     west Northumberland to a two-tier school system. At the same time, Hadrian 
-    Learning Trust consulted on converting their Hexham schools to two-tier. After 
-    overwhelmingly negative responses on both issues, both decided against this 
-    change in the Hexham partnership.
+    Learning Trust consulted on converting their Hexham schools to two-tier. 
+    After overwhelmingly negative responses on both issues, both decided 
+    against this change in the Hexham partnership.
 ---
 # Bellingham must stay three-tier
 

@@ -1,6 +1,10 @@
 ---
 title: "Where next for qgis2web?"
 permalink: /wrote/WhereNextForqgis2web
+blurb: >
+    Those of you who follow QGIS closely might have noticed that development of 
+    qgis2web has significantly slowed since QGIS 3 was released. Is this of 
+    concern? What next for the plugin?
 ---
 
 # Where next for qgis2web?

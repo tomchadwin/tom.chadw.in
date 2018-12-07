@@ -1,6 +1,9 @@
 ---
 title: "Decisions are made by those who show up"
 permalink: /wrote/ShowUp
+blurb: >
+    Northumberland County Council have abandoned all three proposed options, 
+    and now propose to keep Greenhaugh First School open.
 ---
 # Decisions are made by those who show up
 

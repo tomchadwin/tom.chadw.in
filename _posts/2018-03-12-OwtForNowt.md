@@ -1,6 +1,10 @@
 ---
 title: "Owt for Nowt and Tuppence Change"
 permalink: /wrote/OwtForNowt
+blurb: >
+    As we all know, the ‘FOSS’ in FOSS4G stands for *free and open-source 
+    software*. Open-source advocates often rightly stress that the ‘free’ in 
+    FOSS means free as in speech, not free as in beer.
 ---
 
 # Owt for Nowt and Tuppence Change
