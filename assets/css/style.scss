@@ -105,7 +105,7 @@ header {
     margin-bottom: 3em;
 }
 #siteTitle {
-    float: left;
+    display: inline-block;
     width: 50%;
 }
 header a {
@@ -117,6 +117,7 @@ header a {
 nav {
     display: inline-block;
     width: 50%;
+    vertical-align: top;
 }
 header ul {
     display: inline-block;
