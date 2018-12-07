@@ -14,10 +14,11 @@ body {
     font-size: 150%;
     line-height: 150%;
 }
-body > Header + p {
+body > header + p {
     font-family: 'Julius Sans One', sans-serif;
     color: #bbb;
     font-size: 80%;
+    text-indent: 0;
 }
 h1, h2, h3 {
     font-family: 'Julius Sans One', sans-serif;
