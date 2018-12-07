@@ -220,6 +220,16 @@ iframe {
         font-size: 150%;
         line-height: 150%;
     }
+    header>a {
+        display: block;
+        width: 100%;
+        text-align: center;  
+    }
+    nav {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
     h1 {
         font-size: 140%;
         -webkit-hyphens: auto;
