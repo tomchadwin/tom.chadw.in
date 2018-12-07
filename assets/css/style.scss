@@ -230,9 +230,12 @@ iframe {
         width: 100%;
         text-align: center;
     }
-    nav ul, nav li {
+    nav ul {
         padding-left: 0;
         text-align: center;
+    }
+    nav li {
+        padding: 0em 0.25em;
     }
     h1 {
         font-size: 140%;
