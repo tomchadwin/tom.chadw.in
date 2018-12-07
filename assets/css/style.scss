@@ -110,7 +110,11 @@ header a {
     color: #bbb;
     letter-spacing: 0.25em;
 }
-
+header li {
+  display: inline;
+  list-style-type: none;
+  padding-left: 2em;;
+}
 #main_content > p:first-child {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 150%;
