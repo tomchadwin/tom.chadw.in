@@ -7,7 +7,7 @@ permalink: /articles
   <li>
     <div>{{ post.date | date: "%e %B %Y" }}</div>
     <div><a href="{{ post.url }}">{{ post.title }}</a></div>
-    <div>{{ post.excerpt }}</div>
+    <div>{{ post.blurb }}</div>
   </li>
 {% endfor %}
 </ul>
