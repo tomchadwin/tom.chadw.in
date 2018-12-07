@@ -21,6 +21,7 @@ body > Header + p {
 }
 h1, h2, h3 {
     font-family: 'Julius Sans One', sans-serif;
+    font-weight: normal;
 }
 h1 {
     font-size: 250%;
@@ -32,7 +33,6 @@ h1 {
 }
 h1, h2 {
     text-transform: uppercase;
-    font-weight: normal;
 }
 h2, h3 {
     margin: 1.5em 0 0.5em;
@@ -187,6 +187,9 @@ iframe {
 #articleList {
     list-style-type: none;
 }
+#articleList ul {
+    padding-left: 0;
+}
 #articleList div:first-child {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 95%;
@@ -204,6 +207,10 @@ iframe {
     line-height: 1em;
     text-transform: uppercase;
     color: #b66;
+}
+#articleList div:last-child {
+    text-align: justify;
+    hyphens: auto;
 }
 
 @media screen and (max-width: 600px) {
