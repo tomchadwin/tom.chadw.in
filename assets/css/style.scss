@@ -110,10 +110,15 @@ header a {
     color: #bbb;
     letter-spacing: 0.25em;
 }
+header ul {
+    display: inline;
+    position: absolute;
+    right: 0;
+}
 header li {
   display: inline;
   list-style-type: none;
-  padding-left: 2em;;
+  padding-left: 2em;
 }
 #main_content > p:first-child {
     font-family: 'Open Sans Condensed', sans-serif;
