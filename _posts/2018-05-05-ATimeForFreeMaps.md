@@ -67,16 +67,3 @@ what you are, and seize this once-in-a-lifetime opportunity to explain to
 people why arguments over open versus proprietary are not tribal or academic 
 zealotry. You now have a concrete compelling argument to those who have always 
 asked: “Why not just use Google Maps?”
-
-<section id="nav">
-    <div>
-{% if page.next != nil %}
-        &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
-{% endif %}
-    </div>
-    <div>
-{% if page.previous != nil %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
-{% endif %}
-    </div>
-</section>

@@ -90,16 +90,3 @@ If you think that you could contribute to any of this, your input would be
 incredibly appreciated. Go to the [qgis2web 
 bugtracker](https://github.com/tomchadwin/qgis2web/issues) and see what takes 
 your fancy.
-
-<section id="nav">
-    <div>
-{% if page.next != nil %}
-        &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
-{% endif %}
-    </div>
-    <div>
-{% if page.previous != nil %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
-{% endif %}
-    </div>
-</section>

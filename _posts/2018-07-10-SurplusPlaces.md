@@ -101,16 +101,3 @@ The Northumberland Council Cabinet meeting which will decide whether
 Bellingham Middle School will close starts in ten minutes time.
 
 We say no.
-
-<section id="nav">
-    <div>
-{% if page.next != nil %}
-        &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
-{% endif %}
-    </div>
-    <div>
-{% if page.previous != nil %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
-{% endif %}
-    </div>
-</section>

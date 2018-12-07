@@ -1013,16 +1013,3 @@ all the feedback and problem-solving.
 At the end of the day, these maps are just weapons in a fight against harmful 
 changes — harmful to our families, and to our communities. The maps won’t win 
 this battle for us. Let’s hope something does.
-
-<section id="nav">
-    <div>
-{% if page.next != nil %}
-        &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
-{% endif %}
-    </div>
-    <div>
-{% if page.previous != nil %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
-{% endif %}
-    </div>
-</section>
