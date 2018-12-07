@@ -1,8 +1,6 @@
 ---
 ---
 
-/*@import "{{ site.theme }}";*/
-
 html {
     background-color: #fefefe;
 }
@@ -39,7 +37,7 @@ h2, h3 {
     margin: 1.5em 0 0.5em;
     color: #b66;
 }
-h1+p, h2+p {
+h1 + p, h2 + p, h1 + figure + p {
     text-indent: 0;
 }
 p {
@@ -48,7 +46,7 @@ p {
     text-align: justify;
     text-indent: 0.75em;
 }
-h2+p, p+p {
+h2+ p, p + p {
     word-wrap: break-word;
     overflow-wrap: break-word;
     -webkit-hyphens: auto;
@@ -220,7 +218,7 @@ iframe {
         font-size: 150%;
         line-height: 150%;
     }
-    header>a {
+    header > a {
         display: block;
         width: 100%;
         text-align: center;
