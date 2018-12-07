@@ -21,8 +21,8 @@
             <ul>
                 <li><a href="/articles">articles</a></li>
                 <li><a href="/qgis2web">qgis2web</a></li>
-                <li><a href="#">OSGeo</a></li>
-                <li><a href="#">pies</a></li>
+                <li><a href="/osgeo">OSGeo</a></li>
+                <li><a href="#">Pie Spy</a></li>
             </ul>
         </nav>
     </header>
@@ -32,8 +32,8 @@
     {{ content }}
 
     <!-- FOOTER  -->
-    <footer>
 {% if page.next != nil or page.previous != nil %}
+    <footer>
         <div>
 {% if page.next != nil %}
             &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
@@ -44,7 +44,7 @@
             <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
 {% endif %}
         </div>
-{% endif %}
     </footer>
+{% endif %}
   </body>
 </html>
