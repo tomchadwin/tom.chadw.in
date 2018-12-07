@@ -188,16 +188,3 @@ that the law now dictates that they *must* remain first schools.
 
 The governors must now raise their heads above the parapets, and require the 
 Council to act in accordance with the law.
-
-<section id="nav">
-    <div>
-{% if page.next != nil %}
-        &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
-{% endif %}
-    </div>
-    <div>
-{% if page.previous != nil %}
-        <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
-{% endif %}
-    </div>
-</section>
