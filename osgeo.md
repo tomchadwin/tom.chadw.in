@@ -1,6 +1,6 @@
 ---
 title: "OSGeo"
-permalink: /OSGeo
+permalink: /osgeo
 ---
 # OSGeo
 
