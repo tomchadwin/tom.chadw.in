@@ -2,8 +2,10 @@
 title: "Articles"
 permalink: /articles
 ---
-<ul>
+<ul id="articleList">
 {% for post in site.posts %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  <li>
+    <div>{{ page.date | date: "%e %B %Y" }}</div>
+    <div><a href="{{ post.url }}">{{ post.title }}</a></div></li>
 {% endfor %}
 </ul>
