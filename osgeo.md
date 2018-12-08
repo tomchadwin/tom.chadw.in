@@ -2,9 +2,7 @@
 title: "OSGeo"
 permalink: /osgeo
 ---
-# OSGeo
-
-<figure class="floatright">
+<figure>
     <img src="/assets/pics/osgeo.svg" alt="OSGeo" />
 </figure>
 

@@ -6,8 +6,8 @@ permalink: /articles
 {% for post in site.posts %}
   <li>
     <div>{{ post.date | date: "%e %B %Y" }}</div>
-    <div><a href="{{ post.url }}">{{ post.title }}</a></div>
-    <div>{{ post.blurb }}</div>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <p>{{ post.blurb }}</p>
   </li>
 {% endfor %}
 </ul>
