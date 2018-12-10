@@ -157,9 +157,9 @@ footer {
     letter-spacing: 0.01em;
 }
 footer div {
+    display: inline-block;
     width: 50%;
-    min-height: 1px;
-    float: left;
+    text-align: left;
 }
 footer div + div {
     text-align: right;
