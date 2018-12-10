@@ -33,8 +33,9 @@
     {{ content }}
 
     <!-- FOOTER  -->
-{% if page.next != nil or page.previous != nil %}
     <footer>
+{% if page.next != nil or page.previous != nil %}
+      <nav>
         <div>
 {% if page.next != nil %}
             &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
@@ -45,7 +46,9 @@
             <a href="{{page.previous.url}}">{{page.previous.title}}</a>&nbsp;&gt;
 {% endif %}
         </div>
-    </footer>
+      </nav>
 {% endif %}
+      I'm sure you can figure out my email address&ellip;
+    </footer>
   </body>
 </html>

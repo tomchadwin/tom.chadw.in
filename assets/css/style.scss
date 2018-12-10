@@ -150,6 +150,7 @@ footer {
     padding-top: 1em;
     padding-bottom: 2em;
     color: #ccc;
+    text-align: center;
 }
 footer > div {
     width: 50%;
@@ -159,7 +160,9 @@ footer > div {
 footer > div + div {
     text-align: right;
 }
-
+footer > nav {
+    margin-bottom: 1em;
+}
 figure {
     margin: 1em auto 1em;
     text-align: center;
