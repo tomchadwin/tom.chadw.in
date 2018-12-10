@@ -154,13 +154,14 @@ footer {
     font-family: 'Baskerville Libre', serif;
     font-size: 90%;
     font-style: italic;
+    letter-spacing: 0.01em;
 }
-footer > div {
+footer div {
     width: 50%;
     min-height: 1px;
     float: left;
 }
-footer > div + div {
+footer div + div {
     text-align: right;
 }
 footer > nav {
@@ -206,6 +207,7 @@ iframe {
     margin-bottom: 1em;
 }
 #articleList h2 {
+margin-top: 0;
     font-family: 'Julius Sans One', sans-serif;
     font-size: 150%;
     letter-spacing: 0.05em;
