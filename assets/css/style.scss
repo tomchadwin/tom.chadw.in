@@ -160,6 +160,8 @@ footer div {
     display: inline-block;
     width: 50%;
     text-align: left;
+    vertical-align: top;
+    text-indent: 1em;
 }
 footer div + div {
     text-align: right;
