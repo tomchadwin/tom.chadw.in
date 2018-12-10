@@ -151,6 +151,9 @@ footer {
     padding-bottom: 2em;
     color: #ccc;
     text-align: center;
+    font-family: 'Baskerville Libre', serif;
+    font-size: 90%;
+    font-style: italic;
 }
 footer > div {
     width: 50%;
@@ -162,9 +165,6 @@ footer > div + div {
 }
 footer > nav {
     margin-bottom: 1em;
-    font-family: 'Baskerville Libre', serif;
-    font-size: 90%;
-    font-style: italic;
 }
 figure {
     margin: 1em auto 1em;
