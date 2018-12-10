@@ -2,14 +2,16 @@
 title: "OSGeo"
 permalink: /osgeo
 ---
-<figure>
-    <img src="/assets/pics/osgeo.svg" alt="OSGeo" />
-</figure>
+# OSGeo
 
 The [Open Source Geospatial Foundation (OSGeo)](https://www.osgeo.org/) is a 
 not-for-profit organization whose mission is to foster global adoption of open 
 geospatial technology by being an inclusive software foundation devoted to an 
 open philosophy and participatory community driven development.
+
+<figure>
+    <img src="/assets/pics/osgeo.svg" alt="OSGeo" />
+</figure>
 
 As a charter member of OSGeo, I'm happy to speak to anyone about open-source 
 spatial software and help to increase its use across public, private, and 
