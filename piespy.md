@@ -22,5 +22,5 @@ on Amazon. I can't in all honesty recommend it.
 <blockquote>Riveting, a <em>tour de force</em> in pastry literature!
 </blockquote>
 
-<blockquote>f you only read one book about pies this year, make it this one. A 
-masterpiece.</blockquote>
+<blockquote>If you only read one book about pies this year, make it this one. 
+A masterpiece.</blockquote>
