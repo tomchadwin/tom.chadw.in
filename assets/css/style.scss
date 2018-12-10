@@ -110,18 +110,16 @@ header a {
     color: #bbb;
     letter-spacing: 0.25em;
 }
-header>a {
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;  
+header > a {
+    display: block;
+    width: 100%;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
 }
 nav {
-    display: inline-block;
-    width: 50%;
+    width: 100%;
 }
 header ul {
-    display: inline-block;
-    width: 100%;
     margin-top: 0;
     text-align: right;
     margin-block-start: 0;
