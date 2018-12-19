@@ -1001,4 +1001,5 @@ all the feedback and problem-solving.
 At the end of the day, these maps are just weapons in a fight against harmful 
 changes — harmful to our families, and to our communities. The maps won’t win 
 this battle for us. Let’s hope something does.
+
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
