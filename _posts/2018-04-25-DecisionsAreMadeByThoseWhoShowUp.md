@@ -31,3 +31,8 @@ pyrrhic.
 However, we can now say to our eight-year-old daughter that when local 
 government were going to do something she did not want, she objected, and the 
 Council changed their mind. She shaped the future, and for the better.
+
+<figure>
+    <img src="/assets/DecisionsAreMadeByThoseWhoShowUp.jpeg"
+        alt="Decisions are made by those who show up" />
+</figure>
