@@ -84,7 +84,7 @@ Reader](https://github.com/geometalab/Vector-Tiles-Reader-QGIS-Plugin/). The
 GL JSON styles don’t import, but you can apply each layer QML individually:
 
 <figure>
-    <img src="/assets/pics/Zoomstack/VectorTiles.jpeg"
+    <img src="/assets/pics/Zoomstack/VectorTiles.png"
          alt="Vector tiles in QGIS, thanks to the Vector Tiles Reader 
          plugin" />
     <figcaption>Vector tiles in QGIS, thanks to the Vector Tiles Reader 
@@ -120,7 +120,7 @@ is surely A Good Thing)
 The labelling of settlements is perhaps too heavy:
 
 <figure>
-    <img src="/assets/pics/Zoomstack/HeavyLabels.jpeg"
+    <img src="/assets/pics/Zoomstack/HeavyLabels.png"
          alt="Longbenton? In bold? Wrong on so many levels" />
     <figcaption>Longbenton? In bold? Wrong on so many levels</figcaption>
 </figure>
@@ -129,7 +129,7 @@ Knocking back to a paler grey, and unemboldening non-cities is an improvement,
 together with making a greater size differential:
 
 <figure>
-    <img src="/assets/pics/Zoomstack/BetterLabels.jpeg"
+    <img src="/assets/pics/Zoomstack/BetterLabels.png"
          alt="Sunderland still regrettably bold" />
     <figcaption>Sunderland still regrettably bold</figcaption>
 </figure>
@@ -147,7 +147,7 @@ Some zoom levels seem to fall between label visibility thresholds. This
 becomes apparent in rural areas (my own interest):
 
 <figure>
-    <img src="/assets/pics/Zoomstack/NoLabels.jpeg" alt="Dulce domum" />
+    <img src="/assets/pics/Zoomstack/NoLabels.png" alt="Dulce domum" />
     <figcaption><em>Dulce domum</em></figcaption>
 </figure>
 
@@ -165,7 +165,7 @@ difficult.
 An example is the labelling of the Waterlines layer:
 
 <figure>
-    <img src="/assets/pics/Zoomstack/WaterlinesLabels.jpeg"
+    <img src="/assets/pics/Zoomstack/WaterlinesLabels.png"
          alt="Something of the platform game about these labels" />
     <figcaption>Something of the platform game about these labels</figcaption>
 </figure>
@@ -181,7 +181,7 @@ that improvement, though.
 A few issues are apparent at Swan House Roundabout in Newcastle:
 
 <figure>
-    <img src="/assets/pics/Zoomstack/RoadIssues.jpeg"
+    <img src="/assets/pics/Zoomstack/RoadIssues.png"
          alt="The subways under Swan House are the one and only time I have 
          actually walked in a circle while trying to find my way" />
     <figcaption>The subways under Swan House are the one and only time I have 
