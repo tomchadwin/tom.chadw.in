@@ -1,6 +1,7 @@
 ---
 title: "Where next for qgis2web?"
 permalink: /wrote/WhereNextForqgis2web
+twitpic: https://tom.chadw.in/assets/pics/qgis2webLogo.png
 description: >
     Those of you who follow QGIS closely might have noticed that development of 
     qgis2web has significantly slowed since QGIS 3 was released. Is this of 

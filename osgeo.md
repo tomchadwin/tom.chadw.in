@@ -1,6 +1,7 @@
 ---
 title: "OSGeo"
 permalink: /osgeo
+twitpic: https://tom.chadw.in/assets/pics/osgeo.svg
 ---
 # OSGeo
 

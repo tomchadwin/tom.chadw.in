@@ -1,6 +1,7 @@
 ---
 title: "Articles"
 permalink: /articles
+twitpic: https://tom.chadw.in/assets/pics/TomSquare.jpg
 ---
 <ul id="articleList">
 {% for post in site.posts %}

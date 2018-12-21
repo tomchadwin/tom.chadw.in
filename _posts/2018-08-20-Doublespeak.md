@@ -1,6 +1,7 @@
 ---
 title: "doublespeak: Northumberland County Council"
 permalink: /wrote/Doublespeak
+twitpic: https://tom.chadw.in/assets/pics/1984.jpeg
 description: >
     The Council’s consultation report on education in west Northumberland, 
     published at the end of the stage-two consultation period, contained the 

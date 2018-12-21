@@ -1,6 +1,7 @@
 ---
 title: "Bellingham must stay three-tier"
 permalink: /wrote/BellinghamMustStayThreeTier
+twitpic: https://tom.chadw.in/assets/pics/ICantSeeYou.jpeg
 description: >
     Northumberland County Council initially consulted on changing the whole of 
     west Northumberland to a two-tier school system. At the same time, Hadrian 

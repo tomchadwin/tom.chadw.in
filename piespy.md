@@ -1,6 +1,7 @@
 ---
 title: "Pie Spy"
 permalink: /piespy
+twitpic: https://tom.chadw.in/assets/pics/PieSpy.jpg
 ---
 # Pie Spy
 

@@ -1,6 +1,7 @@
 ---
 title: "Mapping Emotion: Fighting school closures with QGIS"
 permalink: /wrote/MappingEmotion
+twitpic: https://tom.chadw.in/assets/pics/MappingEmotion/ShallowFocus.png
 description: >
     At FOSS4G UK 2018, Ross McDonald gave an amazing talk in the cartography 
     stream on visualizing school catchment areas. Little did I know at the 

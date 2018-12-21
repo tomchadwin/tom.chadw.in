@@ -1,6 +1,7 @@
 ---
 title: "OS Zoomstack: first impressions"
 permalink: /wrote/Zoomstack
+twitpic: https://tom.chadw.in/assets/pics/Zoomstack/BetterLabels.png
 description: >
     Zoomstack is “a comprehensive vector basemap from a national overview to 
     street level detail”. It comes in various extremely powerful and/or 

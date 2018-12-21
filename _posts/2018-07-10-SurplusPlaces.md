@@ -1,6 +1,7 @@
 ---
 title: "Surplus places in west Northumberland schools"
 permalink: /wrote/SurplusPlaces
+twitpic: https://tom.chadw.in/assets/pics/TomSquare.jpg
 description: >
     Surplus places were cited as a reason for the proposals to close 
     successful schools in the region. My argument was that if a school’s 
