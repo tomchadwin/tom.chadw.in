@@ -1,7 +1,7 @@
 ---
 title: "A once-in-a-generation opportunity"
 permalink: /wrote/OnceInaGeneration
-blurb: >
+description: >
     Haydon Bridge High School catchment area is more than twice the size of any 
     other Northumberland high or secondary catchment. It is nearly four times the 
     size of its neighbouring catchment of Hexham, the other school partnership 

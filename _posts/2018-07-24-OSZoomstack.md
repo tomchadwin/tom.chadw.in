@@ -1,7 +1,7 @@
 ---
 title: "OS Zoomstack: first impressions"
 permalink: /wrote/Zoomstack
-blurb: >
+description: >
     Zoomstack is “a comprehensive vector basemap from a national overview to 
     street level detail”. It comes in various extremely powerful and/or 
     user-friendly formats such as GeoPackage, PostGIS, and vector tiles (both 

@@ -1,7 +1,7 @@
 ---
 title: "Surplus places in west Northumberland schools"
 permalink: /wrote/SurplusPlaces
-blurb: >
+description: >
     Surplus places were cited as a reason for the proposals to close 
     successful schools in the region. My argument was that if a school’s 
     budget is balanced or in surplus, why do surplus places matter?
