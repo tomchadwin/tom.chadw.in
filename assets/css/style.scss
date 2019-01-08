@@ -237,13 +237,15 @@ margin-top: 0;
         font-size: 150%;
         line-height: 150%;
     }
+    header {
+        margin-bottom: 1em;
+    }
     header > a {
         display: block;
         width: 100%;
         text-align: center;
         font-size: 125%;
         border-bottom: 1px solid #ddd;
-        margin-bottom: 1em;
     }
     nav {
         display: block;
