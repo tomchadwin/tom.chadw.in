@@ -46,7 +46,7 @@ p {
     text-align: justify;
     text-indent: 0.75em;
 }
-h2+ p, p + p {
+h2 + p, p + p {
     word-wrap: break-word;
     overflow-wrap: break-word;
     -webkit-hyphens: auto;
@@ -286,6 +286,9 @@ embed {
         padding: 0;
         max-width: 100%;
         text-align: center;
+    }
+    #articleList h2 {
+        font-size: 125%;
     }
     #articleList p {
         text-align: left;
