@@ -215,7 +215,7 @@ embed {
     margin-bottom: 1em;
 }
 #articleList h2 {
-margin-top: 0;
+    margin-top: 0;
     font-family: 'Julius Sans One', sans-serif;
     font-size: 150%;
     letter-spacing: 0.05em;
@@ -253,6 +253,7 @@ margin-top: 0;
         text-align: center;
     }
     nav ul {
+        float: none;
         padding-left: 0;
         text-align: center;
     }
