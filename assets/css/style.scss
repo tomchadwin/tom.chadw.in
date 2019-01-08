@@ -240,6 +240,9 @@ embed {
     header {
         margin-bottom: 1em;
     }
+    header ul {
+        float: none;
+    }
     header > a {
         display: block;
         width: 100%;
@@ -253,7 +256,6 @@ embed {
         text-align: center;
     }
     nav ul {
-        float: none;
         padding-left: 0;
         text-align: center;
     }
