@@ -243,6 +243,7 @@ margin-top: 0;
         text-align: center;
         font-size: 125%;
         border-bottom: 1px solid #ddd;
+        margin-bottom: 1em;
     }
     nav {
         display: block;
@@ -280,6 +281,10 @@ margin-top: 0;
         padding: 0;
         max-width: 100%;
         text-align: center;
+    }
+    #articleList p {
+        text-align: left;
+        hyphens: none;
     }
     #articleList div:last-child {
         text-align: left;
