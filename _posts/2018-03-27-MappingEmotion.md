@@ -35,7 +35,17 @@ region. A coalition quickly formed, and garnered support from figures as
 diverse as [Allison 
 Curbishley](https://twitter.com/ExtraMileme/status/972529254314528769), [Alan 
 Davies](https://twitter.com/alandavies1/status/967118905935310849), and [Mike 
-Figgis](https://twitter.com/tomchadwin/status/968453147017523202).
+Figgis](https://twitter.com/tomchadwin/status/968453147017523202). I became a 
+new member of that proud tribe, [Angry People in Local 
+Newspapers](https://apiln.co.uk/):
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/APILN.jpg"
+         alt="Angry People in Local Newspapers" />
+    <figcaption>Angry People in Local Newspapers,
+        <a href="https://www.hexham-courant.co.uk/news/16614251.parents-say-more-time-is-needed/">
+        &copy; 2018 Hexham Courant</a></figcaption>
+</figure>
 
 Everyone is doing what they can. I work with maps (a bit), so I wondered 
 whether I could apply some of Ross’s techniques to this pressing and very 
@@ -186,6 +196,16 @@ approximate pupil locations, and ending at Greenhaugh First School. Of course,
 I could simply have created a new table of line features linking the points to 
 the school. However, as a coder, I hate duplication of data. If the point 
 dataset were to change, I’d have to redraw the lines.
+
+<figure>
+    <img src="/assets/pics/MappingEmotion/pinakographos.png"
+         alt="Vehicle traffic patterns, Ecological Atlas of the Bering, 
+         Chukchi, and Beaufort Seas, by Daniel P. Huffman" />
+    <figcaption>Vehicle traffic patterns, 
+        <a href="http://ak.audubon.org/conservation/ecological-atlas-bering-chukchi-and-beaufort-seas">
+        Ecological Atlas of the Bering, Chukchi, and Beaufort Seas</a>, by 
+        Daniel P. Huffman</figcaption>
+</figure>
 
 A geometry generator is the answer. The feature geometry remains untouched 
 points, and the creation of the line is done programmatically in the layer 
