@@ -165,9 +165,11 @@ footer div + div {
 }
 footer > nav {
     padding-bottom: 2em;
-    border-bottom: 1px solid #ccc;
     margin-bottom: 1em;
     font-size: 125%;
+}
+footer p:first-child {
+    border-bottom: 1px solid #ccc;
 }
 footer p {
     margin: 0 auto;
