@@ -146,7 +146,6 @@ header li a {
 footer {
     width: 100%;
     margin-top: 3em;
-    border-top: 1px solid #ccc;
     padding-top: 1em;
     padding-bottom: 2em;
     color: #ccc;
@@ -167,6 +166,7 @@ footer div + div {
     text-align: right;
 }
 footer > nav {
+    border-bottom: 1px solid #ccc;
     margin-bottom: 1em;
 }
 figure {
