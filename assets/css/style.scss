@@ -40,6 +40,9 @@ h2, h3 {
 h1 + p, h2 + p, h1 + figure + p, header + figure + p {
     text-indent: 0;
 }
+p:first-of-type::first-line {
+    font-variant: small-caps;
+}
 p {
     margin: 0;
     margin-bottom: 0.25em;
