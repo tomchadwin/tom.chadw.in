@@ -151,7 +151,7 @@ footer {
     color: #ccc;
     text-align: center;
     font-family: 'Baskerville Libre', serif;
-    font-size: 90%;
+    font-size: 70%;
     font-style: italic;
     letter-spacing: 0.01em;
 }
@@ -160,13 +160,12 @@ footer div {
     width: 50%;
     text-align: left;
     vertical-align: top;
-    text-indent: -1em;
 }
 footer div + div {
     text-align: right;
 }
 footer > nav {
-    padding-bottom: 1em;
+    padding-bottom: 2em;
     border-bottom: 1px solid #ccc;
     margin-bottom: 1em;
 }
