@@ -171,9 +171,10 @@ footer > nav {
     margin-bottom: 1em;
     font-size: 125%;
 }
-footer p:first-child {
+footer p:first-of-type {
     width: 60%;
     border-top: 1px solid #ccc;
+    padding-top: 0.25em;
 }
 footer p {
     margin: 0 auto;
