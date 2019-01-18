@@ -40,7 +40,7 @@ h2, h3 {
 h1 + p, h2 + p, h1 + figure + p, header + figure + p {
     text-indent: 0;
 }
-h1 + p::first-letter, h1 + figure + p::first-letter {
+/*h1 + p::first-letter, h1 + figure + p::first-letter {
     font-size: 2.5em;
     float: left;
     padding: 0.15em;
@@ -52,7 +52,7 @@ h1 + p::first-letter, h1 + figure + p::first-letter {
     margin-right: 0.1em;
     margin-top: 0.05em;
     background-color: #f9f9f9;
-}
+}*/
 h1 + p::first-line, h1 + figure + p::first-line {
     font-variant: small-caps;
 }
