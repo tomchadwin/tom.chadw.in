@@ -40,6 +40,14 @@ h2, h3 {
 h1 + p, h2 + p, h1 + figure + p, header + figure + p {
     text-indent: 0;
 }
+h1 + p::first-letter {
+    font-size: 3.5em;
+    float: left;
+    padding-top: 0.15em;
+    color: #d99;
+    padding-right: 0.1em;
+    font-weight: normal;
+}
 h1 + p::first-line {
     font-variant: small-caps;
 }
