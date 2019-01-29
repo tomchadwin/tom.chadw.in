@@ -17,6 +17,7 @@ body > header + p {
     color: #bbb;
     font-size: 80%;
     text-indent: 0;
+    margin-bottom: 1em;
 }
 h1, h2, h3 {
     font-family: 'Julius Sans One', sans-serif;
@@ -175,9 +176,15 @@ footer div {
     width: 50%;
     text-align: left;
     vertical-align: top;
+    padding-left: 1em;
+    text-indent: -1em;
 }
 footer div + div {
     text-align: right;
+    padding-right: 1em;
+}
+footer div + div::first-line {
+    padding-right: 0em;
 }
 footer > nav {
     padding-bottom: 2em;
