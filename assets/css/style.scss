@@ -173,16 +173,13 @@ footer {
 }
 footer div {
     display: inline-block;
-    width: 50%;
+    width: calc(50% - 1em);
     text-align: left;
     vertical-align: top;
-    padding-left: 1em;
-    text-indent: -1em;
 }
 footer div + div {
     text-align: right;
-    padding-right: 1em;
-}
+a}
 footer div + div::first-line {
     padding-right: 0em;
 }
