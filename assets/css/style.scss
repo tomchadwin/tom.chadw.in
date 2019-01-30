@@ -177,7 +177,7 @@ footer div {
     text-align: left;
     vertical-align: top;
 }
-footer div::before {
+footer div::first-child::before {
     content: '< ';
     color: #c77;
 }
