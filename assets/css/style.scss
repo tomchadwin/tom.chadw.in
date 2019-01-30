@@ -177,8 +177,16 @@ footer div {
     text-align: left;
     vertical-align: top;
 }
+footer div::before {
+    content: '< ';
+    color: #c77;
+}
 footer div + div {
     text-align: right;
+}
+footer div + div::after {
+    content: ' >';
+    color: #c77;
 }
 footer div + div::first-line {
     padding-right: 0em;
