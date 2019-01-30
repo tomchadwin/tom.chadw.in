@@ -179,6 +179,7 @@ footer div {
 }
 footer nav div:first-child::before {
     display: inline-block;
+    width: 1em;
     content: '< ';
     color: #c77;
 }
@@ -187,7 +188,8 @@ footer div + div {
 }
 footer div + div::after {
     display: inline-block;
-    content: ' >'; 
+    width: 1em;
+    content: ' >';
     color: #c77;
 }
 footer div + div::first-line {
