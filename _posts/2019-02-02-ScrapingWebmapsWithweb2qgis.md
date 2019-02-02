@@ -85,7 +85,7 @@ mainFrame = webview.page().mainFrame()
 mainFrame.evaluateJavaScript("L.version")
 ```
 
-This is the programmatic equivalent of loading <code>url_from_GUI</code> in a browser, 
+This is the programmatic equivalent of loading `url_from_GUI` in a browser, 
 opening the console, and typing `L.version`. If a Leaflet version is returned, 
 the webpage has a Leaflet map on it.
 
