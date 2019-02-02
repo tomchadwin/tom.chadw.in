@@ -18,9 +18,9 @@ code to do the same thing in reverse--scrape a webpage for webmaps, and import
 any maps it found into a QGIS project.
 
 ## Webscrapers
-Though I've bever used one myself, I know that webscapers are A Thing. People 
+Though I've never used one myself, I know that webscapers are A Thing. People 
 use them to scrape content from third-party websites, allowing them to 
-republish them on their own sites. I assume that the fundamental idea is to 
+republish it on their own sites. I assume that the fundamental idea is to 
 scrape the content without the style.
 
 ## A webmap scraper?
@@ -38,8 +38,9 @@ concept is valid, and more work on this QGIS plugin would be valuable.
 So how can this work? A QGIS plugin is written in Python, but a webmap is 
 written in Javascript. One could try to analyse JS to try to pull out relevant 
 information by using regular expressions, but this would be, to all intents 
-and purposes, impossible, and the resulting output would still be a bunch of 
-strings, rather than anything meaningful.
+and purposes, [impossible](https://stackoverflow.com/a/1732454/5613104), and 
+the resulting output would still be a bunch of strings, rather than anything 
+meaningful.
 
 ## Injecting Javascript into a webpage
 To do this properly, unless there was an amazing JS parser written in Python 
@@ -69,7 +70,7 @@ nagging concern, though.
 
 ## Using QtWebKit to inject JS
 qgis2web uses QtWebKit for its preview window. In other words, it includes a 
-complete browser implementation, sousers can see and interact with their 
+complete browser implementation, so users can see and interact with their 
 webmap within the plugin GUI before exporting.
 
 This is the reason I didn't immediately think of using it in web2qgis. I 
@@ -149,9 +150,9 @@ Esprima is the one I found, and have been completely impressed by it. You pass
 JS to Esprima, and it parses it into an abstract syntax tree (AST). My 
 understanding is that this is how browser JS engines themselves work, and I 
 also had some familiarity with ASTs through Nathan Woodrow's work on 
-converting QGIS expressions into JS.
+[converting QGIS expressions into JS](https://github.com/NathanW2/qgs2js).
 
-I then worked away at ways in which to [convert Leaflet style ASTs into QGIS 
+I then worked on ways in which to [convert Leaflet style ASTs into QGIS 
 renderers](https://github.com/tomchadwin/web2qgis/commit/e58488c7355fca36df9edcd621001b19a0b7363e). 
 However, although I got this working to some extent, it could not handle a 
 common and fundamental styling technique--calling another function or 
@@ -162,7 +163,7 @@ functions within the main layer style function.
 I got an [initial version](https://github.com/tomchadwin/web2qgis/commit/af9319b63c2ff84eff5010c52b1d2f982e02aab4#diff-e30ae12bc92714646aff60ee1a28d4dbR173) 
 of this working. However, I stepped back, and realized I was starting to code 
 for specific possible function patterns I knew well (often those exported by 
-qgis2web). I knew what was really required was a to parse the whole webpage in 
+qgis2web). I knew what was really required was to parse the whole webpage in 
 entirety, and then build a stack of more and more granular tests in the Python 
 AST walking function to handle everything which was required.
 
@@ -171,13 +172,13 @@ functionality of a JS-to-Python converter.
 
 That's when I stopped work on web2qgis. It's not that I can't see where to go 
 next. Nathan's walk code has shown me how to build things up from an AST. It's 
-just that it feels so fundamental, that perhaps it seems a more intimidating 
+just that it feels so fundamental, and perhaps seems a more intimidating 
 job than it actually is.
 
 ## Where next?
 Along with the necessary broadening out of the AST parsing process, and 
 building more functions to support more map styles and elements, this could be 
-an incredibly powerful QGIS Processing algorithm (hat-tp to Nyall Dawson for 
+an incredibly powerful QGIS Processing algorithm (hat-tip to Nyall Dawson for 
 suggesting this on Twitter). The ability to scrape specific data from webmaps 
 as one step in an automated processing pipeline is appealing.
 
@@ -187,3 +188,7 @@ think the idea has sigificant potential, and I do regret that the scale of the
 job intimidated me into putting it on hold.
 
 - https://github.com/tomchadwin/web2qgis
+
+Thanks are due to James Milner, Vladimir Agafonkin, Per Liedman, and Calvin 
+Metcalfe for help on Twitter during all this. Without it I would definitely 
+not have got as far as I have.
