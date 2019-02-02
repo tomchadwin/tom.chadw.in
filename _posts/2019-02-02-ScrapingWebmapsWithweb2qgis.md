@@ -81,7 +81,8 @@ simple QtWebKit method to execute JS:
 ```python
 webview = QWebView()
 webview.load(QUrl(url_from_GUI))
-webview.page().mainFrame().evaluateJavaScript("L.version")
+mainFrame = webview.page().mainFrame()
+mainFrame.evaluateJavaScript("L.version")
 ```
 
 This is the programmatic equivalent of loading `url_from_GUI` in a browser, 
