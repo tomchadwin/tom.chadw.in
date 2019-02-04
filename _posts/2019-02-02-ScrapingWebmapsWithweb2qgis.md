@@ -44,10 +44,10 @@ meaningful.
 
 ## Injecting Javascript into a webpage
 To do this properly, unless there was an amazing JS parser written in Python 
-(an hour or so of auto-nerdsnipe later, I didn't really fancy that), I needed 
-to execute my own JS in the context of the webpage. My main eureka moment in 
-the limited development of web2qgis was to realize that I had already used a 
-JS parser in Python: QtWebKit.
+(an hour or so of auto-[nerdsnipe](https://www.xkcd.com/356/) later, I didn't 
+really fancy that), I needed to execute my own JS in the context of the 
+webpage. My main eureka moment in the limited development of web2qgis was to 
+realize that I had already used a JS parser in Python: QtWebKit.
 
 ## What is QtWebkit?
 Let's break this question down. Qt is an open-source cross-platform framework 
