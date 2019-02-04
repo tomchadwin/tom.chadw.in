@@ -78,29 +78,28 @@ thought of it as a GUI element. However, one can use it to load a webpage
 without rendering it. This is what web2qgis does in PyQt, and then uses a 
 simple QtWebKit method to execute JS:
 
-<code>
-webview = QWebView()
+<code>webview = QWebView()
 webview.load(QUrl(url_from_GUI))
 mainFrame = webview.page().mainFrame()
 mainFrame.evaluateJavaScript("L.version")
 </code>
 
-This is the programmatic equivalent of loading <code>url_from_GUI</code> in a 
-browser, opening the console, and typing <code>L.version</code>. If a Leaflet 
-version is returned, the webpage has a Leaflet map on it.
+This is the programmatic equivalent of loading 
+<code class="inline">url_from_GUI</code> in a browser, opening the console, 
+and typing <code class="inline">L.version</code>. If a Leaflet version is 
+returned, the webpage has a Leaflet map on it.
 
-Note that the code above is simplified. <code>QWebView.load()</code> is 
-asynchronous, so the code above would try to run JS against the page before it 
-had finished loading. The real code handles this using the 
-<code>loadFinished</code> signal.
+Note that the code above is simplified. 
+<code class="inline">QWebView.load()</code> is asynchronous, so the code above 
+would try to run JS against the page before it had finished loading. The real 
+code handles this using the <code class="inline">loadFinished</code> signal.
 
 ## Simple scraping
 Once the above code had confirmed that the target page contained a Leaflet 
 map, I could run more JS against the page to start to pull back elements of 
 the map to import:
 
-<code>
-(function (){
+<code>(function (){
   urls = [];
   for(var key in window) {
     var value = window[key];
@@ -116,12 +115,12 @@ the map to import:
 }());
 </code>
 
-This loops through the DOM to find an <code>L.Map</code>, loops through its 
-<code>_layers</code>, and builds a list of XYZ layers called 
-<code>xyzs[]</code>. These layers can then be added to QGIS:
+This loops through the DOM to find an <code class="inline">L.Map</code>, loops 
+through its <code class="inline">_layers</code>, and builds a list of XYZ 
+layers called <code class="inline">xyzs[]</code>. These layers can then be 
+added to QGIS:
 
-<code>
-self.iface.addRasterLayer("type=xyz&url=" + xyzs[0], "XYZ layer", "wms")
+<code>self.iface.addRasterLayer("type=xyz&url=" + xyzs[0], "XYZ layer", "wms")
 </code>
 
 When I first got this to work, my excitement was palpable.
@@ -134,8 +133,8 @@ and to start to bring in other aspects of the map, such as its
 [extent](https://github.com/tomchadwin/web2qgis/commit/d2b3347b678abe8812137fa39de5c92004f049b0).
 
 I then started to build the equivalent functionality for OpenLayers webmaps, 
-detecting them with <code>evaluateJavaScript("ol")</code>, and parsing them in 
-the same way.
+detecting them with <code class="inline">evaluateJavaScript("ol")</code>, and 
+parsing them in the same way.
 
 ## Style
 This was already a useful tool, pulling in raster and vector layers. However, 
