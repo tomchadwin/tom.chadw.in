@@ -3,8 +3,9 @@ title: "Scraping webmaps with web2qgis"
 permalink: /wrote/ScrapingWebmapsWithweb2qgis
 twitpic: https://tom.chadw.in/assets/pics/qgis2webLogo.png
 description: >
-    I wondered if one could write code to do the same thing in reverse--scrape 
-    a webpage for webmaps, and import any maps it found into a QGIS project.
+    I wondered if one could write code to do the same thing in 
+    reverse&emdash;scrape a webpage for webmaps, and import any maps it found 
+    into a QGIS project.
 ---
 
 # Scraping webmaps with web2qgis
@@ -13,9 +14,9 @@ description: >
 <img src="/assets/pics/qgis2webLogo.png" alt="qgis2web" />
 </figure>
 
-qgis2web turns QGIS projects into webmaps. I wondered if one could write 
-code to do the same thing in reverse--scrape a webpage for webmaps, and import 
-any maps it found into a QGIS project.
+qgis2web turns QGIS projects into webmaps. I wondered if one could write code 
+to do the same thing in reverse&emdash;scrape a webpage for webmaps, and 
+import any maps it found into a QGIS project.
 
 ## Webscrapers
 Though I've never used one myself, I know that webscapers are A Thing. People 
@@ -166,7 +167,7 @@ Python's strong list functions to walk the AST.
 I then worked on ways in which to [convert Leaflet style ASTs into QGIS 
 renderers](https://github.com/tomchadwin/web2qgis/commit/e58488c7355fca36df9edcd621001b19a0b7363e). 
 However, although I got this working to some extent, it could not handle a 
-common and fundamental styling technique--calling another function or 
+common and fundamental styling technique&emdash;calling another function or 
 functions within the main layer style function.
 
 ## Overwhelming
