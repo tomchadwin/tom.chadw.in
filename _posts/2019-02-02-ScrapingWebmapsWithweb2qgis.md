@@ -47,7 +47,7 @@ To do this properly, unless there was an amazing JS parser written in Python
 (an hour or so of auto-nerdsnipe later, I didn't really fancy that), I needed 
 to execute my own JS in the context of the webpage. My main eureka moment in 
 the limited development of web2qgis was to realize that I had already used a 
-JS parser in JSON: QtWebKit.
+JS parser in Python: QtWebKit.
 
 ## What is QtWebkit?
 Let's break this question down. Qt is an open-source cross-platform framework 
@@ -188,7 +188,7 @@ currently limited functionality, I would, of course, be incredibly grateful. I
 think the idea has sigificant potential, and I do regret that the scale of the 
 job intimidated me into putting it on hold.
 
-- https://github.com/tomchadwin/web2qgis
+- [github.com/tomchadwin/web2qgis](https://github.com/tomchadwin/web2qgis)
 
 Thanks are due to James Milner, Vladimir Agafonkin, Per Liedman, and Calvin 
 Metcalfe for help on Twitter during all this. Without it I would definitely 
