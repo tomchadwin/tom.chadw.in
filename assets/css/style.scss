@@ -93,7 +93,8 @@ blockquote {
     color: #999;
 }
 ul {
-    list-style-image: url('/assets/pics/pointing-hand.svg')
+    list-style-image: url('/assets/pics/pointing-hand.svg');
+    margin-left: 1em;
 }
 code {
     display: block;
