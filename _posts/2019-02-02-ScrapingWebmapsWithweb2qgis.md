@@ -120,7 +120,9 @@ through its <code class="inline">_layers</code>, and builds a list of XYZ
 layers called <code class="inline">xyzs[]</code>. These layers can then be 
 added to QGIS:
 
-<code>self.iface.addRasterLayer("type=xyz&url=" + xyzs[0], "XYZ layer", "wms")
+<code>self.iface.addRasterLayer("type=xyz&url=" + xyzs[0],
+                                "XYZ layer",
+                                "wms")
 </code>
 
 When I first got this to work, my excitement was palpable.
@@ -148,11 +150,18 @@ not going to get very far. I needed to be able to convert JS functions into
 something I could then work with in Python to rebuild the styles in QGIS.
 
 Fairly soon, I realized that I needed a full-on JS parser, written in JS. 
-Esprima is the one I found, and have been completely impressed by it. You pass 
-JS to Esprima, and it parses it into an abstract syntax tree (AST). My 
-understanding is that this is how browser JS engines themselves work, and I 
-also had some familiarity with ASTs through Nathan Woodrow's work on 
-[converting QGIS expressions into JS](https://github.com/NathanW2/qgs2js).
+[Esprima](http://esprima.org/) is the one I found, and I've been completely 
+impressed by it. You pass JS to Esprima, and it parses it into an abstract 
+syntax tree (AST). My understanding is that this is how browser JS engines 
+themselves work, and I also had some familiarity with ASTs through Nathan 
+Woodrow's work on [converting QGIS expressions into 
+JS](https://github.com/NathanW2/qgs2js).
+
+The beauty of this is that if you parse a page with Epsrima via a Python 
+QtWebKit <code class="inline">evaluateJavaScript()</code> call, the returned 
+AST *is a Python list*. In other words, it handles the intelligent conversion 
+of a JS type to a Python type. In this case, it means that you can then use 
+Python's strong list functions to walk the AST.
 
 I then worked on ways in which to [convert Leaflet style ASTs into QGIS 
 renderers](https://github.com/tomchadwin/web2qgis/commit/e58488c7355fca36df9edcd621001b19a0b7363e). 
