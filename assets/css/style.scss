@@ -179,7 +179,7 @@ footer {
 }
 footer div {
     display: inline-block;
-    width: calc(50% - 1em);
+    width: calc(50% - 2em);
     text-align: left;
     vertical-align: top;
 }
@@ -188,8 +188,8 @@ footer nav div:first-child {
 }
 footer nav div:first-child a::before {
     display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    width: 2em;
+    margin-left: -2em;
     content: url('/assets/pics/left-pointing-hand.svg');
     color: #c77;
 }
@@ -199,8 +199,8 @@ footer div + div {
 }
 footer div + div a::after {
     display: inline-block;
-    width: 1em;
-    margin-right: -1em;
+    width: 2em;
+    margin-right: -2em;
     content: url('/assets/pics/pointing-hand.svg');
     color: #c77;
 }
