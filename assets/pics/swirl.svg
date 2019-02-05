@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="846.74725"
-   height="171.48248"
+   width="283.83737"
+   height="57.482483"
    id="svg4680"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -48,12 +48,13 @@
     <dc:format>image/svg+xml</dc:format>
     <dc:type
        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title>swirl black</dc:title>
   </cc:Work>
 </rdf:RDF>
 </metadata>
   <g
      id="g5266"
-     transform="translate(111.61824,-114.92299)"
+     transform="matrix(0.33520907,0,0,0.33520907,37.415447,-38.523229)"
      style="fill:#808080;fill-opacity:1">
     <path
        sodipodi:nodetypes="sccccccssscscccscsssccscsssscssssssccscssssscsscscsscssccscccccsssccscscccccccsccssscscccscsssccccccscsscscsscssssscsccsssssscsscccsssccccscsccsccccsc"
