@@ -50,7 +50,6 @@ h1 + p, h2 + p, h1 + figure + p, header + figure + p {
     padding-right: 0.1em;
     font-weight: normal;
     font-family: 'Julius Sans One';
-    border: 1px solid #cccccd;
     margin-right: 0.1em;
     margin-top: 0.05em;
     background-color: #f9f9f9;
@@ -214,8 +213,10 @@ footer p:first-of-type {
     padding-top: 0.25em;
 }
 footer p:first-of-type::before {
-    content: url(/assets/pics/swirl.svg);
+    content: url('/assets/pics/swirl.svg');
     display: block;
+    margin-top: 3em;
+    margin-bottom: 1em;
 }
 footer p {
     margin: 0 auto;
