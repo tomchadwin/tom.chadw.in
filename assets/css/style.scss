@@ -213,6 +213,10 @@ footer p:first-of-type {
     border-top: 1px solid #ccc;
     padding-top: 0.25em;
 }
+footer p:first-of-type::before {
+    content: url(/assets/pics/swirl.svg);
+    display: block;
+}
 footer p {
     margin: 0 auto;
     text-align: center;
