@@ -93,7 +93,7 @@ blockquote {
     color: #999;
 }
 ul {
-    list-style-image: url('/assets/pics/pointing-hand.svg');
+    list-style-image: url('/assets/pics/hand-right.svg');
     margin-left: 1em;
 }
 code {
@@ -189,7 +189,7 @@ footer nav div:first-child a::before {
     display: inline-block;
     width: 2em;
     margin-left: -2em;
-    content: url('/assets/pics/left-pointing-hand.svg');
+    content: url('/assets/pics/hand-left.svg');
     color: #c77;
 }
 footer div + div {
@@ -200,7 +200,7 @@ footer div + div a::after {
     display: inline-block;
     width: 2em;
     margin-right: -2em;
-    content: url('/assets/pics/pointing-hand.svg');
+    content: url('/assets/pics/hand-right.svg');
     color: #c77;
 }
 footer > nav {
