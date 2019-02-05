@@ -1,7 +1,7 @@
 ---
 title: "A time for free maps"
 permalink: /wrote/ATimeForFreeMaps
-twitpic: https://tom.chadw.in/assets/pics/LaughOutLoudCats_2074.jpeg
+twitpic: https://tom.chadw.in/assets/pics/LaughOutLoudCats_2074.png
 description: >
     Perhaps I’m mistaken, but it seems to me that enthusiasm for  Leaflet and 
     OpenLayers  web mapping libraries has cooled over recent times. After 
