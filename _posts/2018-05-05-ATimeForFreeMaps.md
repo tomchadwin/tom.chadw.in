@@ -54,7 +54,7 @@ Maps, we would have known from the start that such a change could never
 legally catch us off-balance.
 
 <figure>
-    <img src="/assets/pics/LaughOutLoudCats_2074.jpeg" alt="I upgraded teh maps." />
+    <img src="/assets/pics/LaughOutLoudCats_2074.png" alt="I upgraded teh maps." />
     <figcaption>
     <a href="https://www.flickr.com/photos/apelad/8008327113">Laugh-Out-Loud Cats #2074</a> 
     by <a href="https://www.flickr.com/photos/apelad/">Ape-Lad</a> (licensed under 
