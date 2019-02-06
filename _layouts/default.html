@@ -36,7 +36,13 @@
     <p>{{ page.date | date: "%e %B %Y" }}</p>
 {% endif %}
     <main>
+{% if page.date %}
+    <article>
+{% endif %}
     {{ content }}
+{% if page.date %}
+    </article>
+{% endif %}
     </main>
     <!-- FOOTER  -->
     <footer>
