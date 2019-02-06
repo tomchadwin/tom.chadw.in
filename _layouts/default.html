@@ -35,9 +35,9 @@
 {% if page.date %}
     <p>{{ page.date | date: "%e %B %Y" }}</p>
 {% endif %}
-
+    <main>
     {{ content }}
-
+    </main>
     <!-- FOOTER  -->
     <footer>
 {% if page.next != nil or page.previous != nil %}
