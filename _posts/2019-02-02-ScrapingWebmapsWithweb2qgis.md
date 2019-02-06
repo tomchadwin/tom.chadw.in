@@ -6,7 +6,7 @@ description: >
     I wondered if one could write code to do the same thing in reverse—scrape 
     a webpage for webmaps, and import any maps it found into a QGIS project.
 ---
-
+<article>
 # Scraping webmaps with web2qgis
 
 <figure class="floatright">
@@ -203,3 +203,4 @@ job intimidated me into putting it on hold.
 Thanks are due to James Milner, Vladimir Agafonkin, Per Liedman, and Calvin 
 Metcalfe for help on Twitter during all this. Without it I would definitely 
 not have got as far as I have.
+</article>

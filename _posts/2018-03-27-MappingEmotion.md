@@ -7,6 +7,7 @@ description: >
     stream on visualizing school catchment areas. Little did I know at the 
     time how relevant to my family this would prove.
 ---
+<article>
 # Mapping Emotion: Fighting school closures with QGIS
 
 At FOSS4G UK 2018, Ross McDonald gave an amazing talk in the cartography 
@@ -1024,3 +1025,4 @@ changes — harmful to our families, and to our communities. The maps won’
 this battle for us. Let’s hope something does.
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</article>

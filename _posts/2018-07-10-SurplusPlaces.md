@@ -8,6 +8,7 @@ description: >
     budget is balanced or in surplus, why do surplus places matter?
 
 ---
+<article>
 # Surplus places in west Northumberland schools
 
 In responding to the Northumberland Council stage-two consultation on 
@@ -102,3 +103,4 @@ The Northumberland Council Cabinet meeting which will decide whether
 Bellingham Middle School will close starts in ten minutes time.
 
 We say no.
+</article>

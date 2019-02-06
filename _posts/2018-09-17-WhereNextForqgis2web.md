@@ -8,6 +8,7 @@ description: >
     concern? What next for the plugin?
 ---
 
+<article>
 # Where next for qgis2web?
 
 <figure class="floatright">
@@ -91,3 +92,4 @@ If you think that you could contribute to any of this, your input would be
 incredibly appreciated. Go to the [qgis2web 
 bugtracker](https://github.com/tomchadwin/qgis2web/issues) and see what takes 
 your fancy.
+</article>

@@ -15,6 +15,7 @@ description: >
     After overwhelmingly negative responses on both issues, both decided 
     against this change in the Hexham partnership.
 ---
+<article>
 # Bellingham must stay three-tier
 
 Northumberland County Council initially consulted on changing the whole of 
@@ -195,3 +196,4 @@ that the law now dictates that they *must* remain first schools.
 
 The governors must now raise their heads above the parapets, and require the 
 Council to act in accordance with the law.
+</article>

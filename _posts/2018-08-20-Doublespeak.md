@@ -9,6 +9,7 @@ description: >
     the Haydon Bridge Partnership has not expressed a desire to return to the 
     3-tier system therefore this would be an unpopular and retrograde step.”
 ---
+<article>
 # doublespeak: Northumberland County Council
 
 The Council’s consultation report on education in west Northumberland, 
@@ -57,3 +58,4 @@ As it is, the community is now in open revolt against the Council. This is the
 endgame of a decade-long political long con to foist two-tier education on 
 that community which the Council purport to serve. Let the next local 
 elections serve them their just deserts.
+</article>
