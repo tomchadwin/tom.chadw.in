@@ -43,7 +43,7 @@ they will still convert the first schools to primaries.
     </figcaption>
 </figure>
 
-
+<section markdown="1">
 ## Why is this wrong?
 
 First schools have years 1–4, while middle schools have years 5–8. Pupils 
@@ -58,7 +58,9 @@ The Council’s plans will mean a single board of governors will be in charge of
 duplicate years 5 and 6, on the same site. This is unworkable and profoundly 
 inefficient. The other primary schools will also be in competition with 
 Bellingham Middle for year 5–6 pupils.
+</section>
 
+<section markdown="1">
 ## What should happen next?
 
 The Adjudicator was clear from the start that he was investigating only the 
@@ -112,7 +114,9 @@ firsts to primaries.
 
 Remember that, while these documents are called “guidance”, they are 
 *statutory*. They must legally be followed.
+</section>
 
+<section markdown="1">
 ## The Adjudicator said more than he had to
 
 In many places throughout his decision, despite only judging the closure of 
@@ -166,7 +170,9 @@ since Hexham remains three-tier
 
 - Insufficient surplus places removed, and *with Bellingham Middle School 
 saved from closure, the number of places actually increases*
+</section>
 
+<section markdown="1">
 ## What do we do now?
 
 Although the four pieces of guidance dictate that the Council must revoke its 
@@ -195,3 +201,4 @@ that the law now dictates that they *must* remain first schools.
 
 The governors must now raise their heads above the parapets, and require the 
 Council to act in accordance with the law.
+</section>

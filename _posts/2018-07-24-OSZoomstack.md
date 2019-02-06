@@ -27,6 +27,7 @@ It’s very much worth looking at Alasdair’s Mapbox GL examples, as I don’t
 cover that usage here, and GL exploits the possibilities of this vector data 
 impressively.
 
+<section markdown="1">
 ## Initial impressions
 
 First off, this is a game-changer for UK mapping. Three factors contribute to 
@@ -55,7 +56,9 @@ constructive), here are a few details which could maybe use improvement. I’m
 not a great user of spatial *data*, so the majority of this review focuses on 
 cartographic style. Who knows what people will achieve by programmatic use of 
 the data.
+</section>
 
+<section markdown="1">
 ## Read The Formatting Manual
 
 Please consult [the 
@@ -63,7 +66,9 @@ docs](https://www.ordnancesurvey.co.uk/business-and-government/products/os-open-
 before plunging in. I didn’t, and asked some basic (*fort. leg.* “stupid”) 
 questions they already answered, and even gave feedback which is already 
 covered in the docs. Sorry, OS.
+</section>
 
+<section markdown="1">
 ## Formats
 
 There is some discrepancy in both the layers and styles. There are slightly 
@@ -73,7 +78,9 @@ which layers will make it into the final product, and hopefully see
 consistency between the formats. Similarly, OS have published stylesheets for 
 Zoomstack, including multiple styles in GL JSON format. It would be good to 
 have the alternative styles in the other formats (such as QML).
+</section>
 
+<section markdown="1">
 ## Performance and functionality
 
 I’m getting some rendering freezes using the GeoPackage in QGIS across a 
@@ -102,7 +109,9 @@ tiles](https://github.com/geometalab/Vector-Tiles-Reader-QGIS-Plugin/issues/112)
 **Update**: Charley Glynn has shown me how to get the hosted tiles working via 
 the API with QGIS Vector Tiles Reader, so the previous paragraph is incorrect. 
 Thanks, Charley!
+</section>
 
+<section markdown="1">
 ## Style and cartography
 
 The rest of this review will look at specific cartographic styling issues. 
@@ -115,7 +124,9 @@ break other instances might not be possible
 following points therefore apply to the default styles supplied by OS (we all 
 know how often default styles get used, so improving them as far as possible 
 is surely A Good Thing)
+</section>
 
+<section markdown="1">
 ## Settlement labels
 
 The labelling of settlements is perhaps too heavy:
@@ -155,7 +166,9 @@ becomes apparent in rural areas (my own interest):
 I’m not sure if this can be tweaked without cluttering denser areas. As an 
 aside, though, this map really shows off this dataset’s design. It’s simply 
 beautiful, and the contours add hugely to the potential for rural maps.
+</section>
 
+<section markdown="1">
 ## Waterline labels
 
 Zoomstack has a dedicated Names layer, rather than using features’ properties 
@@ -176,7 +189,9 @@ colour differentiates settlements from forests, landscape features, and
 waterlines. If the latter could be labelled along the watercourse (as the 
 roads are), this would improve things no end. I’m not sure we’re likely to see 
 that improvement, though.
+</section>
 
+<section markdown="1">
 ## Roads
 
 A few issues are apparent at Swan House Roundabout in Newcastle:
@@ -198,7 +213,9 @@ top-right)
 - the motorway tunnel would benefit hugely from a dotted case instead of a 
 centreline — as it stands, it’s not immediately clear what road layout this 
 represents
+</section>
 
+<section markdown="1">
 ## Conclusion
 
 You can tell by the minor level of detail I’ve discussed here how successful 
@@ -207,3 +224,4 @@ well-known OSM-based prerendered raster tilesets. I’ve not even begun to try
 styling things myself, but I can’t wait to see what people build with this.
 
 Amazing work, everyone.
+</section>

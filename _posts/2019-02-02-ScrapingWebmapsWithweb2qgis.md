@@ -17,23 +17,30 @@ qgis2web turns QGIS projects into webmaps. I wondered if one could write code
 to do the same thing in reverse—scrape a webpage for webmaps, and import any 
 maps it found into a QGIS project.
 
+<section markdown="1">
 ## Webscrapers
 Though I've never used one myself, I know that webscapers are A Thing. People 
 use them to scrape content from third-party websites, allowing them to 
 republish it on their own sites. I assume that the fundamental idea is to 
 scrape the content without the style.
+</section>
 
+<section markdown="1">
 ## A webmap scraper?
 When described as such, a webmap scraper sounds rather an esoteric tool. But 
 how about allowing a QGIS user to open a webmap in QGIS? They could then amend 
 it and republish it elsewhere. Sounds powerful to me, and potentially of great 
 use.
+</section>
 
+<section markdown="1">
 ## web2qgis
 This is what web2qgis does. It's in the earliest of early stages, and needs a 
 great deal of work to become a useful tool. However, I think the proof of 
 concept is valid, and more work on this QGIS plugin would be valuable.
+</section>
 
+<section markdown="1">
 ## Initial development
 So how can this work? A QGIS plugin is written in Python, but a webmap is 
 written in Javascript. One could try to analyse JS to try to pull out relevant 
@@ -41,14 +48,18 @@ information by using regular expressions, but this would be, to all intents
 and purposes, [impossible](https://stackoverflow.com/a/1732454/5613104), and 
 the resulting output would still be a bunch of strings, rather than anything 
 meaningful.
+</section>
 
+<section markdown="1">
 ## Injecting Javascript into a webpage
 To do this properly, unless there was an amazing JS parser written in Python 
 (an hour or so of auto-[nerdsnipe](https://www.xkcd.com/356/) later, I didn't 
 really fancy that), I needed to execute my own JS in the context of the 
 webpage. My main eureka moment in the limited development of web2qgis was to 
 realize that I had already used a JS parser in Python: QtWebKit.
+</section>
 
+<section markdown="1">
 ## What is QtWebkit?
 Let's break this question down. Qt is an open-source cross-platform framework 
 for building software applications. It is what QGIS itself uses for its GUI 
@@ -67,7 +78,9 @@ on. However, this can result in problems for users, and lends a certain
 uncertainty to it as a core dependency. My feeling is that since QGIS itself 
 still uses QtWebKit, it's safe to use it in my projects. It's a constant 
 nagging concern, though.
+</section>
 
+<section markdown="1">
 ## Using QtWebKit to inject JS
 qgis2web uses QtWebKit for its preview window. In other words, it includes a 
 complete browser implementation, so users can see and interact with their 
@@ -93,7 +106,9 @@ Note that the code above is simplified.
 <code class="inline">QWebView.load()</code> is asynchronous, so the code above 
 would try to run JS against the page before it had finished loading. The real 
 code handles this using the <code class="inline">loadFinished</code> signal.
+</section>
 
+<section markdown="1">
 ## Simple scraping
 Once the above code had confirmed that the target page contained a Leaflet 
 map, I could run more JS against the page to start to pull back elements of 
@@ -126,7 +141,9 @@ added to QGIS:
 </code>
 
 When I first got this to work, my excitement was palpable.
+</section>
 
+<section markdown="1">
 ## Expanding functionality: more layer types
 Once this minimal version was working, it was reasonably easy to build 
 functions to handle other layer types, such as vector [points](https://github.com/tomchadwin/web2qgis/commit/0a86c24a6b2bbc6e6ed468f85b228a1b29449847) 
@@ -137,7 +154,9 @@ and to start to bring in other aspects of the map, such as its
 I then started to build the equivalent functionality for OpenLayers webmaps, 
 detecting them with <code class="inline">evaluateJavaScript("ol")</code>, and 
 parsing them in the same way.
+</section>
 
+<section markdown="1">
 ## Style
 This was already a useful tool, pulling in raster and vector layers. However, 
 maps live and die on their symbology, so the next task was to try to import 
@@ -168,7 +187,9 @@ renderers](https://github.com/tomchadwin/web2qgis/commit/e58488c7355fca36df9edcd
 However, although I got this working to some extent, it could not handle a 
 common and fundamental styling technique—calling another function or functions 
 within the main layer style function.
+</section>
 
+<section markdown="1">
 ## Overwhelming
 
 I got an [initial version](https://github.com/tomchadwin/web2qgis/commit/af9319b63c2ff84eff5010c52b1d2f982e02aab4#diff-e30ae12bc92714646aff60ee1a28d4dbR173) 
@@ -185,7 +206,9 @@ That's when I stopped work on web2qgis. It's not that I can't see where to go
 next. Nathan's walk code has shown me how to build things up from an AST. It's 
 just that it feels so fundamental, and perhaps seems a more intimidating 
 job than it actually is.
+</section>
 
+<section markdown="1">
 ## Where next?
 Along with the necessary broadening out of the AST parsing process, and 
 building more functions to support more map styles and elements, this could be 
@@ -203,3 +226,4 @@ job intimidated me into putting it on hold.
 Thanks are due to James Milner, Vladimir Agafonkin, Per Liedman, and Calvin 
 Metcalf for help on Twitter during all this. Without it I would definitely not 
 have got as far as I have.
+</section>

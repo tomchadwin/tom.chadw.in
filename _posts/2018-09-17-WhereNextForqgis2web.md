@@ -29,13 +29,16 @@ development suggests that new functionality and better performance is not
 being exploited.
 </section>
 
+<section markdown="1">
 ## Longstanding issues
 Some bugs and feature requests have been around for a long time. Notable 
 among these is the almost non-existent [support for layer 
 groups](https://github.com/tomchadwin/qgis2web/issues/175). While the majority 
 of people thankfully do not overload their webmaps with layers, a significant 
 minority do need this functionality.
+</section>
 
+<section markdown="1">
 ## Structural problems
 While the GUI code is reasonably elegant, much of the export code is not, in 
 three major ways:
@@ -47,7 +50,9 @@ templating/formatting)
 
 These three issues make the code clunky, difficult to understand, and far from 
 well conceived or engineered.
+</section>
 
+<section markdown="1">
 ## Shiny new features
 In addition to poor code and missing basic features, however, there are more 
 interesting new areas which could be further developed:
@@ -63,7 +68,9 @@ look and feel of the webmap to be customized
 something fully realized
 - make use of QGIS 3 [task manager](https://github.com/qgis/QGIS/pull/3004) to 
 improve performance
+</section>
 
+<section markdown="1">
 ## Dependency updates
 Two major updates are probably now due:
 
@@ -81,15 +88,20 @@ at worst impossible](https://lists.osgeo.org/pipermail/qgis-developer/2018-Septe
 **Second update**: [upgrade to OpenLayers 
 5](https://github.com/tomchadwin/qgis2web/tree/openlayers5) has started, and 
 is perhaps less of a big job than anticipated.
+</section>
 
+<section markdown="1">
 ## Documentation, documentation, documentation
 “Scant” is a reasonable description of [qgis2web’s 
 documentation](https://github.com/tomchadwin/qgis2web/wiki). Thanks to work by 
 [Herb Fargus](https://github.com/HerbFargus), what is there is largely correct 
 and up-to-date, but so much more could be documented.
+</section>
 
+<section markdown="1">
 ## Time and expertise
 If you think that you could contribute to any of this, your input would be 
 incredibly appreciated. Go to the [qgis2web 
 bugtracker](https://github.com/tomchadwin/qgis2web/issues) and see what takes 
 your fancy.
+</section>

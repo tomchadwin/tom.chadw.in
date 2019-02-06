@@ -51,6 +51,7 @@ Everyone is doing what they can. I work with maps (a bit), so I wondered
 whether I could apply some of Ross’s techniques to this pressing and very 
 personal matter.
 
+<section markdown="1">
 ## The message
 
 A great deal of raw data and argument will be employed in the case for 
@@ -63,7 +64,9 @@ time, and strength of local support as indicated by [signatories to the
 petition](https://you.38degrees.org.uk/petitions/keep-greenhaugh-first-school-open). 
 The first of these could work with Ross’s techniques, while an approach to the 
 second was initially unclear to me.
+</section>
 
+<section markdown="1">
 ## The data
 
 The sources seemed quite clear: school locations and catchments for the first 
@@ -89,7 +92,9 @@ PDF-only output from 38degrees (would CSV output kill them?). My infinitely
 more accomplished colleague Ed subsequently pointed out that there is an open 
 version of OS CodePoint, which would have been much better, although the 
 format in which it is distributed makes it a brute to work with.
+</section>
 
+<section markdown="1">
 ## The design
 
 For the journey maps, I had Ross’s work to start from. I knew that I wanted to 
@@ -107,7 +112,9 @@ My belief is that the parabola as a design trope connotes a journey, and hence
 that it instinctively reduces the cognitive load for someone initially 
 interpreting the map. I’d be interested to know if this bald assertion can be 
 backed up.
+</section>
 
+<section markdown="1">
 ## The software
 
 [QGIS](https://qgis.org/) is simply amazing. I’m no mapper, but I have the 
@@ -149,7 +156,9 @@ The key point is that it is a discrete process. If you change your map, you
 will have to run the QGIS vector output back through your post-production 
 pipeline. This is slow and repetitive, so keeping post-processing to a minimum 
 is also devoutly to be wished.
+</section>
 
+<section markdown="1">
 ## The renderer
 
 For the school journeys, I knew I wanted an origin-destination flow map. Using 
@@ -166,7 +175,9 @@ to producing 3D *models*, not *maps*. The aesthetic I have in mind is not
 terrain and surface models. It’s not hillshading and contours. It’s using the 
 Z axis thematically, not topographically, to convey both an argument and an 
 emotion.
+</section>
 
+<section markdown="1">
 ## Geometry generators
 
 Digital mapping tends to involve working with three basic types of feature: 
@@ -188,7 +199,9 @@ manipulate that geometry.
 
 When geometry generators were first introduced to QGIS, I failed to see their 
 potential. Boy, have I changed my mind now.
+</section>
 
+<section markdown="1">
 ## Origin-destination lines
 
 The journeys to school is a point dataset. I needed lines, starting at the 
@@ -260,7 +273,9 @@ fields to draw a line between our feature and the school:
 
 This is a good start. The width of the line indicates the number of pupils at 
 each origin point.
+</section>
 
+<section markdown="1">
 ## Curving the lines into pseudo-3D
 
 So the lines start and end where we need. However, I wanted that 2.5D 
@@ -380,7 +395,9 @@ Remember the fundamental thing in this process: this is still a point dataset.
 If your underlying data changes, just amend the point geometries, and the 
 geometry generators will dynamically style the new data in the same way. 
 Amazing.
+</section>
 
+<section markdown="1">
 ## That’s not isometric — THIS is isometric
 
 Happy with the journey map, the petition now needed some attention.
@@ -436,7 +453,9 @@ renderer. But remember one of the principles to which I was trying to
 stick — try to make no change to the data, and do everything in the style. If 
 I converted my points to polygons, I’d have to repeat that process as more 
 signatures were added to the petition.
+</section>
 
+<section markdown="1">
 ## Points into squares
 
 Time for another geometry generator. I dug into the source code for that 
@@ -533,7 +552,9 @@ geometry generator.
 
 The 2.5D renderer creates three symbol layers: roof, walls, and shadow. It 
 makes them using… geometry generators.
+</section>
 
+<section markdown="1">
 ## Roof
 
 The roof geometry layer uses the following expressions (slightly simplified 
@@ -665,7 +686,9 @@ scale](https://en.wikipedia.org/wiki/Logarithmic_scale) flattens the spread:
 </figure>
 
 The roof is done. Onto the walls.
+</section>
 
+<section markdown="1">
 ## Walls
 
 The QGIS 2.5D renderer creates the walls by extruding the polygon geometry:
@@ -792,7 +815,9 @@ thereby culled:
 </figure>
 
 Now we are definitely getting somewhere!
+</section>
 
+<section markdown="1">
 ## Shadow
 
 I was tempted to leave it at that, but the lack of shadow was slightly nagging 
@@ -920,7 +945,9 @@ After following their wise advice, I was happy to call this layer complete:
     <img src="/assets/pics/MappingEmotion/CompletedShadows.png"
          alt="" />
 </figure>
+</section>
 
+<section markdown="1">
 ## Matching projection to design
 
 The isometric maps were looking pretty good now. However, a failure of the 
@@ -930,7 +957,9 @@ the isometric effect. This results in the features appearing to float.
 I realized there was a simple solution. The map was in British National Grid. 
 Perhaps another projection would add a little perspective? Sure enough, 
 switching to WGS84 did the trick.
+</section>
 
+<section markdown="1">
 ## Labels
 
 My labelling wasn’t brilliant. Despite using a few sensible techniques (using 
@@ -959,8 +988,10 @@ I came unstuck initially, having not done all of this in map units, so the
 moment I zoomed, the labels totally lost their position and size relative to 
 the polygons. Once that was sorted, though, this really seemed to be working 
 quite nicely.
+</section>
 
-## Post production
+<section markdown="1">
+## Post-production
 
 I knew a couple of techniques which could really add to the visual appeal of 
 these maps, and which would also emphasize the 2.5D design.
@@ -992,7 +1023,9 @@ above and below the area of attention in your image:
 
 As with all these things, this effect can be overdone. As with colours, always 
 err on the side of subtlety (I’m a demon for desaturating one’s palette).
+</section>
 
+<section markdown="1">
 ## Bad ideas
 
 As you can see, I took all manner of wrong turns while making these maps. As 
@@ -1005,7 +1038,9 @@ That didn’t work either.
 
 At the end of the day, in any creative process, knowing when to stop is one of 
 the hardest skills. I think I’m happy with the result.
+</section>
 
+<section markdown="1">
 ## Conclusion
 
 So what did this process achieve? It demonstrated the power of geometry 
@@ -1022,5 +1057,6 @@ all the feedback and problem-solving.
 At the end of the day, these maps are just weapons in a fight against harmful 
 changes — harmful to our families, and to our communities. The maps won’t win 
 this battle for us. Let’s hope something does.
+</section>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
