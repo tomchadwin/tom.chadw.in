@@ -201,5 +201,5 @@ job intimidated me into putting it on hold.
 - [github.com/tomchadwin/web2qgis](https://github.com/tomchadwin/web2qgis)
 
 Thanks are due to James Milner, Vladimir Agafonkin, Per Liedman, and Calvin 
-Metcalfe for help on Twitter during all this. Without it I would definitely 
-not have got as far as I have.
+Metcalf for help on Twitter during all this. Without it I would definitely not 
+have got as far as I have.
