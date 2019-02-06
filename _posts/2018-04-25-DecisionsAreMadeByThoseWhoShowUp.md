@@ -6,7 +6,6 @@ description: >
     Northumberland County Council have abandoned all three proposed options, 
     and now propose to keep Greenhaugh First School open.
 ---
-<article>
 # Decisions are made by those who show up
 
 Some of you will have read [my post about school 
@@ -38,4 +37,3 @@ Council changed their mind. She shaped the future, and for the better.
     <img src="/assets/pics/DecisionsAreMadeByThoseWhoShowUp.jpeg"
         alt="Decisions are made by those who show up" />
 </figure>
-</article>

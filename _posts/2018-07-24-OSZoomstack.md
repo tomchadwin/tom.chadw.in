@@ -9,7 +9,6 @@ description: >
     downloadable as an MBTiles file and hosted online and accessible via an 
     API).
 ---
-<article>
 # OS Zoomstack: first impressions
 
 [Ordnance Survey](https://www.ordnancesurvey.co.uk/) have recently started a 
@@ -208,4 +207,3 @@ well-known OSM-based prerendered raster tilesets. I’ve not even begun to try
 styling things myself, but I can’t wait to see what people build with this.
 
 Amazing work, everyone.
-</article>

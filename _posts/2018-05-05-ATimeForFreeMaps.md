@@ -8,7 +8,6 @@ description: >
     several years of real excitement, many seem to have drifted away to 
     proprietary platforms such as Mapbox or Carto. Or Google Maps.
 ---
-<article>
 # A time for free maps
 
 Perhaps I’m mistaken, but it seems to me that enthusiasm for 
@@ -69,4 +68,3 @@ what you are, and seize this once-in-a-lifetime opportunity to explain to
 people why arguments over open versus proprietary are not tribal or academic 
 zealotry. You now have a concrete compelling argument to those who have always 
 asked: “Why not just use Google Maps?”
-</article>

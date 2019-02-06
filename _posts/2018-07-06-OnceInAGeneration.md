@@ -9,7 +9,6 @@ description: >
     affected by Northumberland Council’s consultation and proposed changes to 
     education in west Northumberland.
 ---
-<article>
 # A once-in-a-generation opportunity
 
 Haydon Bridge High School catchment area is more than twice the size of any 
@@ -81,4 +80,3 @@ catchment to be worth listening to. Northumberland Council no longer
 represents us.
 
 It’s not what we want. We say no.
-</article>

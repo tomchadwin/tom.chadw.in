@@ -7,7 +7,7 @@ description: >
     software*. Open-source advocates often rightly stress that the ‘free’ in 
     FOSS means free as in speech, not free as in beer.
 ---
-<article>
+
 # Owt for Nowt and Tuppence Change
 
 <dl>
@@ -87,4 +87,3 @@ If you want owt for nowt, ye divven’ get tuppence change.
 
 <p style="text-indent: 0;"><em>Initially given as closing comments after day 
 one of FOSS4GUK 2018</em></p>
-</article>

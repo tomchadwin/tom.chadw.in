@@ -3,7 +3,6 @@ title: "Pie Spy"
 permalink: /piespy
 twitpic: https://tom.chadw.in/assets/pics/PieSpy.jpg
 ---
-<article>
 # Pie Spy
 
 <figure class="floatright">
@@ -26,4 +25,3 @@ on Amazon. I can't in all honesty recommend it.
 
 <blockquote>If you only read one book about pies this year, make it this one. 
 A masterpiece.</blockquote>
-</article>

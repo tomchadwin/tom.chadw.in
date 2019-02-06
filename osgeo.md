@@ -3,7 +3,6 @@ title: "OSGeo"
 permalink: /osgeo
 twitpic: https://tom.chadw.in/assets/pics/osgeo.svg
 ---
-<article>
 # OSGeo
 
 The [Open Source Geospatial Foundation (OSGeo)](https://www.osgeo.org/) is a 
@@ -21,4 +20,3 @@ not-for-profit sectors. As a member of [OSGeo:UK](https://uk.osgeo.org/), I'm
 happy to talk about FOSS4G UK, the national conference for open-source spatial 
 software. As a [QGIS](https://www.qgis.org/) voting member, I'm keen to hear 
 any feedback on open-source desktop spatial software.
-</article>

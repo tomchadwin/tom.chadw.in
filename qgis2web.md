@@ -2,7 +2,6 @@
 title: "qgis2web"
 permalink: /qgis2web
 ---
-<article>
 # qgis2web
 
 <figure class="floatright">
@@ -16,4 +15,3 @@ plugins manager.
 To request any changes, to report a bug, or to contribute to the development 
 of the plugin, please visit the [qgis2web Github 
 repository](https://github.com/tomchadwin/qgis2web/).
-</article>
