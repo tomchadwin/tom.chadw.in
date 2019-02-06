@@ -18,6 +18,7 @@ Those of you who follow QGIS closely might have noticed that development of
 qgis2web has significantly slowed since QGIS 3 was released. Is this of 
 concern? What next for the plugin?
 
+<section markdown="1">
 ## Slow and steady wins the game?
 Perhaps all is well. Perhaps the fact that [not many 
 bugs](https://github.com/tomchadwin/qgis2web/labels/bug) are being found 
@@ -26,6 +27,7 @@ This does not seem likely. qgis2web is simply middleware which bridges amazing
 software which itself has since developed significantly. A lack of qgis2web 
 development suggests that new functionality and better performance is not 
 being exploited.
+</section>
 
 ## Longstanding issues
 Some bugs and feature requests have been around for a long time. Notable 
