@@ -258,6 +258,11 @@ object {
 embed {
     width: 100%;
 }
+#postscript {
+    text-indent: 0;
+    font-style: italic;
+    font-family: 'Baskerville Libre', serif;
+}
 #articleList {
     list-style-type: none;
     list-style-image: none;

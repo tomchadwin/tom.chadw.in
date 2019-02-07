@@ -1253,7 +1253,7 @@ in the discipline than me. I hope my vanity is to some degree offset by the
 extra exposure this also brings to Greenhaugh First School and its ongoing 
 fight.
 
-Tom "Mr February" Chadwin
+<p id="postscript">Tom "Mr February" Chadwin</p>
 
 </section>
 
