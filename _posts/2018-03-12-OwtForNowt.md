@@ -85,5 +85,5 @@ geospatial company for support. If you don’t pay, approach issues differently:
 
 If you want owt for nowt, ye divven’ get tuppence change.
 
-<p id="postscript">Initially given as closing comments after day 
+<p id="postscript" markdown="1">Initially given as closing comments after day 
 one of FOSS4GUK 2018</p>
