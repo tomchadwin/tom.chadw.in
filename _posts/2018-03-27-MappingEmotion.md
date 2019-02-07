@@ -14,7 +14,8 @@ stream on visualizing school catchment areas. Little did I know at the time
 how relevant to my family this would prove.
 
 <figure class="floatright">
-    <img src="/assets/pics/MappingEmotion/greenhaugh.gif" alt="Greenhaugh First School" />
+    <img src="/assets/pics/MappingEmotion/greenhaugh.gif" 
+         alt="Greenhaugh First School" />
 </figure>
 
 We live in deepest rural Northumberland, a few miles from the Scots border. We 
@@ -193,8 +194,8 @@ manipulate that geometry.
     <img src="/assets/pics/MappingEmotion/GeometryGenerators.png"
          alt="A gradient profile styles its linestring in situ using geometry 
               generators, © Régis Haubourg" />
-    <figcaption>A gradient profile styles its linestring <em>in situ</em> using 
-                geometry generators, © Régis Haubourg</figcaption>
+    <figcaption>A gradient profile styles its linestring <em>in situ</em> 
+                using geometry generators, © Régis Haubourg</figcaption>
 </figure>
 
 When geometry generators were first introduced to QGIS, I failed to see their 
@@ -254,8 +255,9 @@ this case. The join seems overkill just to retrieve a single feature from
 another table, but is the function reevaluated for every feature, and hence 
 slow?
 
-Anyway, I didn’t know about <code class="inline">get_feature()</code> at the time, so I used the joined 
-fields to draw a line between our feature and the school:
+Anyway, I didn’t know about <code class="inline">get_feature()</code> at the 
+time, so I used the joined fields to draw a line between our feature and the 
+school:
 
 <code>make_line(
   $geometry,
@@ -265,11 +267,15 @@ fields to draw a line between our feature and the school:
 )
 </code>
  
-<code class="inline">$geometry</code> is the feature’s own geometry, while <code class="inline">Schools_MAP_EAST</code> and 
-<code class="inline">Schools_MAP_NORTH</code> are the joined table coordinate fields.
+<code class="inline">$geometry</code> is the feature’s own geometry, while 
+<code class="inline">Schools_MAP_EAST</code> and 
+<code class="inline">Schools_MAP_NORTH</code> are the joined table coordinate 
+fields.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/OriginDestination.png" alt="" />
+    <a href="/assets/pics/MappingEmotion/OriginDestination.png">
+        <img src="/assets/pics/MappingEmotion/OriginDestination.png" alt="" />
+    </a>
 </figure>
 
 This is a good start. The width of the line indicates the number of pupils at 
@@ -281,20 +287,43 @@ each origin point.
 
 So the lines start and end where we need. However, I wanted that 2.5D 
 effect — think of a parabola from start to end. This stumped me for some time. 
-I found the expression function <code class="inline">offset_curve()</code> but after experimenting it 
-seemed all offset and no curve.
+I found the expression function <code class="inline">offset_curve()</code> but 
+after experimenting it seemed all offset and no curve.
 
 Ross helped me out, as I was getting nowhere:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">smooth(   make_line(    make_point(&quot;p_x&quot;,&quot;p_y&quot;),    make_point(abs(&quot;p_x&quot;-&quot;s_x&quot;)/2+ &quot;p_x&quot;/2, abs(&quot;p_y&quot;-&quot;s_y&quot;)/2 + &quot;p_y&quot;*2),    make_point(&quot;s_x&quot;,&quot;s_y&quot;)),   iterations:=4, offset:=0.25)<br>I used the mid-point of line formula and then added the X Y coords to offset</p>&mdash; Ross McDonald (@mixedbredie) <a href="https://twitter.com/mixedbredie/status/974038956546326528?ref_src=twsrc%5Etfw">March 14, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        smooth(
+            make_line(
+                make_point(
+                    'p_x','p_y'),
+                make_point(
+                    abs('p_x'-'s_x')/2+ 'p_x'/2, 
+                    abs('p_y'-'s_y')/2 + 'p_y'*2),
+                    make_point('s_x','s_y')),
+                iterations:=4, 
+                offset:=0.25)<br>
+        I used the mid-point of line formula and then added the X Y coords to 
+        offset
+    </p>
+    &mdash; Ross McDonald (@mixedbredie) 
+    <a href="https://twitter.com/mixedbredie/status/974038956546326528?ref_src=twsrc%5Etfw">
+        March 14, 2018
+    </a>
+</blockquote>
 
 The first problem had been that my lines only had vertices at start and end, 
 whereas at least one more point was required to offset and then curve. I 
-remembered this detail from his talk, together with his use of the <code class="inline">smooth()</code> 
-function. This is how it came out:
+remembered this detail from his talk, together with his use of the 
+<code class="inline">smooth()</code> function. This is how it came out:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/curve.png" alt="" />
+    <a href="/assets/pics/MappingEmotion/curve.png>
+        <img src="/assets/pics/MappingEmotion/curve.png" alt="" />
+    </a>
 </figure>
 
 It wasn’t quite right, though. I realized that just about the only thing I 
@@ -305,10 +334,33 @@ needed to remove the X offset.
 At about the same time, by splendid chance, the redoubtable Nathan Saylor 
 mentioned an easier way to get the midpoint of a line:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Yay! I think I got it!<br><br>Data defined in the Placement section<br>Coordinate X/Y:<br>x/y(  line_interpolate_point(  $geometry , length(  $geometry )*0.5))<br><br>Alignments: &#39;Center&#39; and &#39;Half&#39;<br><br>Rotation: <br>line_interpolate_angle(  $geometry , length(  $geometry )*0.5)+90<a href="https://twitter.com/hashtag/GISTribe?src=hash&amp;ref_src=twsrc%5Etfw">#GISTribe</a> <a href="https://t.co/4tjG1uKi6G">pic.twitter.com/4tjG1uKi6G</a></p>&mdash; Nathan 🎄🎅 (@gisn8) <a href="https://twitter.com/gisn8/status/974292052170199040?ref_src=twsrc%5Etfw">March 15, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        Yay! I think I got it!<br><br>
+        Data defined in the Placement section<br>
+        Coordinate X/Y:<br>
+        x/y(
+            line_interpolate_point(
+                $geometry , length(
+                    $geometry )*0.5))<br><br>
+        Alignments: ';Center' and 'Half'<br><br>
+        Rotation: <br>
+        line_interpolate_angle(  $geometry , length(  $geometry )*0.5)+90
+        <a href="https://twitter.com/hashtag/GISTribe?src=hash&amp;ref_src=twsrc%5Etfw">
+            #GISTribe
+        </a>
+        <a href="https://t.co/4tjG1uKi6G">pic.twitter.com/4tjG1uKi6G</a>
+    </p>
+    &mdash; Nathan 🎄🎅 (@gisn8) 
+    <a href="https://twitter.com/gisn8/status/974292052170199040?ref_src=twsrc%5Etfw">
+        March 15, 2018
+    </a>
+</blockquote>
 
-<code class="inline">line_interpolate_point()</code> was much more elegant. These two techniques combined 
-gave me the following expression:
+<code class="inline">line_interpolate_point()</code> was much more elegant. 
+These two techniques combined gave me the following expression:
 
 <code>smooth(
  make_line(
@@ -344,7 +396,9 @@ gave me the following expression:
 Now things were starting to come together:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/parabola.png" alt="" />
+    <a href="/assets/pics/MappingEmotion/parabola.png">
+        <img src="/assets/pics/MappingEmotion/parabola.png" alt="" />
+    </a>
 </figure>
 
 An important thing to remember in any work of this kind is to step away for a 
@@ -368,20 +422,26 @@ line code I had used earlier:
 We now have a straight line connecting the points, as well as the curved one:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/HardShadow.png" alt="" />
+    <a href="/assets/pics/MappingEmotion/HardShadow.png">
+        <img src="/assets/pics/MappingEmotion/HardShadow.png" alt="" />
+    </a>
 </figure>
 
 Nearly there. All that’s left is to add a draw effect to blur the shadow:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/SoftShadow.png" alt="" />
+    <a href="/assets/pics/MappingEmotion/SoftShadow.png">
+        <img src="/assets/pics/MappingEmotion/SoftShadow.png" alt="" />
+    </a>
 </figure>
 
 And that’s it. Add explanatory captions and some catchment borders, and the 
 whole story is told.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/JourneyToKielder.png" alt="" />
+    <a href="/assets/pics/MappingEmotion/JourneyToKielder.png">
+        <img src="/assets/pics/MappingEmotion/JourneyToKielder.png" alt="" />
+    </a>
     <figcaption>Journey to Kielder: 383 miles (+169%)</figcaption>
 </figure>
 
@@ -415,8 +475,10 @@ isometrics for visual impact, and was of such eye-watering visual quality that
 I was excited to be able to try to build something in the same vein.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/CraigTaylor.jpeg"
-         alt="© Craig Taylor, mapzilla-art.co.uk" />
+    <a href="/assets/pics/MappingEmotion/CraigTaylor.jpeg">
+        <img src="/assets/pics/MappingEmotion/CraigTaylor.jpeg"
+             alt="© Craig Taylor, mapzilla-art.co.uk" />
+     </a>
     <figcaption>
         © <a href="http://mapzilla-art.co.uk/">Craig Taylor</a>
     </figcaption>
@@ -434,11 +496,14 @@ seemed to produce the kind of synthetic isometric output I was after, and,
 again, I was keen to see how it stood up in real-life use.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/NickDuggan.png"
-         alt="QGIS 2.5D renderer output, © Nicholas Duggan" />
+    <a href="/assets/pics/MappingEmotion/NickDuggan.png">
+        <img src="/assets/pics/MappingEmotion/NickDuggan.png"
+             alt="QGIS 2.5D renderer output, © Nicholas Duggan" />
+        </a>
     <figcaption>
         QGIS 2.5D renderer output, 
-        © <a href="http://www.xyht.com/spatial-itgis/qgis-2-5d-functionality/">Nicholas Duggan</a>
+        © <a href="http://www.xyht.com/spatial-itgis/qgis-2-5d-functionality/">
+        Nicholas Duggan</a>
     </figcaption>
 </figure>
 
@@ -541,8 +606,10 @@ This is in Python, and I needed it in a QGIS expression. It looks like this:
 30°. The result is starting to look good:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/IsometricSquare.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/IsometricSquare.png">
+        <img src="/assets/pics/MappingEmotion/IsometricSquare.png"
+             alt="" />
+    </a>
 </figure>
 
 We are now at the point where the 2.5D renderer can do its magic, because we 
@@ -682,8 +749,9 @@ scale](https://en.wikipedia.org/wiki/Logarithmic_scale) flattens the spread:
 </code>
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/Roof.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/Roof.png">
+        <img src="/assets/pics/MappingEmotion/Roof.png" alt="" />
+    </a>
 </figure>
 
 The roof is done. Onto the walls.
@@ -712,11 +780,13 @@ The QGIS 2.5D renderer creates the walls by extruding the polygon geometry:
 )
 </code>
 
-So, as with the roof, we need to replace <code class="inline">$geometry</code> with our point-to-square 
-geometry generator, remove the X axis shift (verticals remain vertical), and 
-replace <code class="inline">@qgis_25d_height</code> with our distance-to-school expression 
-(<code class="inline">order_parts</code> also seems unnecessary in this context, probably because we 
-have a single shape used for all of our features):
+So, as with the roof, we need to replace <code class="inline">$geometry</code> 
+with our point-to-square geometry generator, remove the X axis shift 
+(verticals remain vertical), and replace 
+<code class="inline">@qgis_25d_height</code> with our distance-to-school 
+expression (<code class="inline">order_parts</code> also seems unnecessary in 
+this context, probably because we have a single shape used for all of our 
+features):
 
 <code>extrude(
   segments_to_lines($geometry),
@@ -739,8 +809,10 @@ have a single shape used for all of our features):
 We now have some isometric walls:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/Walls.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/Walls.png">
+        <img src="/assets/pics/MappingEmotion/Walls.png"
+             alt="" />
+    </a>
 </figure>
 
 I was baffled for a while as to why the walls had no shading. I eventually 
@@ -775,8 +847,9 @@ Thankfully (from memory), this needed no edits, and could simply be applied to
 our layer:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/ShadedWalls.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/ShadedWalls.png">
+        <img src="/assets/pics/MappingEmotion/ShadedWalls.png" alt="" />
+    </a>
 </figure>
 
 Nearly there. The remaining issue is that one of the back walls is being 
@@ -807,12 +880,13 @@ backmost point from the <code class="inline">make_line()</code> call:
 )
 </code>
 
-I then swapped this in to the <code class="inline">extrude()</code> function, and the back face was 
-thereby culled:
+I then swapped this in to the <code class="inline">extrude()</code> function, 
+and the back face was thereby culled:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/CulledBackface.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/CulledBackface.png">
+        <img src="/assets/pics/MappingEmotion/CulledBackface.png" alt="" />
+    </a>
 </figure>
 
 Now we are definitely getting somewhere!
@@ -824,14 +898,27 @@ Now we are definitely getting somewhere!
 I was tempted to leave it at that, but the lack of shadow was slightly nagging 
 at me. True to form, Craig then said exactly the same thing:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Can the qgis geom shader transform the pillars in such a way that you’d get long shadows? Might anchor the pillars and could look neat...</p>&mdash; Craig Taylor (@CraigTaylorGIS) <a href="https://twitter.com/CraigTaylorGIS/status/976162374628593664?ref_src=twsrc%5Etfw">March 20, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        Can the qgis geom shader transform the pillars in such a way that 
+        you’d get long shadows? Might anchor the pillars and could look neat...
+    </p>
+    &mdash; Craig Taylor (@CraigTaylorGIS) 
+    <a href="https://twitter.com/CraigTaylorGIS/status/976162374628593664?ref_src=twsrc%5Etfw">
+        March 20, 2018
+    </a>
+</blockquote>
+
 So I had to see what we could do. The QGIS 2.5D renderer adds shadows of a 
 kind, but they are simply outer glows applied to a copy of the feature’s 
 original geometry:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/2.5DShadows.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/2.5DShadows.png">
+        <img src="/assets/pics/MappingEmotion/2.5DShadows.png" alt="" />
+    </a>
 </figure>
 
 This works to a certain extent, but certainly wasn’t the “long shadows” Craig 
@@ -909,20 +996,35 @@ We then add a draw effect to hide the source and add an outer glow, using the
 multiply blend mode:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/MultiplyArtefacts.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/MultiplyArtefacts.png">
+        <img src="/assets/pics/MappingEmotion/MultiplyArtefacts.png" alt="" />
+    </a>
 </figure>
 
 Ack. What are those bounding box artefacts? Hannes Kohlmann had the answer:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">All the time when I try something more fancy =( Change the Drop Shadows blending mode to Normal or Addition. Draw Effects really need some polishing, they seem to be applied one by one which is not ideal.</p>&mdash; cartocalypse (@cartocalypse) <a href="https://twitter.com/cartocalypse/status/976169753978048512?ref_src=twsrc%5Etfw">March 20, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        All the time when I try something more fancy =( Change the Drop 
+        Shadows blending mode to Normal or Addition. Draw Effects really need 
+        some polishing, they seem to be applied one by one which is not ideal.
+    </p>
+    &mdash; cartocalypse (@cartocalypse) 
+    <a href="https://twitter.com/cartocalypse/status/976169753978048512?ref_src=twsrc%5Etfw">
+        March 20, 2018
+    </a>
+</blockquote>
+
 Switching back from multiply to normal got rid of the problem. It’s a shame, 
 but is probably unimportant for this design, with flat colours under the 
 shadows. Nearly there now:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/LongShadows.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/LongShadows.png">
+        <img src="/assets/pics/MappingEmotion/LongShadows.png" alt="" />
+    </a>
 </figure>
 
 One remaining problem. The shadows cast by foreground features lie across 
@@ -934,17 +1036,42 @@ wrong to us. To me, anyway.
 I failed to solve this for some time. Nyall Dawson had made a suggestion, but 
 I had misinterpreted what he meant:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">That&#39;s just what I was about to suggest... So now can&#39;t you use symbol levels to draw the shadows below the buildings?</p>&mdash; Nyall Dawson (@nyalldawson) <a href="https://twitter.com/nyalldawson/status/976196012556431360?ref_src=twsrc%5Etfw">March 20, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        That&#39;s just what I was about to suggest... So now can&#39;t you 
+        use symbol levels to draw the shadows below the buildings?
+    </p>
+    &mdash; Nyall Dawson (@nyalldawson) 
+    <a href="https://twitter.com/nyalldawson/status/976196012556431360?ref_src=twsrc%5Etfw">
+        March 20, 2018
+    </a>
+</blockquote>
+
 Once the penny dropped, and I actually did use symbol levels, we were just 
 about there. Ross and Tim Sutton rightly insisted that I tweak the shadow 
 positioning:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Very nice! I think it needs another small &#39;skirt&#39; shadow in the other direction to make it look like it is on the ground.</p>&mdash; Tim Sutton (@timlinux) <a href="https://twitter.com/timlinux/status/976593597935046656?ref_src=twsrc%5Etfw">March 21, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        Very nice! I think it needs another small &#39;skirt&#39; shadow in 
+        the other direction to make it look like it is on the ground.
+    </p>
+    &mdash; Tim Sutton (@timlinux) 
+    <a href="https://twitter.com/timlinux/status/976593597935046656?ref_src=twsrc%5Etfw">
+        March 21, 2018
+    </a>
+</blockquote>
+
 After following their wise advice, I was happy to call this layer complete:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/CompletedShadows.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/CompletedShadows.png">
+        <img src="/assets/pics/MappingEmotion/CompletedShadows.png" alt="" />
+    </a>
 </figure>
 </section>
 
@@ -968,21 +1095,36 @@ a reasonable typeface, adding a multiply halo), the result just wasn’t really
 working.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/BadLabels.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/BadLabels.png">
+        <img src="/assets/pics/MappingEmotion/BadLabels.png" alt="" />
+    </a>
 </figure>
 
 I wondered about labelling the catchment polygons as though the label were 
 drawn on the oblique plane of the base layers. However, there didn’t seem to 
 be any way to achieve this with labels. Nyall, of course, set me straight:
 
-<blockquote class="twitter-tweet tw-center-align" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Maybe.... Centroid fill with font marker symbol, char data defined to show polygon label, then use draw effects with a skew/rotation combination?</p>&mdash; Nyall Dawson (@nyalldawson) <a href="https://twitter.com/nyalldawson/status/976554079483670528?ref_src=twsrc%5Etfw">March 21, 2018</a></blockquote>
+<blockquote class="twitter-tweet tw-center-align" 
+            data-conversation="none" 
+            data-lang="en">
+    <p lang="en" dir="ltr">
+        Maybe.... Centroid fill with font marker symbol, char data defined to 
+        show polygon label, then use draw effects with a skew/rotation 
+        combination?
+    </p>
+    &mdash; Nyall Dawson (@nyalldawson) 
+    <a href="https://twitter.com/nyalldawson/status/976554079483670528?ref_src=twsrc%5Etfw">
+        March 21, 2018
+    </a>
+</blockquote>
+
 I’d never managed to think of any use for either centroid fills or font marker 
 symbols, so I was intrigued. He wasn’t wrong:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/FontMarkerLabels.png"
-         alt="" />
+    <a href=/assets/pics/MappingEmotion/FontMarkerLabels.png">
+        <img src="/assets/pics/MappingEmotion/FontMarkerLabels.png" alt="" />
+    </a>
 </figure>
 
 I came unstuck initially, having not done all of this in map units, so the 
@@ -1001,8 +1143,9 @@ The first is as simple as can be — add a translucent gradient fill across 
 top of the whole image:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/GradientOverlay.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/GradientOverlay.png">
+        <img src="/assets/pics/MappingEmotion/GradientOverlay.png" alt="" />
+    </a>
 </figure>
 
 Already, you can see that the use of WGS84, together with the gradient 
@@ -1018,8 +1161,9 @@ Regardless, the idea is to emulate a tightly focused photograph by adding blur
 above and below the area of attention in your image:
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/ShallowFocus.png"
-         alt="" />
+    <a href="/assets/pics/MappingEmotion/ShallowFocus.png">
+        <img src="/assets/pics/MappingEmotion/ShallowFocus.png" alt="" />
+    </a>
 </figure>
 
 As with all these things, this effect can be overdone. As with colours, always 
@@ -1060,4 +1204,5 @@ changes — harmful to our families, and to our communities. The maps won’
 this battle for us. Let’s hope something does.
 </section>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>
