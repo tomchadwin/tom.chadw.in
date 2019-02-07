@@ -211,9 +211,10 @@ the school. However, as a coder, I hate duplication of data. If the point
 dataset were to change, I’d have to redraw the lines.
 
 <figure>
-    <img src="/assets/pics/MappingEmotion/pinakographos.png"
-         alt="Vehicle traffic patterns, Ecological Atlas of the Bering, 
-         Chukchi, and Beaufort Seas, by Daniel P. Huffman" />
+    <a href="/assets/pics/MappingEmotion/pinakographos.png">
+        <img src="/assets/pics/MappingEmotion/pinakographos.png"
+             alt="Vehicle traffic patterns, Ecological Atlas of the Bering, 
+             Chukchi, and Beaufort Seas, by Daniel P. Huffman" /></a>
     <figcaption>Vehicle traffic patterns, 
         <a href="http://ak.audubon.org/conservation/ecological-atlas-bering-chukchi-and-beaufort-seas">
         Ecological Atlas of the Bering, Chukchi, and Beaufort Seas</a>, by 
