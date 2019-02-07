@@ -1219,15 +1219,29 @@ the journeys map, I'm pleased with the results:
 
 <figure>
     <a href="/assets/pics/MappingEmotion/GeohipsterJourneys.png">
-        <img src="/assets/pics/MappingEmotion/GeohipsterJourneys.png" alt="" />
+        <img src="/assets/pics/MappingEmotion/GeohipsterJourneys.png" 
+             alt="GreenHaugh First School proposed closure: Increase in 
+                  journey-to-school distance" />
     </a>
+    <figcaption>
+        Small multiples are small: these multiples are <em>medium</em>
+    </figcaption>
 </figure>
 
 <figure>
     <a href="/assets/pics/MappingEmotion/GeohipsterPetition.png">
-        <img src="/assets/pics/MappingEmotion/GeohipsterPetition.png" alt="" />
+        <img src="/assets/pics/MappingEmotion/GeohipsterPetition.png" 
+             alt="Save Greenhaugh First School" />
     </a>
+    <figcaption>
+        Much subtler title and key than in the poor attempts above
+    </figcaption>
 </figure>
+
+The text was all done in GIMP. This was by necessity, since it had to be laid 
+over the post-processed map (this is why I said at the end of the description 
+of the journey map above that labelling in QGIS had been premature). Had I not 
+needed to post-process my map, everything you see could have been done in QGIS.
 
 I hope you agree that the attention to good type on a map is vital for clarity 
 and quality. Alongside poor colour, to my eye poor type is the most common 
