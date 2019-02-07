@@ -1122,7 +1122,7 @@ I’d never managed to think of any use for either centroid fills or font marker
 symbols, so I was intrigued. He wasn’t wrong:
 
 <figure>
-    <a href=/assets/pics/MappingEmotion/FontMarkerLabels.png">
+    <a href="/assets/pics/MappingEmotion/FontMarkerLabels.png">
         <img src="/assets/pics/MappingEmotion/FontMarkerLabels.png" alt="" />
     </a>
 </figure>
