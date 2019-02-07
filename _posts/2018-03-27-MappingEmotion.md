@@ -1204,5 +1204,44 @@ changes — harmful to our families, and to our communities. The maps won’
 this battle for us. Let’s hope something does.
 </section>
 
+<section markdown="1">
+## Epilogue
+
+Out of pure vanity, and in a desperate quest for external validation, I 
+submitted these two maps for the [2019 Geohipster 
+calendar](http://www.lulu.com/commerce/index.php?fBuyContent=23950747). To my 
+utter delight, the petition map was selected.
+
+I mention this here primarily out of said vanity, but also because submitting 
+the maps forced me to look again at my overall titling/key text. With the 
+notable exception of the bizarre colour I seem to have chosen for the title of 
+the journeys map, I'm pleased with the results:
+
+<figure>
+    <a href="/assets/pics/MappingEmotion/GeohipsterJourneys.png">
+        <img src="/assets/pics/MappingEmotion/GeohipsterJourneys.png" alt="" />
+    </a>
+</figure>
+
+<figure>
+    <a href="/assets/pics/MappingEmotion/GeohipsterPetition.png">
+        <img src="/assets/pics/MappingEmotion/GeohipsterPetition.png" alt="" />
+    </a>
+</figure>
+
+I hope you agree that the attention to good type on a map is vital for clarity 
+and quality. Alongside poor colour, to my eye poor type is the most common 
+weakness of a map.
+
+Thanks very much to the [Geohipster](http://geohipster.com/) judging panel. 
+It's a big deal to have my mapping work endorsed by people vastly more capable 
+in the discipline than me. I hope my vanity is to some degree offset by the 
+extra exposure this also brings to Greenhaugh First School and its ongoing 
+fight.
+
+Tom "Mr February" Chadwin
+
+</section>
+
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
 </script>
