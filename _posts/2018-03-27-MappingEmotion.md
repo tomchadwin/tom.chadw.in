@@ -321,7 +321,7 @@ remembered this detail from his talk, together with his use of the
 <code class="inline">smooth()</code> function. This is how it came out:
 
 <figure>
-    <a href="/assets/pics/MappingEmotion/curve.png>
+    <a href="/assets/pics/MappingEmotion/curve.png">
         <img src="/assets/pics/MappingEmotion/curve.png" alt="" />
     </a>
 </figure>
