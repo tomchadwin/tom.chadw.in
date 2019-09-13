@@ -51,7 +51,7 @@ content. Today it’s just me.
 
 Across the stream, the path flattens out, as it gently curves round to the 
 left. This is more traditional forest pathwork, not the ageless sunken path we 
-just descended. But to right, a fork slopes sharply down.
+just descended. But to the right, a fork slopes sharply down.
 
 We must have walked on past this fork hundreds of times, but one day, taking a 
 break from over-cheerful enthusiasm from a software trainer, we turned right. 
