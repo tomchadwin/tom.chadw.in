@@ -1,5 +1,5 @@
 ---
-title: "Scraping webmaps with web2qgis"
+title: "A walk without Max"
 permalink: /wrote/ScrapingWebmapsWithweb2qgis
 twitpic: https://tom.chadw.in/assets/pics/Max.jpg
 description: >
@@ -7,8 +7,6 @@ description: >
 ---
 
 # A walk without Max
-
-## monochrome mapping in black and white
 
 Walking further out of town on the road where I work, you climb a hill to some woods. You can avoid the main road and find more interesting ways to get there, but my walk without Max today only really started after the climb. Limited lunch time meant we used to drive up each day, until my guilt at unnecessary driving pushed us to alternative routes, and this walk was consigned to our past together.
 
@@ -36,7 +34,7 @@ My wife and I do everything together, with our family. These weekday lunchtime w
 
 The worst of the sheer path negotiated, this break from IT training yielded the most amazing surprise. An unexpected river, with yellow sandstone cliffs, and a sandbank shore in the bend. This felt like our own discovery. Today was only the third time I’ve ever been there, and it still takes my breath away. I jumped onto an island stone to be surrounded by the flow, and saw a tiny fish dart away.
 
-Water makes me think of my dad. He was in love with the sea, but moderated his passion to rivers and canals in order to devise family holidays my mum would not flat out refuse to join out of terror. Today would have been my his 79th birthday. I was going to go down to the abbey to sit for a moment in my perplexed atheism and remember his faith and love of church music. This felt more like common ground.
+Water makes me think of my dad. He was in love with the sea, but moderated his passion to rivers and canals in order to devise family holidays my mum would not flat out refuse to join out of terror. Today would have been his 89th birthday. I was going to go down to the abbey to sit for a moment in my perplexed atheism and remember his faith and love of church music. This felt more like common ground.
 
 Back up—climbing easier than descending—I rejoined the long left-hand bend of the main path. Each of the three times I’ve done this walk, this long section has tested my mettle. I’ve no map (ironically). I don’t want a map. The first time, I wanted to see where paths took me, and each subsequent time, each separated by years, I long to see whether something in my sense of direction keeps me right.
 
