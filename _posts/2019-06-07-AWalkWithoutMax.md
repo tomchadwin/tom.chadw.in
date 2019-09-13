@@ -59,3 +59,7 @@ This walk with Max was what told me he was dying. He was slowing down, and I wan
 The vet told us he was in a great deal of pain. He was gone by the end of the week.
 
 We have Tixall and Kinver now. But somehow I don’t want to take them on this walk. On this map without a map. My walk without Max.
+
+<figure>
+    <img src="/assets/pics/Max.jpg" alt="Max" />
+</figure>
