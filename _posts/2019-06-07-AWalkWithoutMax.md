@@ -67,7 +67,7 @@ nature of this descent was all too apparent.
 
 I wasn’t going to turn back, though. Max and I had not been here for maybe ten 
 years, and I wanted him to see it again. Sentimental thoughts of sharing it 
-with my son, and even of this being a boys’ trip out made me slither down.
+with my son, and even of this being a boys’ trip out, made me slither down.
 
 My wife and I do everything together, with our family. These weekday lunchtime 
 walks with Max were my time without her, without talk. Max and I would cover 
