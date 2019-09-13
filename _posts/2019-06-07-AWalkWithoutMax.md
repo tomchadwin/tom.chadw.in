@@ -1,6 +1,6 @@
 ---
 title: "A walk without Max"
-permalink: /wrote/ScrapingWebmapsWithweb2qgis
+permalink: /wrote/AWalkWithoutMax
 twitpic: https://tom.chadw.in/assets/pics/Max.jpg
 description: >
     A less than cartographic entry to @piankographos's #MonoCarto competition
