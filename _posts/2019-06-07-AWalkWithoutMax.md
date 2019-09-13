@@ -3,7 +3,7 @@ title: "A walk without Max"
 permalink: /wrote/AWalkWithoutMax
 twitpic: https://tom.chadw.in/assets/pics/Max.jpg
 description: >
-    My less than cartographic unsuccessful entry to @piankographos's 
+    My less than cartographic unsuccessful entry to @pinakographos's 
     #MonoCarto competition
 ---
 
