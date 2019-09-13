@@ -86,7 +86,7 @@ dart away.
 Water makes me think of my dad. He was in love with the sea, but moderated his 
 passion to rivers and canals in order to devise family holidays my mum would 
 not flat-out refuse to join out of terror. Today would have been his 89th 
-birthday. I was going to go down to the abbey to sit for a moment in my 
+birthday. I had planned to go down to the abbey to sit for a moment in my 
 perplexed atheism and remember his faith and love of church music. This felt 
 more like common ground.
 
