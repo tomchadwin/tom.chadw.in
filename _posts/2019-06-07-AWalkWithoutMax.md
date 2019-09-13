@@ -33,7 +33,7 @@ any number of routes, but the functionally redundant parallel course to the
 track always suited us best.
 
 Where this almost-path rejoins the main track, a wider forest path slopes down 
-to the right. Taking various measures to avoid incursions of water, ones 
+to the right. Taking various measures to avoid incursions of water, one 
 passes what I can only imagine are four redwoods. What these giants are doing 
 among this otherwise commonplace English plantation is a mystery, and a 
 beguiling one.
