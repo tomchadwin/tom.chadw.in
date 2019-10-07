@@ -14,7 +14,7 @@ var styleJSON = {
     "sources": {
         "test_0": {
             "type": "image",
-            "url": "https://tom.chadw.in/tmp/data/test_0.png",
+            "url": "./data/test_0.png",
             "coordinates": [
                 [-2.1109019480555116, 54.9795677650124688],
                 [-2.0952682828989335, 54.9795677650124688],
