@@ -30,7 +30,7 @@ var styleJSON = {
         },
         {
             "id": "test_0",
-            "type": "raster",
+            "type": "hillshade",
             "source": "test_0",
             "minzoom": 0,
             "maxzoom": 22
