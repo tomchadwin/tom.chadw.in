@@ -8,7 +8,7 @@ var styleJSON = {
     },
     "sources": {
         "test_0": {
-            "type": "image",
+            "type": "raster-dem",
             "url": "./data/test_0.png",
             "coordinates": [
                 [-2.110902, 54.970565],
