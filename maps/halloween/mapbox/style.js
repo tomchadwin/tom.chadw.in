@@ -8,7 +8,7 @@ var styleJSON = {
     },
     "sources": {
         "httpsapimaptilercomtilesv3tilesjsonkey6irhAXGgsi8TrIDL0211": {
-            "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=6irhAXGgsi8TrIDL0211",
+            "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=dqqigsTMgVQt82L8d0a3",
             "type": "vector"
         }},
     "sprite": "https://s3-eu-west-1.amazonaws.com/tiles.os.uk/styles/open-zoomstack-outdoor/sprites",
