@@ -8,7 +8,7 @@ var styleJSON = {
     },
     "sources": {
         "httpsapimaptilercomtilesv3tilesjsonkey6irhAXGgsi8TrIDL0211": {
-            "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=dqqigsTMgVQt82L8d0a3",
+            "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=6irhAXGgsi8TrIDL0211",
             "type": "vector"
         }},
     "sprite": "https://s3-eu-west-1.amazonaws.com/tiles.os.uk/styles/open-zoomstack-outdoor/sprites",
@@ -36,7 +36,7 @@ var styleJSON = {
             "source": "httpsapimaptilercomtilesv3tilesjsonkey6irhAXGgsi8TrIDL0211",
             "source-layer": "landcover",
             "layout": {},
-            "paint": {'fill-opacity': 1.0, 'fill-color': '#b2b8ab'}
+            "paint": {'fill-opacity': 1.0, 'fill-color': '#aab1a2'}
         },
         {
             "id": "lyr_waterway_2_0",
@@ -76,6 +76,6 @@ var styleJSON = {
             "source": "httpsapimaptilercomtilesv3tilesjsonkey6irhAXGgsi8TrIDL0211",
             "source-layer": "place",
             "layout": {'text-offset': [0.0, 0.0], 'text-field': ['get', 'name'], 'text-size': 12.0, 'text-font': ['Open Sans Regular']},
-            "paint": {'text-color': '#5f6868'}
+            "paint": {'text-color': '#586060'}
         }],
 }
