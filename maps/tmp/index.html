@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <style>
         #map {
-            width: 799px;
-            height: 104px;
+            width: 870px;
+            height: 652px;
         }
         </style>
         <title></title>
@@ -21,16 +21,22 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="./mapbox/mapbox-gl.js"></script>
+        <script src="data/pipelines_0.js"></script>
 <script src="./mapbox/style.js"></script>
 <script>
 var map = new mapboxgl.Map({
  container: 'map',
  style: styleJSON,
- center: [-2.1030820344989882,54.97506647356141],
- zoom: 13,
- bearing: 360.0
+ center: [-141.83097485052087,65.39514988539405],
+ zoom: 6,
+ bearing: 360.0,
+ attributionControl: false
 });
 map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.AttributionControl({
+    customAttribution: '<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://github.com/mapbox/mapbox-gl-js" target="_blank">Mapbox GL JS</a> &middot; <a href="https://qgis.org" target="_blank">QGIS</a>',
+    compact: false
+}));
 </script>
     </body>
 </html>
