@@ -89,6 +89,10 @@ A quick note, by way of clarification. Mapbox, the company, provide many service
 
 Developing more functionality for the new Mapbox GL JS exporter is top of the list for me, as qgis2web has reached some level of maturity with its Leaflet and OpenLayers exports (though *one day* we might get layer groups working properly). There will no doubt be many issues with Mapbox GL JS exports, so handling those will probably also take priority.
 
+More important than these, however, is making qgis2web's capabilities more readily transparent to the user. We need massively improved error reporting, with an emphasis on feedback on supported QGIS features in an export. Alongside this, a caopatibility table would also help users decide which export format to choose. With the launch of the new Mapbox GL JS exporter, this has now become much more critical.
+
+And documntation, obviously.
+
 ### Bellwether
 
 Beyond the code itself, I'm extremely proud of qgis2web for a couple of other reasons. One is having turned code into software--in other words, supporting users, implementing testing, and also promotion, which is a big part of the project. Documentation still lags horribly, but that's a badge of honour for an open-source project.
