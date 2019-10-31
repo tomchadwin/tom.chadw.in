@@ -65,7 +65,7 @@ Nathan Woodrow wrote a module from scratch to convert QGIS expressions into Java
 
 Thomas Gratier wrote an OpenLayers plugin from scratch to allow searching by layer attributes. Handling the diversity of possible search sources was a challenge, which he overcame effortlessly.
 
-Per Liedman write a Leaflet plugin from scratch to support multiple symbol layers. He also helped a great deal in implementing Leaflet.VectorGrid to support vector tiles.
+Per Liedman wrote a Leaflet plugin from scratch to support multiple symbol layers. He also helped a great deal in implementing Leaflet.VectorGrid to support vector tiles.
 
 Iván Sánchez Ortega has been a huge help also in Leaflet.VectorGrid and more generally in Leaflet and vector tile matters.
 
