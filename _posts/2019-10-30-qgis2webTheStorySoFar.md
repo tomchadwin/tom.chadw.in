@@ -13,7 +13,7 @@ description: >
     <img src="/assets/pics/qgis2webLogo.png" alt="qgis2web" />
 </figure>
 
-qgis2web has now been downloaded from the official QGIS plugins repository over half a million times. It's the sixth most downloaded QGIS plugin in history. This is a short piece about its history.
+qgis2web has now been downloaded from the official QGIS plugins repository over half a million times. It's the sixth most downloaded QGIS plugin of all time. This is a short piece about its history.
 
 ## qgis2leaf and qgis-ol3
 
