@@ -31,7 +31,7 @@ I lifted all the qgis2leaf code, placed it alongside the qgis-ol3 code, and sigh
 
 ## Improvements and tests
 
-Over time, common functions from the two original plugins were deduplicated, and the code became a little less unwieldy. However, I worried about releasing buggy versions - it did happen once or twice. I had become aware of automated testing, via a service called Travis, hooked into Github. The idea is that, every time a change is made to the source code, a suite of tests is run to ensure that no regressions have been caused.
+Over time, common functions from the two original plugins were deduplicated, and the code became a little less unwieldy. However, I worried about releasing buggy versions--it did happen once or twice. I had become aware of automated testing, via a service called Travis, hooked into Github. The idea is that, every time a change is made to the source code, a suite of tests is run to ensure that no regressions have been caused.
 
 I thought for some time that this would be an incredibly useful service for qgis2web. With so many variables (layer types, renderers, styles, options), it was already impossible to be rigorous in checking manually that nothing was broken.
 
@@ -89,9 +89,9 @@ A quick note, by way of clarification. Mapbox, the company, provide many service
 
 Developing more functionality for the new Mapbox GL JS exporter is top of the list for me, as qgis2web has reached some level of maturity with its Leaflet and OpenLayers exports (though *one day* we might get layer groups working properly). There will no doubt be many issues with Mapbox GL JS exports, so handling those will probably also take priority.
 
-More important than these, however, is making qgis2web's capabilities more readily transparent to the user. We need massively improved error reporting, with an emphasis on feedback on supported QGIS features in an export. Alongside this, a caopatibility table would also help users decide which export format to choose. With the launch of the new Mapbox GL JS exporter, this has now become much more critical.
+More important than these, however, is making qgis2web's capabilities more readily transparent to the user. We need massively improved error reporting, with an emphasis on feedback on unsupported QGIS features in an export. Alongside this, a compatibility table would also help users decide which export format to choose. With the launch of the new Mapbox GL JS exporter, this has now become much more critical.
 
-And documntation, obviously.
+And documentation, obviously.
 
 ### Bellwether
 
