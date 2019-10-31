@@ -39,7 +39,7 @@ h2, h3 {
     margin: 1.5em 0 0.5em;
     color: #b66;
 }
-h1 + p, h2 + p, h3 + p, h1 + figure + p, header + figure + p {
+h1 + p, h2 + p, h1 + figure + p, header + figure + p {
     text-indent: 0;
 }
 /*h1 + p::first-letter, h1 + figure + p::first-letter {
