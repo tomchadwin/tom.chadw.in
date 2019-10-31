@@ -77,7 +77,7 @@ Martin Boos wrote and maintains the QGIS plugin Vector Tiles Reader, without whi
 
 Ed Boesenberg developed multi-unit measurement in OpenLayers, and also deserves massive thanks for his constant help in answering queries on the qgis2web repo.
 
-### New maps
+## New maps
 
 For the first time since it was created, qgis2web has a new output format. Mapbox GL JS excels at rendering vector tiles, and has many other key advantages over Leaflet and OpenLayers. However, it should not be used indiscrimiately, as the other two libraries still have their advantages. In addition, the currently implemented feature-set for Mapbox GL JS is much, much smaller than that implemented for Leaflet or OpenLayers. This will improve over time, but is unlikely to be quick. I hope to write a separate piece investigating the core differences between the three libraries, but that's a job for another day.
 
@@ -85,7 +85,7 @@ Huge thanks are due once again to Victor Olaya, who has developed bridge-style a
 
 A quick note, by way of clarification. Mapbox, the company, provide many services. Mapbox GL JS is one of their products, and is completely open source. qgis2web only exports standalone Mapbox GL JS maps. It doesn't use any Mapbox services--no hosting, no styles, no data. It's key to refer to the export format as Mapbox GL JS, to keep it distinct from Mapbox the company and its ecosystem of hosted services. Many thanks to Vladimir Agafonkin for putting me in touch with Kathleen Lu at Mapbox, to ensure that Mapbox are happy with the approach.
 
-### Where next?
+## Where next?
 
 Developing more functionality for the new Mapbox GL JS exporter is top of the list for me, as qgis2web has reached some level of maturity with its Leaflet and OpenLayers exports (though *one day* we might get layer groups working properly). There will no doubt be many issues with Mapbox GL JS exports, so handling those will probably also take priority.
 
@@ -93,7 +93,7 @@ More important than these, however, is making qgis2web's capabilities more readi
 
 And documentation, obviously.
 
-### Bellwether
+## Bellwether
 
 Beyond the code itself, I'm extremely proud of qgis2web for a couple of other reasons. One is having turned code into software--in other words, supporting users, implementing testing, and also promotion, which is a big part of the project. Documentation still lags horribly, but that's a badge of honour for an open-source project.
 
