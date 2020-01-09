@@ -49,7 +49,7 @@ advantages for qgis2leaf (as was), as well as for end users. This certainly
 motivated me, as did Victor's elegant Python in qgis-ol3.
 
 I lifted all the qgis2leaf code, placed it alongside the qgis-ol3 code, and 
-sightly altered the GUI to allow users to switch between the two. It worked, 
+slightly altered the GUI to allow users to switch between the two. It worked, 
 but really was in essence two plugins side-by-side, with all the duplication 
 that implies.
 
@@ -160,11 +160,11 @@ For the first time since it was created, qgis2web has a new output format.
 Mapbox GL JS excels at rendering vector tiles, and has many other key 
 advantages over Leaflet and OpenLayers. However, it should not be used 
 indiscrimiately, as the other two libraries still have their advantages. In 
-addition, the currently implemented feature-set for Mapbox GL JS is much, much 
-smaller than that implemented for Leaflet or OpenLayers. This will improve 
-over time, but is unlikely to be quick. I hope to write a separate piece 
-investigating the core differences between the three libraries, but that's a 
-job for another day.
+addition, the currently implemented feature-set for Mapbox GL JS in qgis2web 
+is much, much smaller than that implemented for Leaflet or OpenLayers. This 
+will improve over time, but is unlikely to be quick. I hope to write a 
+separate piece investigating the core differences between the three libraries, 
+but that's a job for another day.
 
 Huge thanks are due once again to Victor Olaya, who has developed bridge-style 
 at GeoCat. It does all the style conversion work, and I can see qgis2web 
