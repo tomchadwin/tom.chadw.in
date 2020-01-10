@@ -466,9 +466,9 @@ Happy with the journey map, the petition now needed some attention.
 I have a weakness for isometric imagery. Be it [Ant 
 Attack](https://en.wikipedia.org/wiki/Ant_Attack), 
 [Fairlight](https://en.wikipedia.org/wiki/Fairlight_%28video_game%29), or 
-[Mobiles Disco](https://habbo.gamepedia.com/Mobiles_Disco), something about 
-this aesthetic appeals to me. If done well, I believe it can have precisely 
-that eye-catching effect I was after.
+[Mobiles Disco](https://habboxwiki.com/Mobiles_Disco), something about this 
+aesthetic appeals to me. If done well, I believe it can have precisely that 
+eye-catching effect I was after.
 
 I remembered a map by Craig Taylor which took my breath away. It used 
 isometrics for visual impact, and was of such eye-watering visual quality that 
