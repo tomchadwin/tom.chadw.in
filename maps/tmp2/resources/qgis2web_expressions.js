@@ -763,30 +763,3 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
-
-
-
-function exp_HospitalType_0rule0_eval_expression(context) {
-    // Type LIKE 'Private'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.get('Type').indexOf('Private') > -1);
-    } else {
-        return (feature.get('Type').indexOf('Private') > -1);
-    }
-}
-
-
-function exp_HospitalType_0rule1_eval_expression(context) {
-    // Type LIKE 'Public'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.get('Type').indexOf('Public') > -1);
-    } else {
-        return (feature.get('Type').indexOf('Public') > -1);
-    }
-}
