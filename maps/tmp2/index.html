@@ -40,15 +40,12 @@
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-        map.createPane('measurePane');
-        map.getPane('measurePane').style.zIndex = 10000;
         var measureControl = new L.Control.Measure({
             position: 'topleft',
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
             primaryAreaUnit: 'sqmeters',
-            secondaryAreaUnit: 'hectares',
-            capturePane: 'measurePane'
+            secondaryAreaUnit: 'hectares'
         });
         measureControl.addTo(map);
         document.getElementsByClassName('leaflet-control-measure-toggle')[0]
@@ -126,8 +123,6 @@
         });
         bounds_group.addLayer(layer_airports_1);
         map.addLayer(layer_airports_1);
-        var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/airports_1.png" /> airports': layer_airports_1,"Stamen terrain background": layer_Stamenterrainbackground_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
