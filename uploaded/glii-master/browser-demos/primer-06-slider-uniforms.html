@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Primer, 06: Slider uniforms</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../docs/favicon.ico" />
+	</head>
+	<body>
+		<canvas height="500" width="500" id="glii-canvas"></canvas>
+		<div>Size:<input type="range" id="range-size" min="0" max="200"></div>
+		<div>Brightness:<input type="range" id="range-bright" min="0" max="200"></div>
+
+		<script type="module">
+			import { GLFactory as Glii } from "../src/index.mjs";
+
+			const glii = new Glii(document.getElementById("glii-canvas"));
+
+			const positions = new glii.SingleAttribute({ glslType: "vec2" });
+			const colours   = new glii.SingleAttribute({ glslType: "vec3" });
+
+			const indices = new glii.IndexBuffer();
+
+			indices.set(0, [0, 1, 2]);
+
+			positions.set(0, [-0.5, -0.5]);
+			positions.set(1, [ 0.5, -0.5]);
+			positions.set(2, [   0, +0.5]);
+
+			colours.set(0, [1,0,0]);	// Red
+			colours.set(1, [0,1,0]);	// Green
+			colours.set(2, [0,0,1]);	// Blue
+
+			const program = new glii.WebGL1Program({
+				attributes: {
+					aPos: positions,
+					aColour: colours
+				},
+				vertexShaderSource: `
+void main() {
+	vColour = aColour;
+	gl_Position = vec4(aPos * uSize, 0.0, 1.0);
+}`,
+				varyings: { vColour: 'vec3' },
+				fragmentShaderSource: `
+void main() {
+	gl_FragColor = vec4(vColour * uBrightness, 1.0);
+}`,
+				indexBuffer: indices,
+				uniforms: {
+					uSize: 'float',
+					uBrightness: 'float'
+				}
+			});
+
+			program.run();
+
+			const sliderSize = document.getElementById('range-size');
+			sliderSize.addEventListener('input', function(){
+				program.setUniform('uSize', sliderSize.value / 100);
+				console.log(sliderSize.value );
+				program.run();
+			});
+
+			const sliderBright = document.getElementById('range-bright');
+			sliderBright.addEventListener('input', function(){
+				program.setUniform('uBrightness', sliderBright.value / 100);
+				program.run();
+			});
+
+		</script>
+	</body>
+</html>

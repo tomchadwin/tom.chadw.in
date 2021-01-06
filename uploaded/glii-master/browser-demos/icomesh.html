@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rotating icomesh browser demo</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../docs/favicon.ico" />
+	</head>
+	<body>
+		<canvas height="500" width="500" id="glii-canvas"> </canvas>
+
+		<script type="module">
+			/* JavaScript module code here */
+			import { GLFactory as Glii } from "../src/index.mjs";
+			import { default as icomesh } from "../3rd-party/icomesh.mjs";
+			import { mat4 } from "../3rd-party/gl-matrix.mjs";
+
+			const glii = new Glii(document.getElementById("glii-canvas"), {
+				desynchronized: true,
+			});
+
+			const { vertices: coords, triangles: trigvertices } = icomesh(3);
+
+			// 		console.log(coords, trigvertices);
+
+			// 		let coordsBuffer = new glii.CoordsAttributeBuffer({
+			// 			size: trigvertices.length * 3, // Not coords.length!!
+			// 			growFactor: false,
+			// 		});
+			const coordAttrib = new glii.SingleAttribute({
+				glslType: "vec3",
+				size: trigvertices.length * 3,
+				growFactor: false,
+			});
+			const normalAttrib = new glii.SingleAttribute({
+				glslType: "vec3",
+				size: trigvertices.length * 3,
+				growFactor: false,
+			});
+			const edgeAttrib = new glii.SingleAttribute({
+				glslType: "vec3",
+				size: trigvertices.length * 3,
+				growFactor: false,
+			});
+
+			let indices = new glii.IndexBuffer({
+				size: trigvertices.length,
+				growFactor: false,
+			});
+
+			// 		for (let i=0, l=coords.length; i<l; i+=3) {
+			// 			coordsBuffer.set(i/3, coords.subarray(i, i + 3));
+			// 		}
+
+			// 		indices.set(0, trigvertices);
+
+			const edgeData = [
+				[1, 0, 0],
+				[0, 1, 0],
+				[0, 0, 1],
+			];
+
+			for (let i = 0, l = trigvertices.length; i < l; i += 3) {
+				const v1 = trigvertices[i + 0] * 3; // Index for the coords of vertex 1 in the coords array
+				const v2 = trigvertices[i + 1] * 3; // Idem, vertex 2
+				const v3 = trigvertices[i + 2] * 3; // Idem, vertex 3
+				const c1 = coords.subarray(v1, v1 + 3); // Value of the XYZ coords for vertex 1
+				const c2 = coords.subarray(v2, v2 + 3); // Idem, vertex 2
+				const c3 = coords.subarray(v3, v3 + 3); // Idem, vertex 3
+				// 			console.log("Face out of vertices: ", i,
+				// 				trigvertices.subarray(i, i + 3),
+				// 				v1, v2, v3,
+				// 				c1, c2, c3
+				// 			);
+				const normal = [
+					(c1[0] + c2[0] + c3[0]) / 3, // x
+					(c1[1] + c2[1] + c3[1]) / 3, // y
+					(c1[2] + c2[2] + c3[2]) / 3, // z
+				];
+				// Create a new triangle with indices [i, i+1, i+2], as well as
+				// fill up the coords buffer for these new vertex indices
+				coordAttrib.set(i + 0, c1);
+				coordAttrib.set(i + 1, c2);
+				coordAttrib.set(i + 2, c3);
+				normalAttrib.set(i + 0, normal);
+				normalAttrib.set(i + 1, normal);
+				normalAttrib.set(i + 2, normal);
+				edgeAttrib.set(i + 0, edgeData[0]);
+				edgeAttrib.set(i + 1, edgeData[1]);
+				edgeAttrib.set(i + 2, edgeData[2]);
+				indices.set(i, [i + 0, i + 1, i + 2]);
+			}
+
+			let clear = new glii.WebGL1Clear({ color: [0.0, 0.0, 0.0, 1.0] });
+
+			let programEdge = new glii.WebGL1Program({
+				vertexShaderSource: `
+void main() {
+	vEdge = aEdge;
+// 	vNormal = normalize( ( (aNormal /2.) + vec3(.5) ) * lightPosW );
+	vNormal = uModel * vec4(aNormal, 1.);
+	gl_Position = uModel * vec4(aCoords.xyz, 1.0);
+}`,
+				varyings: { vNormal: "vec4", vEdge: "vec3" },
+				fragmentShaderSource: `
+
+			vec4 lightPosW = vec4(1., 1., -1., 1.);
+			vec4 lightColor = vec4(1., 1., 1., 1.);
+			vec4 eyePos = vec4(0., 0., -10., 1.);
+
+void main() {
+	float depth = gl_FragCoord.z;
+	//gl_FragColor = vec4(vec3(vNormal*.3), 1.0);
+	//gl_FragColor = vec4(vec3(vNormal*.3), 1.0);
+
+	vec4 emmisive = vec4(0.,0.,0.,1.);	// Should come from the texture
+	vec4 materialDiffuse = vec4(1.,.7,1.,1.);	// Should come from the texture
+
+	vec4 ambient = vec4(0., 0., 0., 0.);
+
+	// Diffuse
+	vec4 N = normalize(vNormal);
+	vec4 L = normalize(lightPosW - vNormal);
+	//float NdotL = max (dot(N,L), 0.);
+	//float NdotL = dot(N,L);
+	float NdotL = max (abs(dot(N,L)), -.1);
+	vec4 diffuse = NdotL * lightColor * materialDiffuse * 2.;
+
+	gl_FragColor = emmisive + ambient + diffuse;
+
+
+	gl_FragColor.gb += vec2(smoothstep(0.03, 0.01, min(min(vEdge.x, vEdge.y), vEdge.z)))
+			* vec2(.8, 1.0);
+}`,
+				indexBuffer: indices,
+				attributes: {
+					aCoords: coordAttrib,
+					aNormal: normalAttrib,
+					aEdge: edgeAttrib,
+				},
+				uniforms: {
+					uModel: "mat4",
+				},
+				depth: glii.LEQUAL,
+			});
+
+			const unitMatrix = mat4.create();
+			const modelMatrix = mat4.create();
+
+			function onFrame() {
+				const rotationAmount = performance.now() / 1000;
+				mat4.rotate(
+					modelMatrix, // destination matrix
+					unitMatrix, // matrix to rotate
+					rotationAmount, // amount to rotate in radians
+					[0.0, 1.0, 0.0] // axis to rotate around
+				);
+
+				programEdge.setUniform("uModel", modelMatrix);
+
+				programEdge.run();
+				requestAnimationFrame(onFrame);
+			}
+
+			requestAnimationFrame(onFrame);
+		</script>
+	</body>
+</html>

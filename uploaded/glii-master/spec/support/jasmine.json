@@ -1,0 +1,19 @@
+{
+  "spec_dir": "spec",
+  "spec_files": [
+    "**/*[sS]pec.js",
+    "**/*[sS]pec.mjs",
+    "**/*[tT]est.js",
+    "**/*[tT]est.mjs"
+  ],
+  "helpers": [
+    "helpers/**/*.js",
+    "helpers/log-platform-headless.mjs",
+    "helpers/contextFactory-headless.mjs",
+    "helpers/performance-now-headless.mjs",
+    "helpers/pixelmatchHelper-headless.mjs",
+    "helpers/imageFromUrl-headless.mjs"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": true
+}

@@ -1,0 +1,55 @@
+
+digraph G {
+	node [shape=box]
+
+	subgraph cluster_framebuffer {
+		label = "Screen"
+		style="rounded"
+		color="gray"
+		labeljust="l"
+
+		color[label="<canvas>"][shape="cylinder"]
+
+		gl_FragColor [style="filled"]
+		gl_FragColor -> color
+	}
+
+	subgraph cluster_gpu {
+		style="rounded"
+		color="gray"
+		label = "GL draw call"
+		labeljust="l"
+
+				varyings1 [label="Varyings"][shape="note"][style=bold]
+				gl_Position [style=filled]
+			magic[width=2][label="✨🪄  MAGIC 🪄✨"]
+
+			gl_Position -> magic
+			gl_Position -> varyings1[style=invis]
+// 			varyings1 -> magic
+// 			magic -> varyings1
+// 			magic -> varyings2
+			magic -> fragmentshader
+// 			varyings1 -> varyings2
+
+		vertexshader [label = "Vertex shader"][shape="box"][style=bold]
+		fragmentshader [label = "Fragment shader"][shape="box"][style=bold]
+
+		vertexshader -> varyings1
+		varyings1 -> fragmentshader
+		fragmentshader -> gl_FragColor
+	}
+
+	indices [label = "Vertex\nindices"][shape="cylinder"][style=bold]
+	indices -> magic[weight=1]
+	attributes [label = "Attributes"][shape="cylinder"][style=bold]
+	uniforms [label = "Uniforms"][shape="cylinder"][style=bold]
+	textures[label = "Textures"][shape="cylinder"][style=bold]
+
+	attributes -> vertexshader
+	vertexshader -> gl_Position
+	uniforms -> vertexshader[weight=1]
+	uniforms -> fragmentshader[weight=1]
+	textures -> fragmentshader[weight=1]
+
+}

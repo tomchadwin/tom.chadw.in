@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kitten texture browser demo</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../docs/favicon.ico" />
+	</head>
+	<body>
+		<canvas height="427" width="640" id="glii-canvas"> </canvas>
+		<hr />
+		<p>
+			Original kitten &lt;img&gt;, from
+			<a href="https://commons.wikimedia.org/wiki/File:Aburrido_(9272113606).jpg"
+				>https://commons.wikimedia.org/wiki/File:Aburrido_(9272113606).jpg</a
+			>:
+		</p>
+		<img src="kitten-640px.jpeg" id="kitten" />
+
+		<script type="module">
+			/* JavaScript module code here */
+			import { GLFactory as Glii, XYZ, XY } from "../src/index.mjs";
+
+			const glii = new Glii(document.getElementById("glii-canvas"));
+
+			const attributeBuffer = new glii.DictionaryAttributeBuffer(
+				{ size: 4, growFactor: false },
+				{
+					aCoords: {
+						size: 2,
+						type: glii.FLOAT,
+						normalize: false,
+					},
+					aTextureCoords: {
+						size: 2,
+						type: glii.FLOAT,
+						normalize: false,
+					},
+				}
+			);
+			const indices = new glii.IndexBuffer({ size: 6, growFactor: false });
+
+			indices.set(0, [0, 1, 2]);
+			indices.set(3, [1, 2, 3]);
+			attributeBuffer.set(0, {
+				aCoords: new XY(-1, -1),
+				// 				aTextureCoords: new XY(0, 1),
+				aTextureCoords: new XY(0.25, 0.85),
+			});
+			attributeBuffer.set(1, {
+				aCoords: new XY(-1, 1),
+				// 				aTextureCoords: new XY(0, 0),
+				aTextureCoords: new XY(0.1, 0.3),
+			});
+			attributeBuffer.set(2, {
+				aCoords: new XY(1, -1),
+				// 				aTextureCoords: new XY(1, 1),
+				aTextureCoords: new XY(0.8, 0.9),
+			});
+			attributeBuffer.set(3, {
+				aCoords: new XY(1, 1),
+				// 				aTextureCoords: new XY(1, 0),
+				aTextureCoords: new XY(0.7, 0.2),
+			});
+
+			const kittenTexture = new glii.Texture();
+			kittenTexture.texImage2D(document.getElementById("kitten"));
+
+			const clear = new glii.WebGL1Clear({ color: [0.2, 0.2, 0.2, 1.0] });
+			const program = new glii.WebGL1Program({
+				vertexShaderSource: `
+void main() {
+	vTextureCoords = aTextureCoords;
+	gl_Position = vec4(aCoords, 0.0, 1.0);
+}`,
+				varyings: { vTextureCoords: "vec2" },
+				fragmentShaderSource: `
+void main() {
+// 	vec2 pixellatedCoords = vTextureCoords / 2. + vec2(.25, .25);
+// 	vec2 pixellatedCoords = floor(vTextureCoords * 100.) / 100.;
+// 	gl_FragColor = texture2D(uKittenTexture, pixellatedCoords);
+	gl_FragColor = texture2D(uKittenTexture, vTextureCoords);
+}`,
+				indexBuffer: indices,
+				attributeBuffers: [attributeBuffer],
+				textures: { uKittenTexture: kittenTexture },
+			});
+
+			clear.run();
+			program.run();
+		</script>
+	</body>
+</html>

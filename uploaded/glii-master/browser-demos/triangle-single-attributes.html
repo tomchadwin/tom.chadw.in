@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Triangle browser demo</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../docs/favicon.ico" />
+	</head>
+	<body>
+		<canvas height="500" width="500" id="glii-canvas"> </canvas>
+
+		<script type="module">
+			/* JavaScript module code here */
+			import { GLFactory as Glii } from "../src/index.mjs";
+
+			const glii = new Glii(document.getElementById("glii-canvas"));
+
+			const coords = new glii.SingleAttribute({ glslType: "vec3" });
+			const color = new glii.SingleAttribute({
+				glslType: "vec4",
+				type: Uint8Array,
+				normalized: true,
+				size: 3,
+			});
+
+			const indices = new glii.IndexBuffer({ size: 3, growFactor: false });
+
+			indices.set(0, [0, 1, 2]);
+
+			coords.set(0, [-0.8, -0.8, -0.5]);
+			color.set(0, [255, 0, 0, 255]);
+
+			coords.set(1, [-0.7, +0.6, +0.5]);
+			color.set(1, [0, 255, 0, 255]);
+
+			coords.set(2, [+0.9, -0.1, 0.0]);
+			color.set(2, [0, 0, 255, 255]);
+
+			const clear = new glii.WebGL1Clear({ color: [0.2, 0.2, 0.2, 1.0] });
+			const program = new glii.WebGL1Program({
+				vertexShaderSource: `
+void main() {
+	vColor = aColor;
+	gl_Position = vec4(aCoords, 1.0);
+}`,
+				varyings: { vColor: "vec4" },
+				fragmentShaderSource: `
+void main() {
+	gl_FragColor = vColor;
+}`,
+				indexBuffer: indices,
+				// 				attributeBuffers: [attributeBuffer],
+				attributes: {
+					aCoords: coords,
+					aColor: color,
+				},
+			});
+
+			clear.run();
+			program.run();
+		</script>
+	</body>
+</html>

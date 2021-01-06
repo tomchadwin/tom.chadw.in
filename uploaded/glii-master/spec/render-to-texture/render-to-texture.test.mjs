@@ -1,0 +1,274 @@
+import { GLFactory } from "../../src/index.mjs";
+import { mat4 } from "../../3rd-party/gl-matrix.mjs";
+
+describe("Render-to-texture", function() {
+	it("Program renders to a framebuffer holding a texture, used by 2nd program", function() {
+		const context = contextFactory(512, 512, { preserveDrawingBuffer: true });
+
+		const glii = new GLFactory(context);
+
+		const hexaPos = new glii.SingleAttribute({ glslType: "vec2" });
+		const rgb = new glii.SingleAttribute({ glslType: "vec3" });
+
+		rgb.set(0, [1, 0, 0]); // red
+		rgb.set(1, [1, 1, 0]); // yellow
+		rgb.set(2, [0, 1, 0]); // green
+		rgb.set(3, [0, 1, 1]); // cyan
+		rgb.set(4, [0, 0, 1]); // blue
+		rgb.set(5, [1, 0, 1]); // purple
+
+		hexaPos.set(6, [0, 0]);
+		rgb.set(6, [1, 1, 1]); // White
+
+		hexaPos.set(7, [0, 0]);
+		rgb.set(7, [0, 0, 0]); // Black
+
+		const hexaIndices = new glii.TriangleIndices();
+		const radsPer60deg = Math.PI / 3;
+		for (let i = 0; i < 6; i++) {
+			hexaPos.set(i, [0.75, i * radsPer60deg]);
+
+			new hexaIndices.Triangle().setVertices(i, (i + 1) % 6, 6 + (i % 2));
+		}
+
+		// 			const renderbuffer = new glii.RenderBuffer({
+		// 				internalFormat: glii.DEPTH_STENCIL,
+		// 				width: 256,
+		// 				height: 256
+		// 			});
+		const hexaOutTexture = new glii.Texture({});
+		const hexaFrameBuffer = new glii.FrameBuffer({
+			color: [hexaOutTexture],
+			// 				depth: renderbuffer,
+			// 				stencil: renderbuffer,
+			width: 256,
+			height: 256,
+		});
+
+		const hexaClear = new glii.WebGL1Clear({
+			color: [0.2, 0.2, 0.2, 1.0],
+			depth: 0,
+			stencil: 0,
+			target: hexaFrameBuffer,
+		});
+		const hexaProgram = new glii.WebGL1Program({
+			vertexShaderSource: `
+void main() {
+	vColor = aColor;
+	gl_Position = vec4(
+		cos(aPolarCoord.y) * aPolarCoord.x ,
+		sin(aPolarCoord.y) * aPolarCoord.x ,
+		1.0,
+		1.0
+	);
+}`,
+			varyings: { vColor: "vec3" },
+			fragmentShaderSource: `
+void main() {
+	gl_FragColor = vec4(vColor, 1.0);
+}`,
+			indexBuffer: hexaIndices,
+			attributes: {
+				aPolarCoord: hexaPos,
+				aColor: rgb,
+			},
+			target: hexaFrameBuffer,
+			depth: glii.ALWAYS,
+		});
+		hexaClear.run();
+		hexaProgram.run();
+
+		// const pixelTarget = new Uint8Array(256*256*4);
+		// /// Manually read pixels from the texture
+		// glii.gl.bindFramebuffer(glii.gl.FRAMEBUFFER, hexaFrameBuffer._fb);
+		// // read the pixels
+		// glii.gl.readPixels(0, 0, 256, 256, glii.RGBA, glii.UNSIGNED_BYTE, pixelTarget);
+		// // Unbind the framebuffer
+		// // gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+		// console.log("Pixels from framebuffer's color0 attachment:");
+		// console.log(pixelTarget);
+		// console.log(Array.from(pixelTarget).filter(i=>i!== 255 && i!== 51));
+		//
+		//
+		// glii.gl.bindFramebuffer(glii.gl.FRAMEBUFFER, null);
+		// glii.gl.readPixels(0, 0, 64, 64, glii.RGBA, glii.UNSIGNED_BYTE, pixelTarget);
+		// console.log("Pixels from main canvas' framebuffer:");
+		// console.log(pixelTarget);
+		// console.log(Array.from(pixelTarget).filter(i=>i!== 255 && i!== 179));
+		//
+		// // // function hexaFrame(){
+		// // // // 	hexaProgram.run();
+		// // // 	hexaClear.run();
+		// // //
+		// // // 	requestAnimationFrame(hexaFrame);
+		// // // }
+		// // //
+		// // // requestAnimationFrame(hexaFrame);
+
+		const cubePos = new glii.SingleAttribute({
+			type: Int8Array,
+			glslType: "vec3",
+			size: 24,
+			growFactor: false,
+		});
+		const cubeTex = new glii.SingleAttribute({
+			type: Uint8Array,
+			normalized: false,
+			glslType: "vec2",
+			size: 24,
+			growFactor: false,
+		});
+		const indices = new glii.TriangleIndices({ size: 36, growFactor: false });
+
+		for (let i = 0; i < 24; i += 4) {
+			cubeTex.set(i + 0, [0, 0]);
+			cubeTex.set(i + 1, [1, 0]);
+			cubeTex.set(i + 2, [1, 1]);
+			cubeTex.set(i + 3, [0, 1]);
+		}
+
+		// Front
+		// indices.set(0, [0, 1, 2]);
+		// indices.set(3, [0, 2, 3]);
+		new indices.Triangle().setVertices(0, 1, 2);
+		new indices.Triangle().setVertices(0, 2, 3);
+		cubePos.set(0, [-1, -1, +1]);
+		cubePos.set(1, [+1, -1, +1]);
+		cubePos.set(2, [+1, +1, +1]);
+		cubePos.set(3, [-1, +1, +1]);
+
+		// Back
+		new indices.Triangle().setVertices(4, 5, 6);
+		new indices.Triangle().setVertices(4, 6, 7);
+		cubePos.set(4, [-1, -1, -1]);
+		cubePos.set(5, [+1, -1, -1]);
+		cubePos.set(6, [+1, +1, -1]);
+		cubePos.set(7, [-1, +1, -1]);
+
+		// Top
+		new indices.Triangle().setVertices(8, 9, 10);
+		new indices.Triangle().setVertices(8, 10, 11);
+		cubePos.set(8, [-1, +1, -1]);
+		cubePos.set(9, [-1, +1, +1]);
+		cubePos.set(10, [+1, +1, +1]);
+		cubePos.set(11, [+1, +1, -1]);
+
+		// Bottom
+		new indices.Triangle().setVertices(12, 13, 14);
+		new indices.Triangle().setVertices(12, 14, 15);
+		cubePos.set(12, [-1, -1, -1]);
+		cubePos.set(13, [+1, -1, -1]);
+		cubePos.set(14, [+1, -1, +1]);
+		cubePos.set(15, [-1, -1, +1]);
+
+		// Right
+		new indices.Triangle().setVertices(16, 17, 18);
+		new indices.Triangle().setVertices(16, 18, 19);
+		cubePos.set(16, [+1, -1, -1]);
+		cubePos.set(17, [+1, +1, -1]);
+		cubePos.set(18, [+1, +1, +1]);
+		cubePos.set(19, [+1, -1, +1]);
+		// Left
+		new indices.Triangle().setVertices(20, 21, 22);
+		new indices.Triangle().setVertices(20, 22, 23);
+		cubePos.set(20, [-1, -1, -1]);
+		cubePos.set(21, [-1, -1, +1]);
+		cubePos.set(22, [-1, +1, +1]);
+		cubePos.set(23, [-1, +1, -1]);
+
+		const clear = new glii.WebGL1Clear({
+			color: [0.2, 0.2, 0.2, 0.0],
+			depth: 1,
+		});
+		const program = new glii.WebGL1Program({
+			vertexShaderSource: `
+void main() {
+	vTexCoords = aTexCoords;
+	gl_Position = uProjMatrix * uModelViewMatrix * vec4(aPos, 1.);
+}`,
+			varyings: { vTexCoords: "vec2" },
+			fragmentShaderSource: `
+void main() {
+// 	gl_FragColor = texture2D(uDucks, vTexCoords);
+	gl_FragColor = texture2D(uHexa, vTexCoords);
+}`,
+			indexBuffer: indices,
+			attributes: { aPos: cubePos, aTexCoords: cubeTex },
+			textures: { uHexa: hexaOutTexture },
+			uniforms: {
+				// uTime: "float",
+				uProjMatrix: "mat4",
+				uModelViewMatrix: "mat4",
+			},
+			depth: glii.LEQUAL,
+		});
+
+		clear.run();
+
+		// Create a perspective matrix, a special matrix that is
+		// used to simulate the distortion of perspective in a camera.
+		// Our field of view is 45 degrees, with a width/height
+		// ratio that matches the display size of the canvas
+		// and we only want to see objects between 0.1 units
+		// and 100 units away from the camera.
+
+		const fieldOfView = (45 * Math.PI) / 180; // in radians
+		// const aspect = glee.canvas.clientWidth / gl.canvas.clientHeight;
+		const aspect = 1;
+		const zNear = 0.1;
+		const zFar = 100.0;
+		const projectionMatrix = mat4.create();
+		let cubeRotation = 0;
+
+		mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
+
+		const modelViewMatrix = mat4.create();
+		const baseModelViewMatrix = mat4.create();
+		// This will push the cube "back" into the scene by 6 units, making a bit smaller.
+		mat4.translate(
+			baseModelViewMatrix, // destination matrix
+			baseModelViewMatrix, // matrix to translate
+			[-0.0, 0.0, -4.0]
+		); // amount to translate
+
+		program.setUniform("uProjMatrix", projectionMatrix);
+		program.setUniform("uModelViewMatrix", modelViewMatrix);
+
+		function renderAtTime(sec) {
+			// const cubeRotation = performance.now() / 1000;
+			const cubeRotation = sec * 2;
+			mat4.rotate(
+				modelViewMatrix, // destination matrix
+				baseModelViewMatrix, // matrix to rotate
+				cubeRotation, // amount to rotate in radians
+				[0.2, 0.4, 1] // axis to rotate around (Z)
+			);
+			mat4.rotate(
+				modelViewMatrix, // destination matrix
+				modelViewMatrix, // matrix to rotate
+				cubeRotation * 0.2, // amount to rotate in radians
+				[1, 0.1, 0.3] // axis to rotate around (Z)
+			);
+
+			program.setUniform("uModelViewMatrix", modelViewMatrix);
+
+			clear.run();
+			program.run();
+
+			// const pixelTarget2 = new Uint8Array(5*5*4);
+			// // glii.gl.bindFramebuffer(glii.gl.FRAMEBUFFER, null);
+			// glii.gl.readPixels(225, 225, 5, 5, glii.RGBA, glii.UNSIGNED_BYTE, pixelTarget2);
+			// console.log(`Pixels from main canvas' framebuffer at sec ${sec}:`);
+			// console.log(pixelTarget2);
+			// console.log(Array.from(pixelTarget2).filter(i=>i!== 255 && i!== 51));
+
+			return expectPixelmatch(
+				context,
+				`spec/render-to-texture/cubelogo-${sec}`,
+				40
+			);
+		}
+
+		return Promise.all([renderAtTime(1), renderAtTime(2)]);
+	});
+});

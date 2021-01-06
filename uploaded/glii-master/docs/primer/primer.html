@@ -1,0 +1,355 @@
+<style>
+
+body{
+	max-width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
+img {max-width: 50em; border: 1px solid #888; border-radius: 8px; }
+
+table { border-collapse: collapse; }
+table td { border: 1px solid #444; }
+table td.r { text-align: right; }
+
+	pre code {
+		display: inline-block;
+		background: #eee;
+	}
+
+	code {
+		background: #eee;
+	}
+	h2 {
+		margin-top: 4em;
+		margin-left: 0;
+	}
+</style>
+<h1>A glii primer</h1>
+<blockquote>
+<p><a href="https://www.wordreference.com/definition/primer">primer /ˈpraɪmə/ n</a></p>
+<pre><code>an introductory text, such as a school textbook
+</code></pre>
+<p>Etymology: 14th Century: via Anglo-Norman from Medieval Latin <em>primārius</em> (<em>liber</em>) a first (book), from Latin <em>prīmārius</em> primary</p>
+</blockquote>
+<h2>0. Introduction</h2>
+<p>WebGL is <em>hard</em>. Glii tries to make it easier to understand by making some concepts explicit and renaming a couple of things.</p>
+<p>Whenever there's WebGL (or OpenGL, or DirectX, or Vulkan), there's something called a <em>graphics pipeline</em>. Data goes into one end, graphics come out of the other end.</p>
+<p>But it's not as easy as that. There are several inputs, several outputs, and once a WebGL program is running, it's an undebuggable <a href="https://en.wikipedia.org/wiki/Black_box">black box</a>. It looks something like the following diagram (try to not get scared by it, it'll get better):</p>
+<p><img src="webgl-data-pipeline.dot.png" alt="Data pipeline" /></p>
+<p>(In that diagram, bold boxes are things that a programmer can configure).</p>
+<p>It's important to keep that in mind, specially when one wants to squeeze all the functionality from the pipeline. But, when learning, it's better to ignore some of the stuff and make that diagram simpler:</p>
+<p><img src="webgl-data-pipeline-simplified.dot.png" alt="Data pipeline, simplified" /></p>
+<p>Even so, the most basic use cases can ignore even more stuff, so this is the simplest data pipeline for most use cases:</p>
+<p><img src="webgl-data-pipeline-simplified-2.dot.png" alt="Data pipeline, simplified" /></p>
+<p>So the things that can be configured for a WebGL program call are:</p>
+<ul>
+<li>Attributes (input data, per vertex)</li>
+<li>Uniforms (input data, per call)</li>
+<li>Textures (input data, per call)</li>
+<li>Vertex shader (a string containing GLSL programming code)
+<ul>
+<li>Gets called once per vertex</li>
+<li>Inputs attributes</li>
+<li>Inputs uniforms</li>
+<li>Outputs varyings</li>
+<li>Outputs a special variable named <code>gl_Position</code></li>
+</ul>
+</li>
+<li>Vertex indices
+<ul>
+<li>Tells the ✨🪄MAGIC🪄✨ how to assemble triangles</li>
+</ul>
+</li>
+<li>Varyings
+<ul>
+<li><em>Definition</em> of how much data goes out of the vertex shader and into the fragment shader</li>
+</ul>
+</li>
+<li>Fragment shader (a string containing GLSL programming code)
+<ul>
+<li>Gets called once per fragment (AKA pixel)</li>
+<li>Inputs varyings</li>
+<li>Inputs uniforms</li>
+<li>Inputs textures</li>
+<li>Outputs a special variable named <code>gl_FragColor</code></li>
+</ul>
+</li>
+</ul>
+<p>If you are willing to waste a bit of paper, print the last diagram and the list. It can come in handy to make sense of the data inputs and outputs.</p>
+<hr />
+<p>The goal of this document is an introduction to how glii works, not a complete course on OpenGL/WebGL. It's a good idea to complement this primer with some of the more general WebGL texts, such as:</p>
+<ul>
+<li><a href="https://webglfundamentals.org">WebGL Fundamentals</a></li>
+<li><a href="https://learnopengl.com/">Learn OpenGL</a> (low-level concepts not specific to WebGL)</li>
+<li><a href="http://thebookofshaders.com">The Book of Shaders</a> (an excellent manual on the GLSL shading language)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/WebGL">Mozilla Developer Network WebGL stuff</a></li>
+</ul>
+<h2>1. Setup</h2>
+<p>Before diving into drawing triangles, let's make sure that a few basics of HTML and JS are covered.</p>
+<p>I'm assuming that, if you're reading this, you already know a bit of HTML and JavaScript. If not, head to the <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web">MDN &quot;Getting started with the Web&quot; learning materials</a> first.</p>
+<p>One of the goals of Glii is steer clear of complex toolchains, so the only things that are needed are a <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software#Installing_a_text_editor">text editor</a> (<em>any</em> text editor) and a <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server">local webserver</a> (<em>any</em> webserver).</p>
+<p>Let's start from scratch, with a very empty webpage:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>That webpage is going to need a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas"><code>&lt;canvas&gt;</code></a> so glii can draw stuff into it, so let's change that into:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas height=&quot;500&quot; width=&quot;500&quot; id=&quot;glii-canvas&quot;&gt;&lt;/canvas&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>And since we'll be doing JavaScript, we'll need a <code>&lt;script&gt;</code> somewhere. Since glii is written as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">JavaScript modules</a>, that needs to be a <code>&lt;script type='module'&gt;</code>:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas height=&quot;500&quot; width=&quot;500&quot; id=&quot;glii-canvas&quot;&gt;&lt;/canvas&gt;
+		&lt;script type=&quot;module&quot;&gt;
+			/* JavaScript goes here */
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Then, we load the main glii module using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"><code>import</code></a>. If you never used <code>import</code>s in plain HTML+JS, the following code snippet is <em>kinda</em> similar to <code>&lt;script src='path_to_glii_files/index.mjs'&gt;</code>. Beware your relative/absolute URIs, and load glii's files from wherever it's appropriate.</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+	import { GLFactory as Glii } from &quot;path_to_glii_files/index.mjs&quot;;
+&lt;/script&gt;
+</code></pre>
+<p>Glii exposes just one <code>export</code> - a JavaScript <code>class</code> named <code>GLFactory</code>. Give it a reference to a <code>HTMLCanvasElement</code>:</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+	import { GLFactory as Glii } from &quot;path_to_glii_files/index.mjs&quot;;
+	const canvas = document.getElementById(&quot;glii-canvas&quot;)
+	const glii = new Glii(canvas);
+&lt;/script&gt;
+</code></pre>
+<p>Or, in a more compact form:</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+	import { GLFactory as Glii } from &quot;path_to_glii_files/index.mjs&quot;;
+	const glii = new Glii(document.getElementById(&quot;glii-canvas&quot;));
+&lt;/script&gt;
+</code></pre>
+<p>Please note that, like other libraries, glii uses <a href="https://en.wikipedia.org/wiki/Camel_case">camel case</a> for naming: <code>UpperCamelCase</code> for classes, and <code>lowerCamelCase</code> for instances.</p>
+<p>The <code>glii</code> instance of <code>GLFactory</code> doesn't have any funcionality by itself. Instead, it defines wrapped <code>class</code>es. The most basic functionality is provided by the <code>WebGL1Clear</code> class, which clears the <code>&lt;canvas&gt;</code> with the given colour.</p>
+<p>Now, get an instance of <code>WebGL1Clear</code> (implicitly tied to the canvas) by doing <code>new glii.WebGL1Clear(...)</code>.</p>
+<p>The <code>WebGL1Clear</code> contructor takes one parameter, a key-value map of options. For this basic example, let's set the clear colour to 20% red, 30% green, 40% blue and full opacity by doing:</p>
+<pre><code class="language-js">const clearOperation = new glii.WebGL1Clear({ color: [0.2, 0.3, 0.4, 1.0] });
+</code></pre>
+<p>Finally, the clear operation runs when its <code>run()</code> method is invoked, i.e.:</p>
+<pre><code class="language-js">clearOperation.run();
+</code></pre>
+<p>Putting everything together, a complete example looks like:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas height=&quot;500&quot; width=&quot;500&quot; id=&quot;glii-canvas&quot;&gt;&lt;/canvas&gt;
+		&lt;script type=&quot;module&quot;&gt;
+			import { GLFactory as Glii } from &quot;path_to_glii_files/index.mjs&quot;;
+
+			const glii = new Glii(document.getElementById(&quot;glii-canvas&quot;));
+
+			const clearOperation = new glii.WebGL1Clear({ color: [0.2, 0.3, 0.4, 1.0] });
+
+			clearOperation.run();
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>At this point, you should copy-paste that complete example into a new text file, change <code>path_to_flii_files</code> to the actual path where glii is available, and point your browser to your local development webserver to visit the page. Try changing the clear colour!</p>
+<p>Remember to use the <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">debugging tools available in your browser</a> to check if there's anything wrong - javascript console section to look for errors, and network section to see if glii's <code>index.mjs</code> is being loaded from the right location.</p>
+<p>If you cannot get this minimal example working, go back to the basics at <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web">MDN &quot;Getting started with the Web&quot; learning materials</a>.</p>
+<h2>2. One red triangle</h2>
+<p>It's still a lot to take in, so for a first program let's not use any varyings, uniforms or textures. Let's do... a red triangle (like in one of the basic <a href="https://learnopengl.com/Getting-started/Hello-Triangle">LearnOpenGL lessons</a>):</p>
+<p><img src="primer-02-triangle-red.png" alt="Red triangle" /></p>
+<p>The ✨🪄MAGIC🪄✨ shall need to assemble one triangle; this means three vertices each with their own position on the <code>&lt;canvas&gt;</code>, and we'll want those coordinates to be 2-dimensional (with X and Y).</p>
+<p>The first thing to do is some preparations: there's a webpage that needs to have a <code>&lt;canvas&gt;</code>, and create a glii <code>GLFactory</code> pointing to that <code>&lt;canvas&gt;</code> (this will implicitly set the default output to that canvas):</p>
+<pre><code class="language-html">&lt;canvas height=&quot;500&quot; width=&quot;500&quot; id=&quot;glii-canvas&quot;&gt; &lt;/canvas&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+	import { GLFactory as Glii } from &quot;path_to_glii/index.mjs&quot;;
+
+	const glii = new Glii(document.getElementById(&quot;glii-canvas&quot;));
+
+	/* rest of the JS code will go here */
+&lt;/script&gt;
+</code></pre>
+<p>The position coordinates of the vertices are stored in <em>attributes</em>. Think of attributes as a table. For this example, it will look like this:</p>
+<table>
+<tr><td>Vertex index</td><td>position.x</td><td>position.y</td></tr>
+<tr><td>0</td><td class='r'>-0.5</td><td class='r'>-0.5</td></tr>
+<tr><td>1</td><td class='r'>+0.5</td><td class='r'>-0.5</td></tr>
+<tr><td>2</td><td class='r'>0</td><td class='r'>+0.5</td></tr>
+</table>
+<p>So the next step is to define such a thing in glii. This javascript code will create a place to hold a single attribute (we want it to hold 2-dimensional coordinates, so the GLSL data type is <code>vec2</code>, short for 2-component vector):</p>
+<pre><code class="language-js">const positions = new glii.SingleAttribute({ glslType: &quot;vec2&quot; });
+</code></pre>
+<p>...and fill in the data:</p>
+<pre><code class="language-js">positions.set(0, [-0.5, -0.5]);
+positions.set(1, [ 0.5, -0.5]);
+positions.set(2, [   0, +0.5]);
+</code></pre>
+<p>A glii <code>SingleAttribute</code> can hold data for a single attribute, for an indeterminate number of vertices. The GLSL type of the attribute it can hold is either <code>float</code>, <code>vec2</code>, <code>vec3</code> or <code>vec4</code>.</p>
+<p>Now let's set up a triangle with vertices 0, 1 and 2:</p>
+<pre><code>const indices = new glii.IndexBuffer({ size: 3 });
+indices.set(0, [0, 1, 2]);
+</code></pre>
+<p>By default, an <code>IndexBuffer</code> will use the <code>TRIANGLES</code> draw mode (let's not get into other draw modes just yet), and it will assemble each triplet of vertex indices into one triangle.</p>
+<p>Let's go onto the vertex shader; its job is to set the value of the predefined <code>gl_Position</code> variable. <code>gl_Position</code> is a 4-component vector (or <code>vec4</code>), and we'll have a <code>vec2</code> attribute per vertex, so the code for this is gonna be:</p>
+<pre><code class="language-glsl">void main() {
+	gl_Position = vec4(aPos, 0.0, 1.0);
+}
+</code></pre>
+<p>That's not javascript, and that's not C. That's a programming language called GLSL, created for use within OpenGL/WebGL. It's C-like so it should feel familiar, but can handle 2-, 3- and 4-component vectors in some fancy ways. That vertex shader sets the X and Y components of <code>gl_Position</code> to the X and Y components of the <code>aPos</code> attribute, then the Z (3rd) component to zero, and the W (4th) component to 1.</p>
+<p>(The Z component must be between -1.0 and 1.0, and the W component should be 1.0. If not, things might not draw as you expect because of how the ✨🪄MAGIC🪄✨ works.)</p>
+<p>Why are we using values between -1.0 and 1.0, anyway? Shouldn't those be pixel coordinates? Well, OpenGL/WebGL works with something called <em>normalized device coordinates</em> (also known as <em>clipspace</em> or <em>clip-space coordinates</em> elsewhere). I'm gonna borrow an image from <a href="https://learnopengl.com/Getting-started/Hello-Triangle">learnopengl.com</a> to illustrate (image is <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-by 4.0</a> by <a href="https://joeydevries.com">Joey de Vries</a>):</p>
+<p><img src="primer-02-ndc.png" alt="Normalized device coordinates" /></p>
+<p>The only missing part is the fragment shader. We're doing red, so the code shall be:</p>
+<pre><code class="language-glsl">void main() {
+	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+</code></pre>
+<p>In there, <code>gl_FragColor</code> is set to a 4-component vector which corresponds to the RGBA (red/green/blue/alpha) values of the ouput colour; values must be between 0 and 1 (lower than 0 gets clamped up to 0, and higher than 1 gets clamped down to 1).</p>
+<p>Also note that the number constants in GLSL code are <code>0.0</code> and <code>1.0</code> instead of <code>0</code> and <code>1</code> - this is because GLSL is nitpicky about <em>integer</em> constants and <em>floating-point</em> constants, and <code>vecN</code> variables are implied floating-point. <strong>A newbie mistake is to forget writing a <code>.</code> in the numbers</strong>, and shall trigger a compilation error.</p>
+<p>Now that we have all the inputs ready (attributes, vertex indices, vertex shader and fragment shader), they can be tied together in a glii <code>WebGL1Program</code>:</p>
+<pre><code class="language-js">const program = new glii.WebGL1Program({
+	attributes: { aPos: positions, },
+	vertexShaderSource: `
+		void main() {
+			gl_Position = vec4(aPos, 0.0, 1.0);
+		}`,
+	fragmentShaderSource: `
+		void main() {
+			gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+		}`,
+	indexBuffer: indices,
+});
+</code></pre>
+<p>The only non-trivial thing there is that the <code>SingleAttribute</code> named <code>position</code> in javascript is gonna be named <code>aPos</code> in the GLSL code for the vertex shader. It's most usual to put a <code>a</code> at the start of all attribute names in GLSL (i.e. <a href="https://en.wikipedia.org/wiki/Hungarian_notation">hungarian notation</a>).</p>
+<p>Putting everything together, this is how the whole webpage for this example looks like:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Primer, 02: Red triangle&lt;/title&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;link rel=&quot;icon&quot; href=&quot;../docs/favicon.ico&quot; /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;canvas height=&quot;500&quot; width=&quot;500&quot; id=&quot;glii-canvas&quot;&gt;&lt;/canvas&gt;
+
+		&lt;script type=&quot;module&quot;&gt;
+			import { GLFactory as Glii } from &quot;../src/index.mjs&quot;;
+
+			const glii = new Glii(document.getElementById(&quot;glii-canvas&quot;));
+
+			const positions = new glii.SingleAttribute({ glslType: &quot;vec2&quot; });
+
+			const indices = new glii.IndexBuffer();
+
+			indices.set(0, [0, 1, 2]);
+
+			positions.set(0, [-0.5, -0.5]);
+			positions.set(1, [ 0.5, -0.5]);
+			positions.set(2, [   0, +0.5]);
+
+			const program = new glii.WebGL1Program({
+				attributes: { aPos: positions, },
+				vertexShaderSource: `
+void main() {
+	gl_Position = vec4(aPos, 0.0, 1.0);
+}`,
+				fragmentShaderSource: `
+void main() {
+	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}`,
+				indexBuffer: indices,
+			});
+
+			program.run();
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>At this point, you can try changing the coordinates of each vertex, and the output colour of the fragment shader.</p>
+<h1>2. Interlude: de-duplicating attribute definitions in GLSL</h1>
+<p>The previous chapter skimmed through the GLSL language.</p>
+<p>If you want to learn GLSL, one of the best resources out there is Patricio González's <a href="https://thebookofshaders.com">Book of Shaders</a>. <a href="https://webglfundamentals.org/webgl/lessons/webgl-shaders-and-glsl.html">WebGL Fundamentals</a> also covers some basics of GLSL.</p>
+<p>However, if you already have experience working with GLSL shaders, you might have noticed something weird in the GLSL code for the vertex shader... it's missing the <code>attribute vec2 aPos;</code> definition.</p>
+<p>This is because glii's design aims to de-duplicate the definitions of inputs and outputs, as much as possible. A glii <code>WebGL1Program</code> is aware of the defined attributes (and, as we'll see later, varyings, uniforms and textures), and will automatically modify the shader source code to add those attribute definitions.</p>
+<h1>3. Multicolour triangle</h1>
+<p>Let's follow with a classic OpenGL/WebGL example, a multicoloured triangle:</p>
+<p><img src="primer-04-triangle-multicolour.png" alt="Multicolour triangle" /></p>
+<p>In here, there are only three vertices, each of them with a different colour (red, green or blue). Because of the way OpenGL/WebGL does magic to assemble triangles, it's possible to interpolate data between vertices (in this case, the colour).</p>
+<p>So, this will need one more attribute per vertex, with some values:</p>
+<pre><code class="language-js">const colours   = new glii.SingleAttribute({ glslType: &quot;vec3&quot; });
+
+colours.set(0, [1,0,0]);	// Red
+colours.set(1, [0,1,0]);	// Green
+colours.set(2, [0,0,1]);	// Blue
+</code></pre>
+<p>This means that now we have two data dables, one with position coordinates and one for colour components:</p>
+<table>
+<tr><td>Vertex index</td><td>position.x</td><td>position.y</td></tr>
+<tr><td>0</td><td class='r'>-0.5</td><td class='r'>-0.5</td></tr>
+<tr><td>1</td><td class='r'>+0.5</td><td class='r'>-0.5</td></tr>
+<tr><td>2</td><td class='r'>0</td><td class='r'>+0.5</td></tr>
+</table>
+<table>
+<tr><td>Vertex index</td><td>colour.r</td><td>colour.g</td><td>colour.b</td></tr>
+<tr><td>0</td><td class='r'>1</td><td class='r'>0</td><td class='r'>0</td></tr>
+<tr><td>1</td><td class='r'>0</td><td class='r'>1</td><td class='r'>0</td></tr>
+<tr><td>2</td><td class='r'>0</td><td class='r'>0</td><td class='r'>1</td></tr>
+</table>
+<p>A <code>WebGL1Program</code> can take several attributes, like:</p>
+<pre><code class="language-js">const program = new glii.WebGL1Program({
+	attributes: {
+		aPos: positions,
+		aColour: colours
+	},
+	vertexShaderSource: /* etc */,
+	fragmentShaderSource: /* etc */
+	indexBuffer: /* etc */,
+});
+</code></pre>
+<p>The next step is to define what's called a <em>varying</em>. Remember the diagrams from the first chapter? <em>varying</em>s tie together the vertex shader and the fragment shader; the vertex shader outputs varyings, and the fragment shader inputs them.</p>
+<p>In a glii <code>WebGL1Program</code>, varyings are defined as a key-value map of names to GLSL types, like so:</p>
+<pre><code class="language-js">const program = new glii.WebGL1Program({
+	attributes: {
+		aPos: positions,
+		aColour: colours
+	},
+	vertexShaderSource: /* etc */,
+	varyings: {
+		vColour: 'vec3'
+	},
+	fragmentShaderSource: /* etc */
+	indexBuffer: /* etc */,
+});
+</code></pre>
+<p>Now the vertex shader can modify <code>vColour</code>, and the fragment shader will read it. The general idea is to copy values from <em>attributes</em> to <em>varyings</em>, then make the output colour <code>gl_FragColor</code> depend on those <em>varyings</em>, like so:</p>
+<pre><code class="language-js">const program = new glii.WebGL1Program({
+	attributes: {
+		aPos: positions,
+		aColour: colours
+	},
+	vertexShaderSource: `
+		void main() {
+			vColour = aColour;
+			gl_Position = vec4(aPos, 0.0, 1.0);
+		}`,
+	varyings: {
+		vColour: 'vec3'
+	},
+	fragmentShaderSource: `
+		void main() {
+			gl_FragColor = vec4(vColour, 1.0);
+		}`,
+	indexBuffer: indices,
+});
+</code></pre>

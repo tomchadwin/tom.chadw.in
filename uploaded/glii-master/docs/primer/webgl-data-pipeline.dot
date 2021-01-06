@@ -1,0 +1,124 @@
+
+digraph G {
+	node [shape=box]
+
+	subgraph cluster_framebuffer {
+		label = "FrameBuffer"
+		style="rounded"
+		color="gray"
+		labeljust="l"
+
+		depth[label="Depth buffer\n(texture/renderbuffer))"][shape="cylinder"]
+		stencil[label="Stencil buffer\n(texture/renderbuffer))"][shape="cylinder"]
+		color[label="Colour buffer\n(texture/renderbuffer))"][shape="cylinder"]
+
+		gl_FragColor [style="filled"]
+		gl_FragColor -> color
+		depth -> stencil [style="invis"]
+		stencil -> gl_FragColor [style="invis"]
+
+		foo[style=invis]
+		stencil->foo[style=invis]
+		foo->gl_FragColor[style=invis]
+	}
+
+	subgraph cluster_gpu {
+		style="rounded"
+		color="gray"
+		label = "GL draw call"
+		labeljust="l"
+
+			subgraph cluster_rasterization_inputs {
+		style="rounded"
+		color="gray"
+		label = "Rasterization inputs"
+		labeljust="l"
+
+				varyings1 [label="Varyings\n(per vertex)"][shape="note"][style=bold]
+				gl_Position [style=filled]
+				gl_PointSize[style="filled,dashed"]
+			}
+			subgraph cluster_rasterization_outputs {
+		style="rounded"
+		color="gray"
+		label = "Rasterization outputs"
+		labeljust="l"
+
+				varyings2 [label="Varyings\n(per fragment)"][shape="note"][style=bold]
+				gl_FragCoord [style=filled]
+				gl_FrontFacing [style=filled]
+				gl_PointCoord [style="filled,dashed"]
+			}
+
+		subgraph cluster_rasterization {
+			style="rounded"
+			color="gray"
+			label = "Rasterization";
+			labeljust="l"
+			primitive [label="Primitive assembly"]
+			interpolation[label="Fragment interpolation"]
+
+
+
+			subgraph cluster_discard {
+// 				label = "Discard tests"
+				label = ""
+				style=invis
+				culling [label="Face culling"]
+				depthtest  [label="Depth test"]
+				stenciltest [label="Stencil test"]
+				culling -> depthtest
+				depthtest -> stenciltest
+// 				stenciltest-> culling [style=invis]
+				dropped[label="Ignore useless fragments"][style=dashed]
+// 				valid
+			}
+
+			primitive -> culling
+			culling -> dropped[style=dashed]
+			depthtest -> dropped[style=dashed]
+			stenciltest -> dropped[style=dashed]
+			stenciltest -> interpolation
+
+			gl_Position -> primitive
+			primitive -> gl_FrontFacing
+			varyings1 -> interpolation
+			interpolation -> varyings2
+			interpolation -> gl_FragCoord
+			interpolation -> gl_PointCoord[style=dashed]
+
+		}
+		vertexshader [label = "Vertex shader"][shape="box"][style=bold]
+		fragmentshader [label = "Fragment shader"][shape="box"][style=bold]
+
+		vertexshader -> varyings1
+		varyings2 -> fragmentshader
+		fragmentshader -> gl_FragColor
+	}
+
+	indices [label = "Vertex indices\n(and draw mode)"][shape="cylinder"][style=bold]
+	indices -> vertexshader[weight=0]
+	indices -> primitive
+	attributes [label = "Attributes"][shape="cylinder"][style=bold]
+	uniforms [label = "Uniforms"][shape="cylinder"][style=bold]
+	textures[label = "Textures"][shape="cylinder"][style=bold]
+
+	attributes -> vertexshader
+	vertexshader -> gl_PointSize[style=dashed]
+	gl_PointSize -> primitive[style=dashed]
+	vertexshader -> gl_Position
+	uniforms -> vertexshader[weight=-1]
+	uniforms -> fragmentshader
+	textures -> fragmentshader
+
+	stencil -> stenciltest[weight=10]
+	depthtest -> depth[weight=10][dir=both]
+
+	stenciltest -> gl_FragCoord [style=invis]
+	stenciltest -> gl_FrontFacing[style=invis]
+	stenciltest -> gl_PointCoord [style=invis]
+	gl_FragCoord -> fragmentshader
+	gl_FrontFacing -> fragmentshader
+	gl_PointCoord -> fragmentshader[style=dashed]
+
+}

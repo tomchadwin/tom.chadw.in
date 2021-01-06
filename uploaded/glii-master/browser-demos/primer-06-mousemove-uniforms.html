@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Primer, 06: Slider uniforms</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../docs/favicon.ico" />
+	</head>
+	<body>
+		fsdaref<br>
+		fdsf
+		<canvas height="500" width="500" id="glii-canvas"></canvas>
+		<div>Size:<input type="range" id="range-size" min="0" max="200"></div>
+		<div>Brightness:<input type="range" id="range-bright" min="0" max="200"></div>
+
+		<script type="module">
+			import { GLFactory as Glii } from "../src/index.mjs";
+
+			const glii = new Glii(document.getElementById("glii-canvas"));
+
+			const positions = new glii.SingleAttribute({ glslType: "vec2" });
+			const colours   = new glii.SingleAttribute({ glslType: "vec3" });
+
+			const indices = new glii.IndexBuffer();
+
+			indices.set(0, [0, 1, 2]);
+
+			positions.set(0, [-0.5, -0.5]);
+			positions.set(1, [ 0.5, -0.5]);
+			positions.set(2, [   0, +0.5]);
+
+			colours.set(0, [1,0,0]);	// Red
+			colours.set(1, [0,1,0]);	// Green
+			colours.set(2, [0,0,1]);	// Blue
+
+			const program = new glii.WebGL1Program({
+				attributes: {
+					aPos: positions,
+					aColour: colours
+				},
+				vertexShaderSource: `
+void main() {
+	vColour = aColour;
+	gl_Position = vec4(uMousePos + aPos * .25, 0.0, 1.0);
+}`,
+				varyings: { vColour: 'vec3' },
+				fragmentShaderSource: `
+void main() {
+	gl_FragColor = vec4(vColour, 1.0);
+}`,
+				indexBuffer: indices,
+				uniforms: {
+					uMousePos: 'vec2'
+				}
+			});
+
+			program.run();
+
+			const canvas = document.getElementById('glii-canvas');
+			canvas.addEventListener('pointermove', function(ev){
+				// Grab the pointer coordinates relative to the canvas,
+				// and normalize them into clipspace coordinates
+				// The canvas is 500px high and wide; the Y coordinate in the DOM
+				// grows down, but in clipspace it grows up, so it has to be inverted.
+				const rect = canvas.getClientRects()[0];
+				let x = ev.clientX - rect.left;
+				let y = ev.clientY - rect.top;
+				x = x / 250 - 1;
+				y = 1 - y / 250;
+
+				// A setUniform() call for a vec2 takes an Array of Numbers
+				program.setUniform('uMousePos', [ x, y ]);
+				program.run();
+			});
+		</script>
+	</body>
+</html>

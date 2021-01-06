@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Glii unit tests - Jasmine Spec Runner v3.3.0</title>
+
+  <link rel="shortcut icon" type="image/png" href="../node_modules/jasmine-core/lib/jasmine-core/jasmine_favicon.png">
+  <link rel="stylesheet" href="../node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+
+  <script src="../node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+  <script src="../node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+  <script src="../node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+
+  <!-- Jasmine helpers -->
+  <script type='module' src="helpers/contextFactory-browser.mjs"></script>
+  <script type='module' src="helpers/pixelmatchHelper-browser.mjs"></script>
+  <script type='module' src="helpers/imageFromUrl-browser.mjs"></script>
+  <script type='module' src="helpers/log-platform-browser.mjs"></script>
+  <script type='module' src="helpers/console-reporter-browser.mjs"></script>
+
+  <!-- Tests -->
+  <script type='module' src="./error/errors.test.mjs"></script>
+  <script type='module' src="./clear/clear.test.mjs"></script>
+<!--   <script type='module' src="./one-triangle/one-triangle-coordsbuffer.test.mjs"></script> -->
+  <script type='module' src="./one-triangle/one-triangle-float32buffer.test.mjs"></script>
+  <script type='module' src="./one-triangle/one-triangle-int16buffer.test.mjs"></script>
+  <script type='module' src="./one-triangle/one-triangle-interleaved.test.mjs"></script>
+<!--   <script type='module' src="./one-triangle/one-triangle-custombuffer-normalize.test.mjs"></script> -->
+  <script type='module' src="./programmatic-triangles/programmatic-triangles.test.mjs"></script>
+  <script type='module' src="./points/points.test.mjs"></script>
+  <script type='module' src="./quad/quad.test.mjs"></script>
+  <script type='module' src="./icomesh/icomesh.test.mjs"></script>
+  <script type='module' src="./icomesh/icomesh-dump.test.mjs"></script>
+  <script type='module' src="./texture/basic/texture-basic-float32.test.mjs"></script>
+  <script type='module' src="./texture/basic/texture-basic-int8.test.mjs"></script>
+  <script type='module' src="./texture/fade-2/fade-2.test.mjs"></script>
+  <script type='module' src="./texture/duck-cube/duck-cube.test.mjs"></script>
+  <script type='module' src="./uniforms/uniforms.test.mjs"></script>
+  <script type='module' src="./allocator/allocator.test.mjs"></script>
+  <script type='module' src="./sparseindices/sparse-quads.test.mjs"></script>
+  <script type='module' src="./triangle-sugar/triangle-sugar.test.mjs"></script>
+  <script type='module' src="./render-to-texture/render-to-texture.test.mjs"></script>
+  <script type='module' src="./depth-cube/depth-cube.test.mjs"></script>
+
+</head>
+
+<body>
+</body>
+</html>

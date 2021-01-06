@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Point browser demo</title>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../docs/favicon.ico" />
+	</head>
+	<body>
+		<canvas height="500" width="500" id="glii-canvas"> </canvas>
+
+		<script type="module">
+			// Point to wherever the entry point of Glii is. This might be a CDN.
+			import { GLFactory as Glii } from "../src/index.mjs";
+
+			// Create the Glii factory. This shall wrap the context.
+			const glii = new Glii(document.getElementById("glii-canvas"));
+
+			// This is a minimal program with no attributes, no varyings, no uniforms,
+			// abusing the WebGL built-in variables a tiny bit.
+			const program = new glii.WebGL1Program({
+				// The vertex shader runs only once, so it's OK to make gl_Position
+				// constant at the clipspace center (0,0).
+				// Since the draw mode is POINTS, gl_PointSize makes things easier to see.
+				vertexShaderSource: `
+void main() {
+	gl_Position = vec4(0., 0., 0., 1.);
+	gl_PointSize = 50.;
+}`,
+				// The vertex shader doesn't need to pass any data to the
+				// fragment shader, so there are no varyings.
+				varyings: {},
+
+				// The fragment shader abuses the gl_PointCoord built-in variable
+				// to give a bit of colour.
+				fragmentShaderSource: `
+void main() {
+	gl_FragColor = vec4(gl_PointCoord ,0.,1.);
+}`,
+
+				// The indexBuffer tells the program how many vertices
+				// there are (1) and how to interpret them (e.g. points, not triangles)
+				indexBuffer: new glii.SequentialIndices({
+					drawMode: glii.POINTS,
+					size: 1,
+				}),
+
+				// This minimal program doesn't define any attributes,
+				// textures nor uniforms.
+				attributes: {},
+				textures: {},
+				uniforms: {},
+			});
+
+			// The program does not run automagically, and there's no implicit render loop.
+			program.run();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+*~
+node_modules
+yarn.lock
+**/*.actual.png
+**/*.diff.png
+dist
+.cjsescache
+*.kate-swp

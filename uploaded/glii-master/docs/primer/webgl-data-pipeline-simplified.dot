@@ -1,0 +1,96 @@
+
+digraph G {
+	node [shape=box]
+
+	subgraph cluster_framebuffer {
+		label = "FrameBuffer"
+		style="rounded"
+		color="gray"
+		labeljust="l"
+
+		depth[label="Depth buffer"][shape="cylinder"][color=gray]
+		stencil[label="Stencil buffer"][shape="cylinder"][color=gray]
+		color[label="Colour buffer"][shape="cylinder"]
+
+		gl_FragColor [style="filled"]
+		gl_FragColor -> color
+		depth -> stencil [style="invis"]
+		stencil -> gl_FragColor [style="invis"]
+	}
+
+	subgraph cluster_gpu {
+		style="rounded"
+		color="gray"
+		label = "GL draw call"
+		labeljust="l"
+
+// 			subgraph cluster_rasterization_inputs {
+// 		style="rounded"
+// 		color="gray"
+// 		label = "Rasterization inputs"
+// 		labeljust="l"
+
+				varyings1 [label="Varyings\n(per vertex)"][shape="note"][style=bold]
+				gl_Position [style=filled]
+				gl_PointSize[style="filled,dashed"]
+// 			}
+// 			subgraph cluster_rasterization_outputs {
+// 		style="rounded"
+// 		color="gray"
+// 		label = "Rasterization outputs"
+// 		labeljust="l"
+
+				varyings2 [label="Varyings\n(per fragment)"][shape="note"][style=bold]
+				gl_FragCoord [style=filled]
+				gl_FrontFacing [style=filled]
+				gl_PointCoord [style="filled,dashed"]
+// 			}
+
+// 		subgraph cluster_rasterization {
+// 			style="rounded"
+// 			color="gray"
+// 			label = "Rasterization";
+// 			labeljust="l"
+
+			magic[width=6][label="✨🪄  MAGIC 🪄✨"]
+
+			gl_Position -> magic
+			magic -> gl_FrontFacing
+			varyings1 -> magic[style=invis]
+			magic -> varyings2[style=invis]
+			varyings1 -> varyings2
+			magic -> gl_FragCoord
+			magic -> gl_PointCoord[style=dashed]
+
+// 		}
+		vertexshader [label = "Vertex shader"][shape="box"][style=bold]
+		fragmentshader [label = "Fragment shader"][shape="box"][style=bold]
+
+		vertexshader -> varyings1
+		varyings2 -> fragmentshader
+		fragmentshader -> gl_FragColor
+	}
+
+	indices [label = "Vertex indices\n(and draw mode)"][shape="cylinder"][style=bold]
+	indices -> vertexshader[weight=0]
+	indices -> magic[weight=0]
+	attributes [label = "Attributes"][shape="cylinder"][style=bold]
+	uniforms [label = "Uniforms"][shape="cylinder"][style=bold]
+	textures[label = "Textures"][shape="cylinder"][style=bold]
+
+	attributes -> vertexshader
+	vertexshader -> gl_PointSize[style=dashed]
+	gl_PointSize -> magic[style=dashed]
+	vertexshader -> gl_Position
+	uniforms -> vertexshader[weight=-1]
+	uniforms -> fragmentshader[weight=1]
+	textures -> fragmentshader[weight=1]
+
+// 	stencil -> magic[weight=1]
+// 	magic -> depth[weight=1][dir=both]
+
+	gl_FragCoord -> fragmentshader
+	gl_FrontFacing -> fragmentshader
+	gl_PointCoord -> fragmentshader[style=dashed]
+
+}
