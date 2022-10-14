@@ -9,7 +9,7 @@ description: >
 
 # Green sanity
 
-My esteemed colleague Leigh prompted us to embrace the colour green 
+My [esteemed colleague Leigh](https://www.linkedin.com/in/leigh-mclaren-brierley-80272236/) prompted us to embrace the colour green 
 to raise awareness of [World Mental Health Day](https://www.who.int/campaigns/world-mental-health-day/2022) this Monday just past.
 This resonated with me. While currently owning no green clothing 
 other than my socks, I thought writing, not wearing, might contribute.
