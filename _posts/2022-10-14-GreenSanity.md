@@ -12,8 +12,8 @@ description: >
     <img src="/assets/pics/qgis2webLogo.png" alt="qgis2web" />
 </figure>-->
 
-My esteemed colleague Leigh prompted us to embrace the colour greem 
-to raise awareness of World Mental Health Day this Monday just past.
+My esteemed colleague Leigh prompted us to embrace the colour green 
+to raise awareness of [World Mental Health Day](https://www.who.int/campaigns/world-mental-health-day/2022) this Monday just past.
 This resonated with me. While currently owning no green clothing 
 other than my socks, I thought writing, not wearing, might contribute.
 
