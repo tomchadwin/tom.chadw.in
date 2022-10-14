@@ -39,7 +39,9 @@ nevertheless calls me, and I love the game.
 But it's green in its common meaning which lies at the heart of the 
 matter, of course. Someone once commented that one's happiest childhood 
 memories are never indoors. Camping and narrowboating certainly rank 
-among mine. Although I grew up a city boy, my wife 
+among mine. 
+
+Although I grew up a city boy, my wife 
 persuaded me to move into the green yonder. While we worried that we 
 both might struggle, in truth we've never looked back.
 
