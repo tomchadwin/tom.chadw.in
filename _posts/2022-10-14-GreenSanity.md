@@ -1,6 +1,7 @@
 ---
 title: "Green sanity"
 permalink: /wrote/GreenSanity
+twitpic: https://tom.chadw.in/assets/pics/NorthTyne.jpg
 description: >
     A few days after World Mental Health Day, I find it a no-brainer to 
     associate my own mental health with something green.
@@ -8,9 +9,9 @@ description: >
 
 # Green sanity
 
-<!--<figure class="floatright">
-    <img src="/assets/pics/qgis2webLogo.png" alt="qgis2web" />
-</figure>-->
+<figure class="floatright">
+    <img src="/assets/pics/NorthTyne.jpg" alt="Home" />
+</figure>
 
 My esteemed colleague Leigh prompted us to embrace the colour green 
 to raise awareness of [World Mental Health Day](https://www.who.int/campaigns/world-mental-health-day/2022) this Monday just past.
