@@ -44,7 +44,7 @@ both might struggle, in truth we've never looked back.
 
 <figure>
     <img src="/assets/pics/NorthTyne.jpg" alt="Home" />
-    <figcaption>[Dulce domum](https://www.gutenberg.org/files/289/289-h/289-h.htm#chap05)</figcaption>
+    <figcaption><a href="https://www.gutenberg.org/files/289/289-h/289-h.htm#chap05">Dulce domum</a></figcaption>
 </figure>
 
 She had form. A short break as students had us walking a portion of 
