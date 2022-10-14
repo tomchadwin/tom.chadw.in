@@ -12,22 +12,24 @@ description: >
 My [esteemed colleague Leigh](https://www.linkedin.com/in/leigh-mclaren-brierley-80272236/) prompted us to embrace the colour green 
 to raise awareness of [World Mental Health Day](https://www.who.int/campaigns/world-mental-health-day/2022) this Monday just past.
 This resonated with me. While currently owning no green clothing 
-other than my socks, I thought writing, not wearing, might contribute.
+other than [my socks](https://www.moorlandhosiery.com/), I thought writing, not wearing, might contribute.
 
 I don't know where it started, but green's always been my joy. 
-Perhaps it was Dad's insistence that green was his lucky colour that 
+Perhaps Dad's insistence that green was his lucky colour 
 initially hooked me. He would wear a green tie on occasions when he 
-hoped for luck, along with green cufflinks.
+hoped for luck, along with green cufflinks. I tried that with 
+underwear on Newcastle matchdays. It worked as well as could be 
+hoped.
 
 These days, a couple of tangential greens make me happy. We were 
-invited into Greenhaugh Primary School to hear the children read and 
+invited into [Greenhaugh Primary School](https://www.greenhaughprimaryschool.co.uk/) to hear the children read and 
 sing for the first time since lockdown. [I've written about Greenhaugh 
 before](https://tom.chadw.in/wrote/ShowUp), and while all of our mental 
 health undoubtedly suffered in the fight to save it, the fight was 
 worthwhile, and this visit lifted my spirits.
 
 I used to play football extremely badly. Moving into the middle of 
-nowhere twenty years ago made this harder, and it fell by the wayside. 
+nowhere twenty years ago (not to mention <em>anno Domini</em>) made this harder, and it fell by the wayside. 
 I didn't realize how much I missed participating in a competitive game 
 until I was asked to join the mighty [Blackcock](https://www.theblackcockinnatfalstone.com/) 
 pool team. Perennially bottom of the league, the green baize 
