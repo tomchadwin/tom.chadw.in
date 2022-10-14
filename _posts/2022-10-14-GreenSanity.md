@@ -9,10 +9,6 @@ description: >
 
 # Green sanity
 
-<figure>
-    <img src="/assets/pics/NorthTyne.jpg" alt="Home" />
-</figure>
-
 My esteemed colleague Leigh prompted us to embrace the colour green 
 to raise awareness of [World Mental Health Day](https://www.who.int/campaigns/world-mental-health-day/2022) this Monday just past.
 This resonated with me. While currently owning no green clothing 
@@ -45,6 +41,11 @@ among mine.
 Although I grew up a city boy, my wife 
 persuaded me to move into the green yonder. While we worried that we 
 both might struggle, in truth we've never looked back.
+
+<figure>
+    <img src="/assets/pics/NorthTyne.jpg" alt="Home" />
+    <figcaption>[Dulce domum](https://www.gutenberg.org/files/289/289-h/289-h.htm#chap05)</figcaption>
+</figure>
 
 She had form. A short break as students had us walking a portion of 
 the Ridgeway, from Swindon to Avebury via Uffington. Heat and blisters 
