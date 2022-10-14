@@ -9,7 +9,7 @@ description: >
 
 # Green sanity
 
-<figure class="floatright">
+<figure>
     <img src="/assets/pics/NorthTyne.jpg" alt="Home" />
 </figure>
 
