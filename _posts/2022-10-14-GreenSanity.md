@@ -50,7 +50,7 @@ both might struggle, in truth we've never looked back.
 </figure>
 
 She had form. A short break as students had us walking a portion of 
-the Ridgeway, from Swindon to Avebury via Uffington. Heat and blisters 
+the Ridgeway, from Swindon to Avebury via Uffington. Sunburn and blisters 
 didn't dilute the joy of a slow journey through the English 
 countryside.
 
