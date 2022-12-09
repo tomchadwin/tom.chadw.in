@@ -2,15 +2,19 @@ Updatable Views: Why and How?
 
 The Ramblers are a longstanding client of Astun Technology. They recently asked us to create a minimum viable product (MVP) for updating their routes library via a web front end.
 
-Designing an MVP dictates the quickest development path possible to a deliverable solution. The web front end was the work required, as the database of Ramblers routes already existed. Not touching the database would give us more time to work on this front-end GUI.
+Designing an MVP dictates the quickest development path possible to a deliverable solution. The web front end itself was the MVP, as the database of Ramblers routes already existed. Not touching the database would give us more time to work on this front-end GUI.
 
 However, there was another stronger reason not to touch the existing database of routes: it is live, with Ramblers members and the public querying it every day via the Ramblers website and app. It therefore made no sense to try to re-engineer live data for an MVP.
 
+A final reason for not touching the existing database is that it stores the route data in related tables. While useful for storing richly structured data, this is not ideal for geaphical representation, and especially not for spatial use (in other words, on a web map). GIS works with features, expecting them to have a flat list of properties, not related tables of attributes.
+
 My colleague Matt mentioned a technique he had used on the Ramblers Don't Lose Your Way project: updatable views. This technique had great potential for this MVP.
 
-Databases store data in tables. Many systems query those tables directly, retrieving the data and presenting it to the user. However, databases also support views. Views don't have to be of single tables, but can be populated by complex SQL statements. They are often therefore used to gather data from many tables in a highly relational database into a human-readable form.
+Databases store data in tables. Many systems query those tables directly, retrieving the data and presenting it to the user. However, databases also support views. Views don't have to be of single tables, but can be populated by complex SQL statements. They are often therefore used to gather data from many tables in a highly relational database into a human-readable form. In our case, they solve the problem of converting relational data in the database into flattened properties for the webmap features.
 
 Database views are read-only. Their primary purpose is the presentation of data to the client. But Matt had mentioned updatable views. How is this done?
+
+This project's database is PostgreSQL. While at a broad concept level, views are read-only, PostgreSQL does allow views to be updated: passing the updated values to the table on which the view is based. However, [there are severe limitations on which views can handle updates in this way](https://www.postgresql.org/docs/15/sql-createview.html).
 
 Database triggers are "listeners" which can be assigned to fire when specific events occur. For example, a trigger can be created to fire when a specific table's data is updated. A trigger function is called, which carries out whatever ancillary function is required - perhaps inserting a row in another table.
 
@@ -18,7 +22,7 @@ A view can have triggers, and although a view is read-only, *it can still have a
 
 This fact opens up a whole model of abstraction within the database itself: store the data in tables, create views, present the views' data to the client, and *query the view for create/review/update/delete (CRUD) operations*. Add triggers on the views to call functions to update the tables. This abstraction is extremely valuable in our use-case: we don't want to touch the underlying data structure at all, but still want to be able to update the underlying data.
 
-So how does it work? This project's database is PostgreSQL. For each view which you want to be able to update, create a trigger for each CRUD operation you want to support:
+So how does it work? For each view which you want to be able to update, create a trigger for each CRUD operation you want to support:
 
 * ON BEFORE INSERT
 * ON BEFORE UPDATE
