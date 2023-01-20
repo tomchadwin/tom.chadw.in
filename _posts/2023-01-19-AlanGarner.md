@@ -32,7 +32,7 @@ glimpse of what was to come, in its peerless evocation of childhood.
 Then came *[The Owl Service](https://en.wikipedia.org/wiki/The_Owl_Service)*. I confess almost to having my breath taken away 
 while reading this short book for the first time. The Welsh valleys act as a 
 protagonist, perhaps emphasized to this English reader in the contrast drawn 
-between its middle-class English and working-class-Welsh protagonists. Class, 
+between its middle-class English and working-class Welsh protagonists. Class, 
 and cultural and intellectual hatred, 
 soak every character, and I had my first glimpse of Garner's horrific 
 perception of his childhood and adolescent self, and his unwavering certainty 
