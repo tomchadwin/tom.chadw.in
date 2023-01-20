@@ -9,27 +9,27 @@ description: >
 
 # Alan Garner
 
-I read *The Weirdstone of Brisingamen* when I was ten. Like many others, 
+I read *[The Weirdstone of Brisingamen](https://en.wikipedia.org/wiki/The_Weirdstone_of_Brisingamen)* when I was ten. Like many others, 
 fantasy was a passion for a time, and, along with inevitable Tolkien, 
 *The Weirdstone* stuck with me for some years. I remember little about it 
 now, other than a sense of darkness.
 
 Many years later, I was lucky to attend a talk given by Garner. It was a 
-storytelling event held in the reconstructed Anglo-Saxon hall of Thirlings 
-at Bede's World in Jarrow. My older brother had been a Garner fan for years, 
+storytelling event held in the reconstructed Anglo-Saxon hall of [Thirlings](https://jarrowhall.com/experimental_archaeo/thirlings-hall/) 
+at [Bede's World](https://jarrowhall.com/) in Jarrow. My older brother had been a Garner fan for years, 
 but all I had was that vague childhood half-memory.
 
 Garner's talk was like nothing I had ever seen or heard. It told of his 
-experiences writing his imminent short novel *Thursbitch*. 
+experiences writing his imminent short novel *[Thursbitch](https://www.theguardian.com/books/2003/oct/18/fiction.alangarner)*. 
 I've never before or since heard someone hold the room so completely, as 
 he dug us down into the earth of his new book. 
 
 After reading *Thursbitch*, I sought out all of Garner's fiction. *The Weirdstone* 
 didn't stand up wonderfully well to an adult reader, and the other two 
-children's books were similarly unmemorable. *The Stone Book Quartet* gave a 
+children's books were similarly unmemorable. *[The Stone Book Quartet](https://en.wikipedia.org/wiki/The_Stone_Book_Quartet)* gave a 
 glimpse of what was to come, in its peerless evocation of childhood.
 
-Then came *The Owl Service*. I confess almost to having my breath taken away 
+Then came *[The Owl Service](https://en.wikipedia.org/wiki/The_Owl_Service)*. I confess almost to having my breath taken away 
 while reading this short book for the first time. The Welsh valleys act as a 
 protagonist, perhaps emphasized to this English reader in the contrast drawn 
 between its middle-class English and working-class-Welsh protagonists. Class, 
@@ -46,7 +46,7 @@ world between the natural and the unexplained. And that threshold is one of
 horror.
 
 *The Owl Service* is everything which Jacqueline Wilson fails to achieve. It's 
-a children's book about misery and anger. *Red Shift* takes these themes to another 
+a children's book about misery and anger. *[Red Shift](https://en.wikipedia.org/wiki/Red_Shift_(novel))* takes these themes to another 
 level for a slightly older audience.
 
 *Red Shift* strips out the bucolic setting of *The Owl Service*, rejecting its 
@@ -92,7 +92,7 @@ Cheshire dialect, crisp and lilting in *Red Shift*, becomes rhythmical and begui
 *Thursbitch*. While the former's characters battled *in extremis*, the latter's chthonic 
 archetypes mutter and lilt, "think on".
 
-*Treacle Walker* was up for last year's Booker. To me, it was the faintest echo of the 
+*[Treacle Walker](https://www.theguardian.com/books/2021/nov/01/treacle-walker-by-alan-garner-review-the-book-of-a-lifetime)* was up for last year's Booker. To me, it was the faintest echo of the 
 unflinching horror of this most English trilogy. If Garner wins, in my mind, it will be 
 in recognition of these unforgettable books.
 
