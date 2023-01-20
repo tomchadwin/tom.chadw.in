@@ -89,7 +89,7 @@ becomes purely of *Thurbitch*'s earth.
 
 Again, the ancient man-made bridges the narratives and the ages. The seventeenth-century 
 Cheshire dialect, crisp and lilting in *Red Shift*, becomes rhythmical and beguiling in 
-*Thursbith*. While the former's characters battled *in extremis*, the latter's chthonic 
+*Thursbitch*. While the former's characters battled *in extremis*, the latter's chthonic 
 archetypes mutter and lilt, "think on".
 
 *Treacle Walker* was up for last year's Booker. To me, it was the faintest echo of the 
