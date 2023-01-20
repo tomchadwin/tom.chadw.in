@@ -1,7 +1,7 @@
 ---
 title: "Alan Garner"
 permalink: /wrote/AlanGarner
-twitpic: https://tom.chadw.in/assets/pics/NorthTyne.jpg
+twitpic: https://tom.chadw.in/assets/pics/Thursbitch.jpg
 description: >
     The greatest living English author? Certainly the  
     most astonishing speaker and three novels.
