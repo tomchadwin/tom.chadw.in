@@ -11,8 +11,8 @@ description: >
 
 I read *The Weirdstone of Brisingamen* when I was ten. Like many others, 
 fantasy was a passion for a time, and, along with inevitable Tolkien, 
-*The Weirdstone* stuck with me. I remember little about it, other than a 
-memory of darkness.
+*The Weirdstone* stuck with me for some years. I remember little about it 
+now, other than a sense of darkness.
 
 Many years later, I was lucky to attend a talk given by Garner. It was a 
 storytelling event held in the reconstructed Anglo-Saxon hall of Thirlings 
