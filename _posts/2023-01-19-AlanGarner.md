@@ -92,7 +92,7 @@ Cheshire dialect, crisp and lilting in *Red Shift*, becomes rhythmical and begui
 *Thursbith*. While the former's characters battled *in extremis*, the latter's chthonic 
 archetypes mutter and lilt, "think on".
 
-*Treacle Walker* is up for the Booker this year. To me, it was the faintest echo of the 
+*Treacle Walker* was up for last year's Booker. To me, it was the faintest echo of the 
 unflinching horror of this most English trilogy. If Garner wins, in my mind, it will be 
 in recognition of these unforgettable books.
 
