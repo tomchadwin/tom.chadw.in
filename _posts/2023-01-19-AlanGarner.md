@@ -96,7 +96,4 @@ archetypes mutter and lilt, "think on".
 unflinching horror of this most English trilogy. If Garner wins, in my mind, it will be 
 in recognition of these unforgettable books.
 
-*Walk and do,
-Walk and do,
-Walk and do
-Till all is done.*
+*Walk and do. Walk and do. Walk and do till all is done.*
