@@ -56,7 +56,7 @@ run in parallel and intersect in this disturbing, upsetting, and raging work.
 
 Each strand distances itself from the reader quite deliberately in its characters' 
 language. Modern-day irritating intellectualism, seventeenth-century Cheshire 
-dialect, and US military jargon in the mouths of Roman legionnaires all unsettle. 
+dialect, and US military jargon in the mouths of Roman legionaries all unsettle. 
 
 *Red Shift's* multiple narratives allow Garner, quite astonishingly, to place massively 
 greater emphasis on the echoes and touches between ages, again channelled through 
