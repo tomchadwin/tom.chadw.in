@@ -14,7 +14,7 @@ fantasy was a passion for a time, and, along with inevitable Tolkien,
 *The Weirdstone* stuck with me for some years. I remember little about it 
 now, other than a sense of darkness.
 
-Many years later, I was lucky to attend a talk given by Garner. It was a 
+Many years later, I was lucky to attend [a talk given by Garner](http://alangarner.atspace.org/votd.html). It was a 
 storytelling event held in the reconstructed Anglo-Saxon hall of [Thirlings](https://jarrowhall.com/experimental_archaeo/thirlings-hall/) 
 at [Bede's World](https://jarrowhall.com/) in Jarrow. My older brother had been a Garner fan for years, 
 but all I had was that vague childhood half-memory.
