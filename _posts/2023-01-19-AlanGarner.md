@@ -70,7 +70,7 @@ The splitting of the narrative into three allows and requires Garner's overweani
 evocation of place to sharpen and localize from *The Owl Service*'s Welsh Valleys to 
 *Red Shift*'s Mow Cop. Again, the historic and man-made act as a conduit between ages, 
 in both the land and the ancient axe-head, which inherits the mantle from *The Owl Service*'s 
-megalith.
+megalith and spear-head.
 
 *Red Shift* is despair. "Not really now not any more."
 
