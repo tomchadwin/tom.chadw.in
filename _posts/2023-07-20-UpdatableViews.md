@@ -1,4 +1,14 @@
-Updatable Views: Why and How?
+---
+title: "Updatable views in PostgreSQL: Why and how?"
+permalink: /wrote/UpdatableViews
+# twitpic: https://tom.chadw.in/assets/pics/Thursbitch.jpg
+description: >
+    A technique useful both in relational spatial
+    datasets and when you can't change the structure
+    of your database
+---
+
+# Updatable views in PostgreSQL: Why and how?
 
 A longstanding client requested a minimum viable product (MVP) for updating some of their data via a web front end.
 
