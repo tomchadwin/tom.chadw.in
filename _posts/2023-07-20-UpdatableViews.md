@@ -26,7 +26,7 @@ Database views are traditionally read-only. Their primary purpose is the present
 
 This project's database is PostgreSQL. While at a broad concept level, views are read-only, PostgreSQL does allow views to be updated: passing the updated values to the table on which the view is based. However, [there are severe limitations on which views can handle updates in this way](https://www.postgresql.org/docs/15/sql-createview.html). Our views did not fall within these limitations, so we have to do some more work to get this up and running.
 
-Database triggers are "listeners" which can be assigned to fire when specific events occur. For example, a trigger can be created which fires when a specific table's data is updated. A trigger function is called, which carries out whatever ancillary function is required - perhaps inserting a row into another table.
+Database triggers are "listeners" which can be assigned to fire when specific events occur. For example, a trigger can be created which fires when a specific table's data is updated. A trigger function is called, which carries out whatever ancillary function is required -- perhaps inserting a row into another table.
 
 A view can have triggers, and although a view is read-only, *it can still have a trigger which fires when an UPDATE query is made against it*.
 
