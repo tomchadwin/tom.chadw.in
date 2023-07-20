@@ -42,15 +42,15 @@ We set these triggers to fire BEFORE the events above because none of those SQL 
 
 But how do we get the new data which the trigger function needs to update the tables? We coded the client to carry out the following pseudocode:
 
-UPDATE view SET view.field = CHANGED_VALUE;
+<code>UPDATE view SET view.field = CHANGED_VALUE;</code>
 
 This fires the ON BEFORE UPDATE trigger, which calls our custom UPDATE function:
 
-UPDATE table SET table.field = CHANGED_VALUE;
+<code>UPDATE table SET table.field = CHANGED_VALUE;</code>
 
 But how do we pass CHANGED_VALUE from the original query into the triggered function? In PSQL (PostgreSQL's SQL dialect), we use the NEW keyword:
 
-UPDATE table SET view.field = NEW.field;
+<code>UPDATE table SET view.field = NEW.field;</code>
 
 The NEW object has all the same properties as the original UPDATE had columns, with the values assigned in the original query.
 
