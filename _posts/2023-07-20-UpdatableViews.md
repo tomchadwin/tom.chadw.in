@@ -16,7 +16,7 @@ Designing an MVP dictates the quickest development path possible to a deliverabl
 
 <figure>
     <img src="/assets/pics/NorthTyne.jpg" alt="A nice view" />
-    <caption>A nice view</caption>
+    <figcaption>A nice view</figcaption>
 </figure>
 
 However, there was another stronger reason not to touch the existing database: it is live, the public querying it every day via website and app. It therefore made no sense to try to re-engineer live data for an MVP.
