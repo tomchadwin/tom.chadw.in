@@ -14,12 +14,12 @@ A longstanding client requested a minimum viable product (MVP) for updating some
 
 Designing an MVP dictates the quickest development path possible to a deliverable solution. The web front end itself was the MVP, as the database already existed. Not touching the database would give us more time to work on this front-end GUI.
 
-However, there was another stronger reason not to touch the existing database: it is live, the public querying it every day via website and app. It therefore made no sense to try to re-engineer live data for an MVP.
-
 <figure>
-    <img src="/assets/pics/NorthTyne.jpeg" alt="A nice view" />
+    <img src="/assets/pics/NorthTyne.jpg" alt="A nice view" />
     <caption>A nice view</caption>
 </figure>
+
+However, there was another stronger reason not to touch the existing database: it is live, the public querying it every day via website and app. It therefore made no sense to try to re-engineer live data for an MVP.
 
 A final reason for not touching the existing database is that it stores the data in question in related tables. While useful for storing richly structured data, this is not ideal for geographical representation, and especially not for spatial use (in other words, on a web map). GIS works with features, expecting them to have a flat list of properties, not related tables of attributes.
 
