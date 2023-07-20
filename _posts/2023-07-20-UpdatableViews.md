@@ -54,6 +54,6 @@ But how do we pass CHANGED_VALUE from the original query into the triggered func
 
 The NEW object has all the same properties as the original UPDATE had columns, with the values assigned in the original query.
 
-And that's it. We can make our view as complex as we want (I could write a whole post about using <code>CROSSTAB</code> to destructure related tables), and then restructure the flat input and update whatever underlying tables we want. *The table structure is never touched.*
+And that's it. We can make our view as complex as we want (I could write a whole post about using <pre>CROSSTAB</pre> to destructure related tables), and then restructure the flat input and update whatever underlying tables we want. *The table structure is never touched.*
 
 Thanks to Matt for sharing this valuable technique.
