@@ -24,7 +24,7 @@ Databases store data in tables. Many systems query those tables directly, retrie
 
 Database views are traditionally read-only. Their primary purpose is the presentation of data to the client. But Matt had mentioned updatable views. How is this done?
 
-This project's database is PostgreSQL. While at a broad concept level, views are read-only, PostgreSQL does allow views to be updated: passing the updated values to the table on which the view is based. However, [there are severe limitations on which views can handle updates in this way](https://www.postgresql.org/docs/15/sql-createview.html).
+This project's database is PostgreSQL. While at a broad concept level, views are read-only, PostgreSQL does allow views to be updated: passing the updated values to the table on which the view is based. However, [there are severe limitations on which views can handle updates in this way](https://www.postgresql.org/docs/15/sql-createview.html). Our views did not fall within these limitations, so we have to do some more work to get this up and running.
 
 Database triggers are "listeners" which can be assigned to fire when specific events occur. For example, a trigger can be created which fires when a specific table's data is updated. A trigger function is called, which carries out whatever ancillary function is required - perhaps inserting a row into another table.
 
@@ -54,6 +54,6 @@ But how do we pass CHANGED_VALUE from the original query into the triggered func
 
 The NEW object has all the same properties as the original UPDATE had columns, with the values assigned in the original query.
 
-And that's it. We can make our view as complex as we want (I could write a whole post about using CROSSTAB to destructure related tables), and then restructure the flat input and update whatever underlying tables we want. *The table structure is never touched.*
+And that's it. We can make our view as complex as we want (I could write a whole post about using <code>CROSSTAB</code> to destructure related tables), and then restructure the flat input and update whatever underlying tables we want. *The table structure is never touched.*
 
 Thanks to Matt for sharing this valuable technique.
