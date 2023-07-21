@@ -131,11 +131,18 @@ header a {
     color: #aaa;
     letter-spacing: 0.25em;
 }
+header a:hover {
+    color: #777;
+}
 header > a {
     display: block;
     width: 100%;
     vertical-align: top;
     border-bottom: 1px solid #ddd;
+}
+header li a:hover {
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid #777;
 }
 nav {
     width: 100%;
