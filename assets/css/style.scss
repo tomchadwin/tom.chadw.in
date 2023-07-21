@@ -237,6 +237,9 @@ footer img {
 footer img[src*="mastodon"]:hover {
     content:url(/assets/pics/mastodon_hover.png);
 }
+footer img[src*="github"]:hover {
+    content:url(/assets/pics/github_hover.png);
+}
 figure {
     margin: 1em auto 1em;
     text-align: center;
