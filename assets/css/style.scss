@@ -234,7 +234,7 @@ footer img {
     height: 32px;
     margin: 16px;
 }
-footer img[src*="mastodon"] {
+footer img[src*="mastodon"]:hover {
     content:url(/assets/pics/mastodon_hover.png);
 }
 figure {
