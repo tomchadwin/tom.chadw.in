@@ -233,7 +233,9 @@ footer img {
     width: 32px;
     height: 32px;
     margin: 16px;
-}
+    transition-property: content;
+    transition-duration: 4s;
+    transition-delay: 2s;}
 footer img[src*="mastodon"]:hover {
     content:url(/assets/pics/mastodon_hover.png);
 }
