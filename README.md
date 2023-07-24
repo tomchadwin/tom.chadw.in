@@ -1,5 +1,8 @@
 {% for post in site.posts %}
+  {% if post.next == nil %}
   {{ post.content }}
+  {% else %}
+  asdasd
   {% break %}
 {% endfor %}
     <!-- ** {{page.next.url}}, {{page.previous.url}} ** -->
