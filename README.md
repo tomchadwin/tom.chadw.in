@@ -4,6 +4,7 @@
   {% else %}
   asdasd
   {% break %}
+  {% endif %}
 {% endfor %}
     <!-- ** {{page.next.url}}, {{page.previous.url}} ** -->
 {% if page.next != nil or page.previous != nil %}
