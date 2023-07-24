@@ -1,5 +1,4 @@
 {% for post in site.posts %}
-kjhkjhk
   {{ post.content }}
   {% break %}
 {% endfor %}
