@@ -5,6 +5,7 @@
 {% if page.next != nil or page.previous != nil %}
 <section id="nav">
     <div>
+    <!-- ** {{page.next.url}}, {{page.previous.url}} ** -->
 {% if page.next != nil %}
         &lt;&nbsp;<a href="{{page.next.url}}">{{page.next.title}}</a>
 {% endif %}
