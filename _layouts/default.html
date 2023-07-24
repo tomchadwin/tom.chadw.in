@@ -54,7 +54,7 @@
             <a href="{{page.next.url}}">{{page.next.title}}</a>
 {% endif %}
         </div><div>
-{% if page.previous != nil %}
+{% if page.previous != nil or page.url == '/' %}
             <a href="{{page.previous.url}}">{{page.previous.title}}</a>
 {% endif %}
         </div>
