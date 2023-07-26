@@ -2,7 +2,7 @@
   {% if post.next == nil %}
   {{ post.content }}
   {% else %}
-<a href="{{post.url}}">[{{post.title}}]({{post.url}})</a>
+<nav><div></div><div><a href="{{post.url}}">[{{post.title}}]({{post.url}})</a></div></nav>
   {% break %}
   {% endif %}
 {% endfor %}
