@@ -2,7 +2,7 @@
   {% if post.next == nil %}
   {{ post.content }}
   {% else %}
-    {{post.url}}">[{{post.title}}]({{post.url}})
+<a href="{{post.url}}">[{{post.title}}]({{post.url}})</a>
   {% break %}
   {% endif %}
 {% endfor %}
