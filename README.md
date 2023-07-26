@@ -1,6 +1,6 @@
 {% for post in site.posts %}
   {% if post.next == nil %}
-  {{ post.content }}
+  jjj{{ post.content }}
   {% else %}
   asdasd
   {% break %}
