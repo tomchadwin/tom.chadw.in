@@ -1,12 +1,11 @@
 {% for post in site.posts %}
   {% if post.next == nil %}
-  jjj{{ post.content }}
+  {{ post.content }}
   {% else %}
-  asdasd
+    <a href="{{page.url}}">{{page.title}}</a>
   {% break %}
   {% endif %}
 {% endfor %}
-    <!-- ** {{page.next.url}}, {{page.previous.url}} ** -->
 {% if page.next != nil or page.previous != nil %}
 <section id="nav">
     <div>
