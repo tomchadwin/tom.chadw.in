@@ -55,7 +55,7 @@ didn't dilute the joy of a slow journey through the English
 countryside.
 
 We doubled down on narrowboating, and have been on the canals several 
-weeks a years for over fifteen years. Landscape and nature are balm. 
+weeks a year for over fifteen years. Landscape and nature are balm. 
 Seeing HS2 carving swathes through the South Oxford summit was one of 
 my saddest memories.
 
