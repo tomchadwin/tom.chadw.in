@@ -198,7 +198,7 @@ footer nav div:first-child a::before {
     content: url('/assets/pics/hand-left.svg');
     color: #c77;
 }
-footer div + div {
+nav div + div {
     padding-right: 1em;
     text-align: right;
 }
