@@ -202,7 +202,7 @@ footer div + div {
     padding-right: 1em;
     text-align: right;
 }
-footer div + div a::after {
+nav div + div a::after {
     display: inline-block;
     width: 2em;
     margin-right: -2em;
