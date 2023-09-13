@@ -55,7 +55,7 @@ This fires the ON BEFORE UPDATE trigger, which calls our custom UPDATE function:
 
 But how do we pass CHANGED_VALUE from the original query into the triggered function? In PSQL (PostgreSQL's SQL dialect), we use the NEW keyword:
 
-<code>UPDATE table SET view.field = NEW.field;</code>
+<code>UPDATE table SET table.field = NEW.field;</code>
 
 The NEW object has all the same properties as the original UPDATE had columns, with the values assigned in the original query.
 
