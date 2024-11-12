@@ -1,1 +1,0 @@
-window.YTD.ad_free_article_visits.part0 = [ ]
