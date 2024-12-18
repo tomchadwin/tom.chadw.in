@@ -4,3 +4,4 @@ plugins:
 title: tom.chadw.in
 description: Intermittency
 author: Tom Chadwin
+include: [".well-known"]
