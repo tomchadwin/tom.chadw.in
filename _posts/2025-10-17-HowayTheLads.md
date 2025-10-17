@@ -1,7 +1,7 @@
 ---
 title: "Howay the lads!"
 permalink: /wrote/HowayTheLads
-twitpic: https://tom.chadw.in/assets/pics/NorthTyne.jpg
+twitpic: https://tom.chadw.in/assets/pics/BDB.jpg
 description: >
     A lifetime's wait comes to an end
 ---
