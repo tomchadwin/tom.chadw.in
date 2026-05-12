@@ -29,10 +29,10 @@ that ownership is sadly coming to an end against our wishes. I can't believe it
 will have outlasted her, but it means she got to enjoy it until the end. It was 
 one of the best things we ever did, as holiday after holiday was an absolute joy.
 
-Once we had children, it was Laura who organized activites time and again for 
+Once the children were born, it was Laura who organized activities time and again for 
 them both. Alys now has her grade 6 in tap dancing, thanks to Laura starting her 
 in lessons when she was four years old. She has been volunteering at Kielder 
-Observatory since she was 14, and is applying to study astrophysics at university. 
+Observatory since she was fourteen, and is applying to study astrophysics at university. 
 Barnaby loves learning the piano and performing with the Bellingham and District 
 Dramatic Society. He will hopefully start volunteering 
 with birds of prey once he is old enough, after Laura set the ball rolling.
