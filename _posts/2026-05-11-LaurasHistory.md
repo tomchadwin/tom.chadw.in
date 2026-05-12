@@ -81,7 +81,7 @@ The World Heritage Status bid was rejected. This hit Laura hard. For it to fail
 after so much work, and for such unfair reasons, was a bitter pill to swallow. 
 For her to have left Bede's World in order to work towards it was very upsetting. 
 
-Laura's professional involvement with Anglos-Saxon history and palaeography 
+Laura's professional involvement with Anglo-Saxon history and palaeography 
 largely ceased after that. Bede's World subsequently closed down. While this is 
 hardly a disinterested opinion, perhaps it would have survived with such a 
 passionately informed historian and multidisciplinarian as Laura back with the 
