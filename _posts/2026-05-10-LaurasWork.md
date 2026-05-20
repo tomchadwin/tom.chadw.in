@@ -14,12 +14,12 @@ incredibly important to her. She defined herself by it.
 Laura started out with a shop job in Eldon Square - do people remember Past 
 Times? She also did a little office cleaning work, and served at The Bay Horse 
 in Dinnington. She was known as the Cockney Barmaid, and she and the locals found 
-their mutual incomprehension extremely funny.
+their mutual incomprehension of each others' accents extremely funny.
 
-Laura's next job was for English Heritage at Bessie Surtees' House on the quayside 
+Laura's next job was for English Heritage at Bessie Surtees' House on the Quayside 
 in Newcastle. Having moved from ersatz retail heritage to the real thing, she 
 sought out opportunities beyond the administrative. Together with her colleague 
-and friend Mary, she put on a living history event for schoolchildren, and she 
+and friend Mary, she put on a living-history event for schoolchildren, and she 
 worked at Corbridge Roman site as curatorial assistant. She quickly grew to know 
 and respect many people at English Heritage and in the wider North-Eastern
 heritage sector.
