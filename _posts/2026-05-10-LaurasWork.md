@@ -11,12 +11,22 @@ Laura and I met at university, and she agreed, when we graduated, to move up to
 Newcastle from her native Hertfordshire. From the very beginning, work was 
 incredibly important to her. She defined herself by it. 
 
-After starting out with a shop job in Eldon Square - do people remember Past 
-Times? - she moved into funding advice at the National Lottery Charities Board 
-behind the Live Theatre, close to Swan House Roundabout, and then North Tyneside 
-VODA at Linskill in North Shields.
+Laura started out with a shop job in Eldon Square - do people remember Past 
+Times? She also did a little office cleaning work, and served at The Bay Horse 
+in Dinnington. She was known as the Cockney Barmaid, and she and the locals found 
+their mutual incomprehension extremely funny.
 
-I think it was VODA which really cemented her love for her adopted North East. 
+Laura's next job was for English Heritage at Bessie Surtees' House on the quayside 
+in Newcastle. Having moved from ersatz retail heritage to the real thing, she 
+sought out opportunities beyond the administrative. Together with her colleague 
+and friend Mary, she put on a living history event for schoolchildren, and she 
+worked at Corbridge Roman site as curatorial assistant. She quickly grew to know 
+and respect many people at English Heritage and in the wider North-Eastern
+heritage sector.
+
+Laura then moved into funding advice at the National Lottery Charities Board 
+behind the Live Theatre, close to Swan House Roundabout, and then North Tyneside 
+VODA at Linskill in North Shields. I think it was VODA which really cemented her love for her adopted North East. 
 She loved helping out small organisations such as the Tynemouth Model Boat 
 Club and many, many others. During this time, she also started a law 
 course, qualifying in criminal, contract, and I think property law. 
