@@ -33,11 +33,9 @@
         </nav>
     </header>
     <!-- MAIN CONTENT -->
-{% if page.date %}
-    <p>{{ page.date | date: "%e %B %Y" }}</p>
-{% endif %}
     <main>
 {% if page.date %}
+    <p>{{ page.date | date: "%e %B %Y" }}</p>
     <article>
 {% endif %}
     {{ content }}
