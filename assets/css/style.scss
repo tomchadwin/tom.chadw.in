@@ -5,8 +5,7 @@ html {
     background-color: #fefefe;
 }
 body {
-    width: 30em;
-    margin: 1em auto;
+    width: 100%;
     color: #333;
     font-family: 'EB Garamond', serif;
     font-size: 150%;
@@ -122,7 +121,12 @@ dt {
 dd {
     margin-inline-start: 1em;
 }
+header, main, footer {
+    width: 30em;
+    margin: 0 auto;
+}
 header {
+	margin-top: 1em;
     margin-bottom: 3em;
 }
 header a {
@@ -174,6 +178,7 @@ header li a {
 footer {
     width: 100%;
     margin-top: 1em;
+	margin-bottom: 1em;
     padding-top: 2em;
     padding-bottom: 2em;
     color: #ccc;
