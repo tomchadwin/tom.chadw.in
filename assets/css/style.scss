@@ -287,6 +287,10 @@ object {
 embed {
     width: 100%;
 }
+article > time, article > h1, article > p {
+	width: 30em;
+	margin: 0 auto;
+}
 #postscript {
     margin-top: 1.5em;
     text-indent: 0;
