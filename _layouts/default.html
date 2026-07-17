@@ -35,8 +35,8 @@
     <!-- MAIN CONTENT -->
     <main>
 {% if page.date %}
-    <p>{{ page.date | date: "%e %B %Y" }}</p>
     <article>
+		<p>{{ page.date | date: "%e %B %Y" }}</p>
 {% endif %}
     {{ content }}
 {% if page.date %}
