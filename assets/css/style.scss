@@ -291,6 +291,10 @@ article > time, article > h1, article > p {
 	width: 45rem;
 	margin: 0 auto;
 }
+main > article > h1 {
+	margin: 2rem auto 3rem anchor-size;
+	width: 45.5rem;
+}
 #postscript {
     margin-top: 1.5em;
     text-indent: 0;
