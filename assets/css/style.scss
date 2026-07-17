@@ -122,7 +122,7 @@ dd {
     margin-inline-start: 1em;
 }
 header, section, footer {
-    width: 30em;
+    width: 30rem;
     margin: 0 auto;
 }
 header {
@@ -288,7 +288,7 @@ embed {
     width: 100%;
 }
 article > time, article > h1, article > p {
-	width: 30em;
+	width: 30rem;
 	margin: 0 auto;
 }
 #postscript {
@@ -329,6 +329,7 @@ article > time, article > h1, article > p {
 }
 .swfWrapper {
 	width: 100%;
+	margin-top: 1em;
 }
 
 @media screen and (max-width: 600px) {
