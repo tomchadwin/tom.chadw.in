@@ -136,7 +136,7 @@ header a {
     letter-spacing: 0.25em;
 }
 header a:hover {
-    color: #777;
+    color: #555;
 }
 header > a {
     display: block;
@@ -146,7 +146,7 @@ header > a {
 }
 header li a:hover {
     padding-bottom: 0.25em;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #555;
 }
 nav {
     width: 100%;
@@ -167,6 +167,9 @@ header li {
 }
 header li a {
     font-size: 65%;
+}
+time {
+	color: #555;
 }
 #main_content > p:first-child {
     font-family: 'Open Sans Condensed', sans-serif;
