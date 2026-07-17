@@ -121,7 +121,7 @@ dt {
 dd {
     margin-inline-start: 1em;
 }
-header, main, footer {
+header, section, footer {
     width: 30em;
     margin: 0 auto;
 }
@@ -323,7 +323,7 @@ embed {
     text-align: justify;
     hyphens: auto;
 }
-ruffle-object {
+.swfWrapper {
 	width: 100%;
 }
 
