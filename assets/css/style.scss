@@ -169,7 +169,10 @@ header li a {
     font-size: 65%;
 }
 time {
-	color: #555;
+	display: block;
+	color: #aaa;
+	font-family: 'Julius Sans One', serif;
+	margin-bottom: 1em;
 }
 #main_content > p:first-child {
     font-family: 'Open Sans Condensed', sans-serif;
